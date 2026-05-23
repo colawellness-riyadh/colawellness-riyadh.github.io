@@ -18,6 +18,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <style>
         body {
@@ -42,7 +43,7 @@
             border-color: #D4AF37;
         }
         
-        /* PURE CSS BACKGROUND SLIDESHOW ANIMATION */
+        /* IMPROVED CSS BACKGROUND SLIDESHOW WITH YOUR IMAGES */
         .slideshow-container {
             position: fixed;
             top: 0;
@@ -60,26 +61,34 @@
             background-position: center;
             background-repeat: no-repeat;
             opacity: 0;
-            animation: imageFade 18s linear infinite;
+            animation: imageFade 24s linear infinite;
         }
+        /* Image 1: Your Building Mockup */
         .slide:nth-child(1) {
-            background-image: url('https://images.unsplash.com/photo-1540555700478-4be289fbecef?q=80&w=2070&auto=format&fit=crop');
+            background-image: url('https://r2.erweima.ai/i/1716456722378949.png');
             animation-delay: 0s;
         }
+        /* Image 2: Your Professional Gold Logo */
         .slide:nth-child(2) {
-            background-image: url('https://images.unsplash.com/photo-1600334129128-685c5582fd35?q=80&w=2070&auto=format&fit=crop');
+            background-image: url('https://r2.erweima.ai/ai_image/1716456711585802.png');
             animation-delay: 6s;
         }
+        /* Image 3: Premium Spa Interior */
         .slide:nth-child(3) {
-            background-image: url('https://images.unsplash.com/photo-1519699047748-de8e457a634e?q=80&w=2080&auto=format&fit=crop');
+            background-image: url('https://images.unsplash.com/photo-1540555700478-4be289fbecef?q=80&w=2070&auto=format&fit=crop');
             animation-delay: 12s;
+        }
+        /* Image 4: Moroccan Bath Vibes */
+        .slide:nth-child(4) {
+            background-image: url('https://images.unsplash.com/photo-1600334129128-685c5582fd35?q=80&w=2070&auto=format&fit=crop');
+            animation-delay: 18s;
         }
         
         @keyframes imageFade {
-            0% { opacity: 0; animation-timing-function: ease-in; }
-            8% { opacity: 1; }
-            33% { opacity: 1; }
-            41% { opacity: 0; }
+            0% { opacity: 0; }
+            5% { opacity: 1; }
+            25% { opacity: 1; }
+            30% { opacity: 0; }
             100% { opacity: 0; }
         }
 
@@ -95,23 +104,35 @@
         <div class="slide"></div>
         <div class="slide"></div>
         <div class="slide"></div>
-        <div class="absolute inset-0 bg-black/45 z-10"></div>
+        <div class="slide"></div>
+        <div class="absolute inset-0 bg-black/55 z-10"></div>
     </div>
 
     <header class="w-full py-5 px-6 md:px-12 flex justify-between items-center bg-black/60 backdrop-blur-md border-b border-zinc-800/50 sticky top-0 z-50">
         <div class="flex items-center space-x-2">
             <span class="text-xl">👑</span>
             <div class="flex flex-col">
-                <span class="luxury-font text-xl md:text-2xl font-bold tracking-widest gold-text leading-none">COLA</span>
+                <span class="luxury-font text-xl md:text-2xl font-bold tracking-widest gold-text leading-none uppercase">Cola</span>
                 <span class="text-[7px] tracking-[0.25em] text-zinc-400 mt-1 uppercase font-light">Wellness Center</span>
             </div>
         </div>
         
-        <nav class="hidden md:flex space-x-8 text-xs tracking-widest uppercase text-zinc-300 font-medium">
-            <a href="#" class="hover:text-amber-400 transition-colors">Home</a>
-            <a href="#services" class="hover:text-amber-400 transition-colors">Facilities</a>
-            <a href="#about" class="hover:text-amber-400 transition-colors">About</a>
-            <a href="tel:+966560369386" class="hover:text-amber-400 transition-colors">Contact</a>
+        <nav class="hidden lg:flex space-x-6 text-[10px] tracking-widest uppercase text-zinc-300 font-medium">
+            <a href="https://maps.app.goo.gl/YourGoogleMapsLink" target="_blank" class="hover:text-amber-400 transition-colors flex items-center gap-1.5">
+                <i class="fa-solid fa-location-dot text-amber-500"></i> Location
+            </a>
+            <a href="https://wa.me/966560369386?text=Send%20me%20the%20Services%20Menu" class="hover:text-amber-400 transition-colors flex items-center gap-1.5">
+                <i class="fa-solid fa-list-ul text-amber-500"></i> Services Menu
+            </a>
+            <a href="https://facebook.com/YourPage" target="_blank" class="hover:text-amber-400 transition-colors flex items-center gap-1.5">
+                <i class="fa-brands fa-facebook-f text-amber-500"></i> Facebook
+            </a>
+            <a href="https://instagram.com/YourPage" target="_blank" class="hover:text-amber-400 transition-colors flex items-center gap-1.5">
+                <i class="fa-brands fa-instagram text-amber-500"></i> Instagram
+            </a>
+            <a href="https://maps.app.goo.gl/YourGoogleMapsLink" target="_blank" class="hover:text-amber-400 transition-colors flex items-center gap-1.5 text-amber-400">
+                <i class="fa-solid fa-star text-amber-400 animate-pulse"></i> Rate/Review
+            </a>
         </nav>
 
         <div>
@@ -126,13 +147,28 @@
         <div class="w-full lg:w-1/2 text-center lg:text-left">
             <span class="text-xs uppercase tracking-[0.4em] text-amber-400 font-semibold mb-3 block">Premium Relaxation in Riyadh</span>
             <h1 class="luxury-font text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight drop-shadow-lg">
-                Luxury Cave & <br class="hidden lg:inline"><span class="gold-text">Wellness Suite</span>
+                Exclusive <br class="hidden lg:inline"><span class="gold-text">Professional Care</span>
             </h1>
-            <p class="text-zinc-200 text-sm md:text-base leading-relaxed max-w-xl mx-auto lg:mx-0 font-normal bg-black/35 p-4 rounded-lg backdrop-blur-sm border border-zinc-800/30">
-                Experience world-class therapeutic massage and premium Moroccan bath treatments tailored for your ultimate relaxation. Our certified professional therapists from the Philippines are ready to deliver executive wellness services.
+            <p class="text-zinc-200 text-sm md:text-base leading-relaxed max-w-xl mx-auto lg:mx-0 font-normal bg-black/40 p-4 rounded-lg backdrop-blur-sm border border-zinc-800/30">
+                Welcome to Riyadh's premier destination for executive wellness. Experience world-class therapeutic massage and premium Moroccan bath treatments delivered by our certified professional therapists from the Philippines.
             </p>
             
-            <div class="grid grid-cols-3 gap-4 max-w-md mx-auto lg:mx-0 mt-8 pt-6 border-t border-zinc-700/40 text-center bg-black/45 backdrop-blur-sm p-4 rounded-xl border border-zinc-800/50">
+            <div class="flex flex-wrap justify-center lg:justify-start gap-4 mt-8">
+                <a href="https://maps.app.goo.gl/YourGoogleMapsLink" target="_blank" class="bg-zinc-900/80 border border-zinc-700 p-3 rounded-full hover:border-amber-500 transition-all" title="Location">
+                    <i class="fa-solid fa-map-location-dot text-amber-500"></i>
+                </a>
+                <a href="https://facebook.com/YourPage" target="_blank" class="bg-zinc-900/80 border border-zinc-700 p-3 rounded-full hover:border-amber-500 transition-all" title="Facebook">
+                    <i class="fa-brands fa-facebook-f text-amber-500 w-5 text-center"></i>
+                </a>
+                <a href="https://instagram.com/YourPage" target="_blank" class="bg-zinc-900/80 border border-zinc-700 p-3 rounded-full hover:border-amber-500 transition-all" title="Instagram">
+                    <i class="fa-brands fa-instagram text-amber-500"></i>
+                </a>
+                <a href="https://maps.app.goo.gl/YourGoogleMapsLink" target="_blank" class="bg-zinc-900/80 border border-amber-500/40 p-3 rounded-full hover:border-amber-500 transition-all" title="Rate and Review">
+                    <i class="fa-solid fa-star text-amber-400"></i>
+                </a>
+            </div>
+
+            <div class="grid grid-cols-3 gap-4 max-w-md mx-auto lg:mx-0 mt-10 pt-6 border-t border-zinc-700/40 text-center bg-black/45 backdrop-blur-sm p-4 rounded-xl border border-zinc-800/50">
                 <div>
                     <p class="luxury-font text-lg font-bold text-white">100%</p>
                     <p class="text-[9px] tracking-widest text-zinc-400 uppercase mt-1">Premium</p>
@@ -148,103 +184,48 @@
             </div>
         </div>
 
-        <div class="w-full max-w-sm bg-zinc-950/85 backdrop-blur-md p-8 rounded-2xl border gold-border shadow-2xl flex flex-col justify-between text-center relative overflow-hidden before:content-[''] before:absolute before:top-0 before:left-0 before:w-full before:h-1 before:bg-gradient-to-r before:from-amber-300 before:to-amber-600">
+        <div class="w-full max-w-sm bg-zinc-950/90 backdrop-blur-md p-8 rounded-2xl border gold-border shadow-2xl flex flex-col justify-between text-center relative overflow-hidden before:content-[''] before:absolute before:top-0 before:left-0 before:w-full before:h-1 before:bg-gradient-to-r before:from-amber-300 before:to-amber-600">
             <div class="mb-6">
                 <span class="text-[10px] tracking-[0.3em] uppercase text-zinc-400 block mb-1">Executive Lounge</span>
-                <h3 class="luxury-font text-xl font-bold text-white tracking-wider">Direct Booking</h3>
+                <h3 class="luxury-font text-xl font-bold text-white tracking-wider">Direct Access</h3>
                 <div class="w-12 h-[1px] bg-amber-500 mx-auto mt-3"></div>
             </div>
 
-            <div class="space-y-4 my-4">
-                <div class="bg-zinc-900/80 p-4 rounded-xl border border-zinc-800/50">
-                    <p class="text-xs text-zinc-400 tracking-wider">Location / Area</p>
-                    <p class="text-sm font-medium text-white mt-1">Al Yarmuk, Riyadh</p>
-                </div>
-                <div class="bg-zinc-900/80 p-4 rounded-xl border border-zinc-800/50">
-                    <p class="text-xs text-zinc-400 tracking-wider">Therapist Crew</p>
-                    <p class="text-sm font-medium text-amber-400 mt-1">Verified Filipina Staff</p>
-                </div>
-            </div>
-
-            <div class="space-y-3 mt-4">
+            <div class="space-y-3">
                 <a href="https://wa.me/966560369386?text=Hi%20Cola%20Wellness%20Center,%20I%20would%20like%20to%20book%20an%20appointment." 
                    class="gold-bg text-black font-bold tracking-widest text-xs py-4 px-6 rounded-xl shadow-lg hover:opacity-90 transition-all duration-300 block uppercase w-full">
-                   Book via WhatsApp
+                   <i class="fa-brands fa-whatsapp text-lg mr-2 align-middle"></i> Book Appointment
+                </a>
+
+                <a href="https://wa.me/966560369386?text=Hi,%20please%20send%20me%20the%20Services%20Menu%20and%20Price%20List." 
+                   class="border border-amber-500/50 bg-amber-500/5 text-amber-400 font-bold tracking-widest text-xs py-4 px-6 rounded-xl hover:bg-amber-500/20 transition-all duration-300 block uppercase w-full">
+                   <i class="fa-solid fa-list-check mr-2"></i> View Services Menu
                 </a>
                 
-                <a href="tel:+966560369386" 
+                <a href="https://maps.app.goo.gl/YourGoogleMapsLink" target="_blank"
                    class="border border-zinc-700 bg-zinc-900/50 text-zinc-300 font-semibold tracking-widest text-xs py-4 px-6 rounded-xl hover:bg-zinc-800 hover:text-white transition-all duration-300 block uppercase w-full">
-                   Call Reception
+                   <i class="fa-solid fa-location-arrow mr-2"></i> Our Location (Riyadh)
+                </a>
+
+                <a href="https://maps.app.goo.gl/YourGoogleMapsLink" target="_blank"
+                   class="border border-amber-500/60 bg-zinc-950 text-amber-400 font-bold tracking-widest text-xs py-4 px-6 rounded-xl hover:bg-amber-500/10 transition-all duration-300 block uppercase w-full">
+                   <i class="fa-solid fa-star mr-2 text-amber-400"></i> Rate / Leave A Review
                 </a>
             </div>
             
-            <p class="text-[9px] text-zinc-500 tracking-widest mt-4 uppercase">⚡ Fast Confirmation</p>
+            <p class="text-[9px] text-zinc-500 tracking-widest mt-4 uppercase">⚡ Licensed & Professional</p>
         </div>
 
     </main>
 
-    <div class="fixed bottom-6 right-6 z-50 flex flex-col items-end">
-        <div id="chatBox" class="hidden w-80 bg-zinc-950 border gold-border rounded-2xl shadow-2xl overflow-hidden mb-4 transition-all duration-300">
-            <div class="gold-bg p-4 flex items-center justify-between text-black">
-                <div class="flex items-center space-x-3">
-                    <div class="w-8 h-8 rounded-full bg-black flex items-center justify-center text-white text-xs font-bold">CO</div>
-                    <div>
-                        <p class="font-bold text-sm tracking-wide">Cola Assistant</p>
-                        <p class="text-[9px] font-medium opacity-75">Online • Fast Response</p>
-                    </div>
-                </div>
-                <button onclick="toggleChat()" class="text-black font-bold text-lg hover:opacity-60 px-2">&times;</button>
-            </div>
-            <div class="p-5 space-y-4 bg-zinc-900/90 backdrop-blur">
-                <p class="text-xs text-zinc-300 leading-relaxed font-light">
-                    Hello! I am your virtual assistant. How can we help you with your spa booking today? Please enter your name below to start.
-                </p>
-                <div class="space-y-1">
-                    <label class="text-[10px] uppercase tracking-widest text-zinc-400">Your Name</label>
-                    <input type="text" id="custName" placeholder="Enter your name here..." 
-                           class="w-full bg-zinc-950 border border-zinc-800 text-white p-3 rounded-xl text-xs focus:outline-none focus:border-amber-400">
-                </div>
-                <button onclick="startWhatsAppChat()" 
-                        class="w-full gold-bg text-black text-xs font-bold uppercase tracking-widest py-3 rounded-xl hover:opacity-90 transition-all block text-center">
-                    Start Conversation
-                </button>
-            </div>
-            <div class="p-2 text-center text-[8px] text-zinc-600 bg-zinc-950 border-t border-zinc-900">
-                Powered by Cola Care
-            </div>
-        </div>
-
-        <button onclick="toggleChat()" class="w-14 h-14 bg-zinc-950 border gold-border text-amber-400 rounded-full flex items-center justify-center shadow-2xl hover:scale-105 transition-transform duration-200 cursor-pointer">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M8.625 12a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H8.25m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H12m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H16M21 12c0 4.556-4.03 8.25-9 8.25a9.764 9.764 0 01-2.555-.337A5.972 5.972 0 015.41 20.97a5.969 5.969 0 01-.474-3.658C3.05 15.82 2 13.98 2 12c0-4.556 4.03-8.25 9-8.25s9 3.694 9 8.25z" />
-            </svg>
-        </button>
-    </div>
-
-    <script>
-        function toggleChat() {
-            const chatBox = document.getElementById('chatBox');
-            chatBox.classList.toggle('hidden');
-        }
-
-        function startWhatsAppChat() {
-            const name = document.getElementById('custName').value.trim();
-            let message = "Hi Cola Wellness Center, I am on your website and I would like to inquire about booking a premium treatment.";
-            
-            if (name !== "") {
-                message = `Hi Cola Wellness Center, my name is ${name}. I am visiting your website and I would like to book a relaxation appointment.`;
-            }
-            
-            // Encode the message for the URL
-            const encodedMessage = encodeURIComponent(message);
-            // Open WhatsApp direct link
-            window.open(`https://wa.me/966560369386?text=${encodedMessage}`, '_blank');
-        }
-    </script>
-
     <footer class="w-full py-4 text-center text-[10px] text-zinc-500 border-t border-zinc-900/50 bg-black/80 backdrop-blur-sm relative z-10">
-        <p class="tracking-widest luxury-font mb-1">&copy; 2026 COLA PROFESSIONAL WELLNESS CENTER</p>
-        <p class="font-light text-zinc-600">Licensed in Riyadh, Kingdom of Saudi Arabia</p>
+        <div class="flex justify-center gap-6 mb-2 text-zinc-400">
+            <a href="https://facebook.com/YourPage" class="hover:text-amber-500 transition-colors"><i class="fa-brands fa-facebook"></i></a>
+            <a href="https://instagram.com/YourPage" class="hover:text-amber-500 transition-colors"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://wa.me/966560369386" class="hover:text-amber-500 transition-colors"><i class="fa-brands fa-whatsapp"></i></a>
+        </div>
+        <p class="tracking-widest luxury-font mb-1">© 2026 COLA PROFESSIONAL WELLNESS CENTER</p>
+        <p class="font-light text-zinc-600">Al Yarmuk, Riyadh, Kingdom of Saudi Arabia</p>
     </footer>
 
 </body>
