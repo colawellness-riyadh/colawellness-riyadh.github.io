@@ -1,195 +1,219 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta name="facebook-domain-verification" content="j1hs2sma5d6pexpwbskfn273llij3x" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Location | Luxury Spa Riyadh</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+    <title>Our Location | COLA Wellness Center</title>
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18066238938"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'AW-18066238938');
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
     <style>
-        :root {
-            --gold-bright: #d4af37;
-            --gold-dark: #aa7c11;
-            --dark-bg: rgba(15, 15, 15, 0.85);
-            --glass-glow: rgba(212, 175, 55, 0.1);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
         body {
-            font-family: 'Poppins', sans-serif;
-            background-color: #000;
-            color: #fff;
+            font-family: 'Montserrat', sans-serif;
+            background-color: #0a0a0a;
+            color: #E5E5E5;
             overflow-x: hidden;
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
         }
-
-        /* --- BACKGROUND SLIDESHOW --- */
+        .luxury-font {
+            font-family: 'Cinzel', serif;
+        }
+        .gold-text {
+            color: #D4AF37;
+            background: linear-gradient(135deg, #FFF6D6 0%, #D4AF37 50%, #AA7C11 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .gold-bg {
+            background: linear-gradient(135deg, #D4AF37 0%, #AA7C11 100%);
+        }
+        .gold-border {
+            border-color: #D4AF37;
+        }
+        
+        /* PURE CSS BACKGROUND SLIDESHOW ANIMATION */
         .slideshow-container {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            z-index: -2;
+            z-index: 0;
+            pointer-events: none;
         }
-
         .slide {
             position: absolute;
             width: 100%;
             height: 100%;
             background-size: cover;
             background-position: center;
+            background-repeat: no-repeat;
             opacity: 0;
-            animation: slideAnimation 24s infinite linear;
+            animation: imageFade 18s linear infinite;
         }
-
-        /* Gumamit ako ng mga premium royalty-free massage/spa images galing Unsplash */
         .slide:nth-child(1) {
-            background-image: url('https://images.unsplash.com/photo-1540555700478-4be289fbecef?q=80&w=1920');
+            background-image: url('https://images.unsplash.com/photo-1540555700478-4be289fbecef?q=80&w=2070&auto=format&fit=crop');
             animation-delay: 0s;
         }
         .slide:nth-child(2) {
-            background-image: url('https://images.unsplash.com/photo-1600334089648-b0d9d3028eb2?q=80&w=1920');
+            background-image: url('https://images.unsplash.com/photo-1600334129128-685c5582fd35?q=80&w=2070&auto=format&fit=crop');
             animation-delay: 6s;
         }
         .slide:nth-child(3) {
-            background-image: url('https://images.unsplash.com/photo-1519699047748-de8e457a634e?q=80&w=1920');
+            background-image: url('https://images.unsplash.com/photo-1519699047748-de8e457a634e?q=80&w=2080&auto=format&fit=crop');
             animation-delay: 12s;
         }
-        .slide:nth-child(4) {
-            background-image: url('https://images.unsplash.com/photo-1596178065887-1198b6148b2b?q=80&w=1920');
-            animation-delay: 18s;
-        }
-
-        @keyframes slideAnimation {
-            0% { opacity: 0; transform: scale(1); }
-            4% { opacity: 1; }
-            25% { opacity: 1; }
-            29% { opacity: 0; transform: scale(1.05); }
+        
+        @keyframes imageFade {
+            0% { opacity: 0; animation-timing-function: ease-in; }
+            8% { opacity: 1; }
+            33% { opacity: 1; }
+            41% { opacity: 0; }
             100% { opacity: 0; }
         }
 
-        /* Madilim na patong para mabasa ang text */
-        .overlay {
+        /* Dark overlay protector over slideshow */
+        .dark-overlay {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.6) 100%);
-            z-index: -1;
+            background: linear-gradient(135deg, rgba(10, 10, 10, 0.88) 0%, rgba(5, 5, 5, 0.75) 100%);
+            z-index: 1;
+            pointer-events: none;
         }
 
-        /* --- MAP SECTION GLASS CARD --- */
-        .map-section {
-            background: var(--dark-bg);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border: 1px solid rgba(212, 175, 55, 0.3);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.7), 0 0 15px var(--glass-glow);
-            border-radius: 16px;
-            padding: 30px;
-            width: 90%;
-            max-width: 650px;
-            text-align: center;
-            margin: 20px auto;
-            animation: fadeInUp 1s ease-out;
-        }
-
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .map-section h2 {
-            font-size: 28px;
-            letter-spacing: 2px;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
-        }
-
-        .map-section p {
-            margin-bottom: 20px;
-            letter-spacing: 0.5px;
-            line-height: 1.5;
-        }
-
-        .map-wrapper {
-            position: relative;
-            width: 100%;
-            height: 350px;
-            border-radius: 12px;
-            overflow: hidden;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: inset 0 0 20px rgba(0,0,0,0.8);
-        }
-
-        /* --- HOME/BACK BUTTON --- */
-        .btn-container {
-            margin-top: 25px;
-        }
-
-        .back-btn {
-            display: inline-block;
-            padding: 12px 30px;
-            background: linear-gradient(135deg, var(--gold-dark) 0%, var(--gold-bright) 100%);
-            color: #000;
-            text-decoration: none;
-            font-weight: 500;
-            border-radius: 50px;
-            letter-spacing: 1px;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
-            font-size: 14px;
-        }
-
-        .back-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.6);
-            background: linear-gradient(135deg, var(--gold-bright) 0%, var(--gold-dark) 100%);
-        }
-
-        /* Responsive para sa Cellphone */
-        @media (max-width: 480px) {
-            .map-section {
-                padding: 20px 15px;
-            }
-            .map-section h2 {
-                font-size: 22px;
-            }
-            .map-wrapper {
-                height: 280px;
-            }
-        }
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #121212; }
+        ::-webkit-scrollbar-thumb { background: #D4AF37; border-radius: 3px; }
     </style>
 </head>
-<body>
+<body class="min-h-screen flex flex-col justify-between relative">
 
     <div class="slideshow-container">
         <div class="slide"></div>
         <div class="slide"></div>
         <div class="slide"></div>
-        <div class="slide"></div>
+        <div class="absolute inset-0 bg-black/45 z-10"></div>
     </div>
-    <div class="overlay"></div>
+    <div class="dark-overlay"></div>
 
-    <div class="map-section">
-        <h2 style="font-family:'Playfair Display'; color:var(--gold-bright); margin-bottom: 5px;">VISIT OUR SPA</h2>
-        <p style="color: #ccc; font-size: 14px;">3100 Al Misroh, Ishbiliyah, RFYA6194, 6194, Riyadh 13251</p>
-        <div class="map-wrapper">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3621.5701763750893!2d46.7944111!3d24.810123!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e2eff26a9df54b9%3A0x28ba134c679a9557!2sIshbiliyah%2C%20Riyadh!5e0!3m2!1sen!2ssa!4v1716890000000!5m2!1sen!2ssa" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>           
+    <header class="w-full py-5 px-6 md:px-12 flex justify-between items-center bg-black/60 backdrop-blur-md border-b border-zinc-800/50 sticky top-0 z-50">
+        <div class="flex items-center space-x-2">
+            <span class="text-xl">👑</span>
+            <div class="flex flex-col">
+                <span class="luxury-font text-xl md:text-2xl font-bold tracking-widest gold-text leading-none">COLA</span>
+                <span class="text-[7px] tracking-[0.25em] text-zinc-400 mt-1 uppercase font-light">Wellness Center</span>
+            </div>
         </div>
         
-        <div class="btn-container">
-            <a href="index.html" class="back-btn">BACK TO HOME</a>
+        <nav class="xl:flex space-x-6 text-[10px] tracking-widest uppercase text-zinc-300 font-medium mx-auto xl:mx-0">
+            <a href="index.html" class="hover:text-amber-400 transition-colors">Home</a>
+            <a href="index.html#services" class="hover:text-amber-400 transition-colors">Facilities</a>
+            <a href="https://wa.me/966560958973?text=Send%20me%20the%20Services%20Menu" class="hover:text-amber-400 transition-colors">Service Menu</a>
+            <a href="promotion.html" class="hover:text-amber-400 transition-colors">Event/Promotion</a>
+            <a href="location.html" class="hover:text-amber-400 text-amber-400 transition-colors">Location</a>
+            <a href="https://facebook.com" target="_blank" class="hover:text-amber-400 transition-colors">Facebook</a>
+            <a href="https://instagram.com" target="_blank" class="hover:text-amber-400 transition-colors">Instagram</a>
+            <a href="http://maps.google.com/?q=Al+Yarmuk+Riyadh" target="_blank" class="hover:text-amber-400 transition-colors">Rate/Review</a>
+            <a href="index.html#about" class="hover:text-amber-400 transition-colors">About</a>
+        </nav>
+    </header>
+
+    <main class="flex-grow max-w-7xl w-full mx-auto px-4 md:px-12 flex items-center justify-center py-12 lg:py-16 relative z-10">
+        
+        <div class="map-section w-full max-w-2xl bg-[#0f0f0f]/90 backdrop-blur-md border border-[#D4AF37]/30 rounded-2xl p-6 sm:p-8 text-center shadow-2xl shadow-black/80">
+            
+            <h2 class="luxury-font gold-text text-2xl sm:text-3xl font-bold tracking-widest mb-2">
+                VISIT OUR SPA
+            </h2>
+            
+            <p class="text-gray-400 text-sm sm:text-base max-w-lg mx-auto mb-6 font-light leading-relaxed">
+                3100 Al Misroh, Ishbiliyah, RFYA6194, 6194, Riyadh 13251
+            </p>
+            
+            <div class="map-wrapper w-full h-[300px] sm:h-[400px] rounded-xl overflow-hidden border border-white/10 shadow-inner shadow-black bg-neutral-900">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3621.85058453843!2d46.78408077604559!3d24.800569347650242!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e2effd68e538899%3A0xa53e0f232c0028b0!2sSweet%20Cola%20Massage%20In%20Riyadh!5e0!3m2!1sen!2sus!4v1779396126755!5m2!1sen!2sus" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>           
+            </div>
         </div>
+
+    </main>
+
+    <div class="fixed bottom-6 right-6 z-50 flex flex-col items-end">
+        <div id="chatBox" class="hidden w-80 bg-zinc-950 border gold-border rounded-2xl shadow-2xl overflow-hidden mb-4 transition-all duration-300">
+            <div class="gold-bg p-4 flex items-center justify-between text-black">
+                <div class="flex items-center space-x-3">
+                    <div class="w-8 h-8 rounded-full bg-black flex items-center justify-center text-white text-xs font-bold">CO</div>
+                    <div>
+                        <p class="font-bold text-sm tracking-wide">Cola Assistant</p>
+                        <p class="text-[9px] font-medium opacity-75">Online • Fast Response</p>
+                    </div>
+                </div>
+                <button onclick="toggleChat()" class="text-black font-bold text-lg hover:opacity-60 px-2">×</button>
+            </div>
+            <div class="p-5 space-y-4 bg-zinc-900/90 backdrop-blur">
+                <p class="text-xs text-zinc-300 leading-relaxed font-light">
+                    Hello! I am your virtual assistant. How can we help you with your spa booking today? Please enter your name below to start.
+                </p>
+                <div class="space-y-1">
+                    <label class="text-[10px] uppercase tracking-widest text-zinc-400">Your Name</label>
+                    <input type="text" id="custName" placeholder="Enter your name here..." 
+                           class="w-full bg-zinc-950 border border-zinc-800 text-white p-3 rounded-xl text-xs focus:outline-none focus:border-amber-400">
+                </div>
+                <button onclick="startWhatsAppChat()" 
+                        class="w-full gold-bg text-black text-xs font-bold uppercase tracking-widest py-3 rounded-xl hover:opacity-90 transition-all block text-center">
+                    Start Conversation
+                </button>
+            </div>
+            <div class="p-2 text-center text-[8px] text-zinc-600 bg-zinc-950 border-t border-zinc-900">
+                Powered by Cola Care
+            </div>
+        </div>
+
+        <button onclick="toggleChat()" class="w-14 h-14 bg-zinc-950 border gold-border text-amber-400 rounded-full flex items-center justify-center shadow-2xl hover:scale-105 transition-transform duration-200 cursor-pointer">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M8.625 12a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H8.25m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H12m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H16M21 12c0 4.556-4.03 8.25-9 8.25a9.764 9.764 0 01-2.555-.337A5.972 5.972 0 015.41 20.97a5.969 5.969 0 01-.474-3.658C3.05 15.82 2 13.98 2 12c0-4.556 4.03-8.25 9-8.25s9 3.694 9 8.25z" />
+            </svg>
+        </button>
     </div>
+
+    <footer class="w-full py-4 text-center text-[10px] text-zinc-500 border-t border-zinc-900/50 bg-black/80 backdrop-blur-sm relative z-10">
+        <p class="tracking-widest luxury-font mb-1">© 2026 COLA PROFESSIONAL WELLNESS CENTER</p>
+        <p class="font-light text-zinc-600">Licensed in Riyadh, Kingdom of Saudi Arabia</p>
+    </footer>
+
+    <script>
+        function toggleChat() {
+            const chatBox = document.getElementById('chatBox');
+            chatBox.classList.toggle('hidden');
+        }
+
+        function startWhatsAppChat() {
+            const name = document.getElementById('custName').value.trim();
+            let message = "Hi Cola Wellness Center, I am on your website and I would like to inquire about booking a premium treatment.";
+            
+            if (name !== "") {
+                message = `Hi Cola Wellness Center, my name is ${name}. I am visiting your website and I would like to book a relaxation appointment.`;
+            }
+            
+            const encodedMessage = encodeURIComponent(message);
+            window.open(`https://wa.me/966560958973?text=${encodedMessage}`, '_blank');
+        }
+    </script>
 
 </body>
 </html>
