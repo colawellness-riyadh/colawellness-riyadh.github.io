@@ -15,22 +15,16 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
- 
       gtag('config', 'AW-18066238938');
     </script>
 
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
-
     <style>
         body {
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'Montserrat', -apple-system, sans-serif;
             background-color: #0a0a0a;
             color: #E5E5E5;
             overflow-x: hidden;
+            margin: 0;
         }
         .luxury-font {
             font-family: 'Cinzel', serif;
@@ -48,7 +42,7 @@
             border-color: #D4AF37;
         }
         
-        /* PURE CSS BACKGROUND SLIDESHOW ANIMATION */
+        /* PURE CSS BACKGROUND SLIDESHOW - PERFORMANCE OPTIMIZED IMAGES */
         .slideshow-container {
             position: fixed;
             top: 0;
@@ -68,16 +62,18 @@
             opacity: 0;
             animation: imageFade 18s linear infinite;
         }
+        
+        /* PERFORMANCE FIX: Pinalitan ang w=2070 ng w=1200 at q=70 para sa mas mabilis na network delivery */
         .slide:nth-child(1) {
-            background-image: url('https://images.unsplash.com/photo-1540555700478-4be289fbecef?q=80&w=2070&auto=format&fit=crop');
+            background-image: url('https://images.unsplash.com/photo-1540555700478-4be289fbecef?q=70&w=1200&auto=format&fit=crop');
             animation-delay: 0s;
         }
         .slide:nth-child(2) {
-            background-image: url('https://images.unsplash.com/photo-1600334129128-685c5582fd35?q=80&w=2070&auto=format&fit=crop');
+            background-image: url('https://images.unsplash.com/photo-1600334129128-685c5582fd35?q=70&w=1200&auto=format&fit=crop');
             animation-delay: 6s;
         }
         .slide:nth-child(3) {
-            background-image: url('https://images.unsplash.com/photo-1519699047748-de8e457a634e?q=80&w=2080&auto=format&fit=crop');
+            background-image: url('https://images.unsplash.com/photo-1519699047748-de8e457a634e?q=70&w=1200&auto=format&fit=crop');
             animation-delay: 12s;
         }
         
@@ -89,11 +85,16 @@
             100% { opacity: 0; }
         }
 
-        /* Custom Scrollbar */
         ::-webkit-scrollbar { width: 6px; }
         ::-webkit-scrollbar-track { background: #121212; }
         ::-webkit-scrollbar-thumb { background: #D4AF37; border-radius: 3px; }
     </style>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
 <body class="min-h-screen flex flex-col justify-between relative">
 
@@ -118,9 +119,7 @@
             <a href="#services" class="hover:text-amber-400 transition-colors">Facilities</a>
             <a href="https://wa.me/966560958973?text=Send%20me%20the%20Services%20Menu" class="hover:text-amber-400 transition-colors">Service Menu</a>
             <a href="promotion.html" class="hover:text-amber-400 transition-colors">Event/Promotion</a>
-            
             <a href="location.html" class="hover:text-amber-400 transition-colors">Location</a>
-            
             <a href="https://facebook.com" target="_blank" class="hover:text-amber-400 transition-colors">Facebook</a>
             <a href="https://instagram.com" target="_blank" class="hover:text-amber-400 transition-colors">Instagram</a>
             <a href="http://maps.google.com/?q=Al+Yarmuk+Riyadh" target="_blank" class="hover:text-amber-400 transition-colors">Rate/Review</a>
