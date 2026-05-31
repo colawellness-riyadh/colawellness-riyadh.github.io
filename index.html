@@ -10,6 +10,9 @@
     
     <title>COLA Wellness Center | Riyadh</title>
     
+    <link rel="preload" as="image" href="https://images.unsplash.com/photo-1540555700478-4be289fbecef?q=70&w=600&auto=format&fit=crop" media="(max-width: 768px)">
+    <link rel="preload" as="image" href="https://images.unsplash.com/photo-1540555700478-4be289fbecef?q=70&w=1200&auto=format&fit=crop" media="(min-width: 769px)">
+
     <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18066238938"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -42,7 +45,6 @@
             border-color: #D4AF37;
         }
         
-        /* PURE CSS BACKGROUND SLIDESHOW - PERFORMANCE OPTIMIZED IMAGES */
         .slideshow-container {
             position: fixed;
             top: 0;
@@ -63,18 +65,36 @@
             animation: imageFade 18s linear infinite;
         }
         
-        /* PERFORMANCE FIX: Pinalitan ang w=2070 ng w=1200 at q=70 para sa mas mabilis na network delivery */
-        .slide:nth-child(1) {
-            background-image: url('https://images.unsplash.com/photo-1540555700478-4be289fbecef?q=70&w=1200&auto=format&fit=crop');
-            animation-delay: 0s;
+        /* MOBILE OPTIMIZED SLIDESHOW (w=600 at q=70 para sa mabilis na 4G render) */
+        @media (max-width: 768px) {
+            .slide:nth-child(1) {
+                background-image: url('https://images.unsplash.com/photo-1540555700478-4be289fbecef?q=70&w=600&auto=format&fit=crop');
+                animation-delay: 0s;
+            }
+            .slide:nth-child(2) {
+                background-image: url('https://images.unsplash.com/photo-1600334129128-685c5582fd35?q=70&w=600&auto=format&fit=crop');
+                animation-delay: 6s;
+            }
+            .slide:nth-child(3) {
+                background-image: url('https://images.unsplash.com/photo-1519699047748-de8e457a634e?q=70&w=600&auto=format&fit=crop');
+                animation-delay: 12s;
+            }
         }
-        .slide:nth-child(2) {
-            background-image: url('https://images.unsplash.com/photo-1600334129128-685c5582fd35?q=70&w=1200&auto=format&fit=crop');
-            animation-delay: 6s;
-        }
-        .slide:nth-child(3) {
-            background-image: url('https://images.unsplash.com/photo-1519699047748-de8e457a634e?q=70&w=1200&auto=format&fit=crop');
-            animation-delay: 12s;
+
+        /* DESKTOP OPTIMIZED SLIDESHOW (w=1200 para sa HD monitors) */
+        @media (min-width: 769px) {
+            .slide:nth-child(1) {
+                background-image: url('https://images.unsplash.com/photo-1540555700478-4be289fbecef?q=70&w=1200&auto=format&fit=crop');
+                animation-delay: 0s;
+            }
+            .slide:nth-child(2) {
+                background-image: url('https://images.unsplash.com/photo-1600334129128-685c5582fd35?q=70&w=1200&auto=format&fit=crop');
+                animation-delay: 6s;
+            }
+            .slide:nth-child(3) {
+                background-image: url('https://images.unsplash.com/photo-1519699047748-de8e457a634e?q=70&w=1200&auto=format&fit=crop');
+                animation-delay: 12s;
+            }
         }
         
         @keyframes imageFade {
@@ -94,7 +114,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
 
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4" defer></script>
 </head>
 <body class="min-h-screen flex flex-col justify-between relative">
 
