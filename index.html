@@ -68,7 +68,12 @@
          gtag_report_conversion();
       }
     </script>
-
+<!-- Vercel Speed Insights -->
+<script type="module">
+    import { injectSpeedInsights } from 'https://cdn.jsdelivr.net/npm/@vercel/speed-insights@1/dist/index.js';
+    injectSpeedInsights();
+</script>
+    
     <style>
         body {
             font-family: 'Montserrat', -apple-system, sans-serif;
