@@ -9,6 +9,9 @@
     <meta name="description" content="Experience premium relaxation at COLA Wellness Center in Riyadh. Luxury Cave & Wellness Suite offering world-class therapeutic massage and premium Moroccan bath treatments by certified professional therapists from the Philippines.">
     
     <title>COLA Wellness Center | Riyadh</title>
+
+    <link rel="icon" type="image/png" href="colalogo.png">
+    <link rel="shortcut icon" type="image/png" href="colalogo.png">
     
     <link rel="preload" as="image" href="https://images.unsplash.com/photo-1540555700478-4be289fbecef?q=70&w=600&auto=format&fit=crop" media="(max-width: 768px)">
     <link rel="preload" as="image" href="https://images.unsplash.com/photo-1540555700478-4be289fbecef?q=70&w=1200&auto=format&fit=crop" media="(min-width: 769px)">
@@ -20,7 +23,6 @@
       gtag('js', new Date());
       gtag('config', 'AW-18066238938');
 
-      // TAMA AT LIGTAS NA PARAAN: Tinatawag lang kapag may nag-click sa WhatsApp
       function trackWhatsAppConversion() {
         if (typeof gtag === 'function') {
           gtag('event', 'conversion', {
@@ -76,7 +78,6 @@
             animation: imageFade 18s linear infinite;
         }
         
-        /* MOBILE OPTIMIZED SLIDESHOW */
         @media (max-width: 768px) {
             .slide:nth-child(1) {
                 background-image: url('https://images.unsplash.com/photo-1540555700478-4be289fbecef?q=70&w=600&auto=format&fit=crop');
@@ -92,7 +93,6 @@
             }
         }
 
-        /* DESKTOP OPTIMIZED SLIDESHOW */
         @media (min-width: 769px) {
             .slide:nth-child(1) {
                 background-image: url('https://images.unsplash.com/photo-1540555700478-4be289fbecef?q=70&w=1200&auto=format&fit=crop');
@@ -272,7 +272,6 @@
         }
 
         function startWhatsAppChat() {
-            // Isasama rin natin ang tracking kapag ginamit ang chat box button
             trackWhatsAppConversion();
 
             const name = document.getElementById('custName').value.trim();
