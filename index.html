@@ -10,6 +10,12 @@
     
     <title>COLA Wellness Center | Riyadh</title>
 
+    <meta property="og:title" content="COLA Wellness Center | Riyadh">
+    <meta property="og:description" content="Experience premium relaxation at COLA Wellness Center in Riyadh. Luxury Cave & Wellness Suite.">
+    <meta property="og:image" content="https://cola-wellness.vercel.app/colalogo.png">
+    <meta property="og:url" content="https://cola-wellness.vercel.app/">
+    <meta property="og:type" content="website">
+
     <link rel="icon" type="image/png" href="colalogo.png">
     <link rel="shortcut icon" type="image/png" href="colalogo.png">
     
@@ -21,16 +27,45 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-      gtag('config', 'AW-18066238938');
 
-      function trackWhatsAppConversion() {
-        if (typeof gtag === 'function') {
-          gtag('event', 'conversion', {
-              'send_to': 'AW-18066238938/DqKUCM_m_7YcENrb06ZD',
-              'value': 1.0,
-              'currency': 'SAR'
-          });
+      // 1. BASE CONFIGURATION AT PAG-AKTIBO NG ENHANCED CONVERSIONS
+      gtag('config', 'AW-18066238938', { 'allow_enhanced_conversions': true });
+
+      // 2. GOOGLE ADS CALL FROM WEBSITE TRACKING CONFIGURATION
+      gtag('config', 'AW-18066238938/G5EJCI2E_6wcENrb06ZD', {
+        'phone_conversion_number': '0560958973'
+      });
+
+      // 3. SET USER DATA PARA SA ENHANCED CONVERSIONS
+      gtag('set', 'user_data', {
+        "email": "verendiamickaycola@gmail.com",
+        "phone_number": "+966560369386",
+        "address": {
+          "first_name": "Mick philip",
+          "last_name": "Verendia"
         }
+      });
+
+      // 4. IPINAG-ISA NA ANG TRACKING FUNCTION (WHATSAPP, LIVE CHAT AT CALLS)
+      function gtag_report_conversion(url) {
+        var callback = function () {
+          if (typeof(url) != 'undefined') {
+            window.location = url;
+          }
+        };
+        
+        gtag('event', 'conversion', {
+            'send_to': 'AW-18066238938/nYKyCPCjvLEcENrb06ZD',
+            'value': 1.0,
+            'currency': 'SAR',
+            'event_callback': callback
+        });
+        return false;
+      }
+
+      // Shortcut wrapper para tumugma sa lumang tawag ng mga button mo nang walang error
+      function trackWhatsAppConversion() {
+         gtag_report_conversion();
       }
     </script>
 
@@ -217,6 +252,7 @@
                 </a>
                 
                 <a href="tel:+966560958973" 
+                   onclick="return gtag_report_conversion('tel:+966560958973');"
                    class="border border-zinc-700 bg-zinc-900/50 text-zinc-300 font-semibold tracking-widest text-xs py-4 px-6 rounded-xl hover:bg-zinc-800 hover:text-white transition-all duration-300 block uppercase w-full">
                      Call Reception
                 </a>
