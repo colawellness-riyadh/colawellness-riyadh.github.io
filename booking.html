@@ -14,7 +14,7 @@
     <meta property="og:image:width" content="300">
     <meta property="og:image:height" content="300">
     <meta property="og:image:type" content="image/png">
-    <link rel="icon" type="image/png" href="https://cola-wellness.vercel.app/colalogo.png">
+    <link class="icon" type="image/png" href="https://cola-wellness.vercel.app/colalogo.png">
     <link rel="apple-touch-icon" href="https://cola-wellness.vercel.app/colalogo.png">
 
     <link rel="icon" type="image/png" href="colalogo.png">
@@ -120,19 +120,21 @@
             100% { opacity: 0; }
         }
 
+        /* INFINITE LOOP SLIDER CORRECTION */
         @keyframes scrollRight {
             0% { transform: translateX(0); }
-            100% { transform: translateX(calc(-226px * 7)); }
+            100% { transform: translateX(calc(-226px * 7)); } /* Nag-ma-match sa kabuuang sukat ng unang batch */
         }
 
         .slider-track-right {
             display: flex;
-            width: calc(226px * 14);
-            animation: scrollRight 25s linear infinite;
-       }
+            width: calc(226px * 14); /* Width para sa orihinal + cloned cards */
+            animation: scrollRight 30s linear infinite;
+        }
+        
         .slider-track-right:hover {
             animation-play-state: paused;
-      }
+        }
 
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
@@ -179,7 +181,6 @@
             transform: translateY(-5px);
         }
 
-        /* Gold diagonal background reflection effect */
         .service-card::before {
             content: '';
             position: absolute;
@@ -206,7 +207,6 @@
             margin-top: auto;
         }
 
-        /* PREMIUM SOLID GOLD CARD AS SHOWN IN THE IMAGE */
         .premium-card { 
             background: #d4a017 !important;
             border: 2px solid #ffffff !important;
@@ -222,11 +222,6 @@
             color: #f1b71c !important; 
             border: none !important;
             min-width: 180px;
-        }
-
-        @keyframes slideRight { 
-            0% { transform: translateX(0); }
-            100% { transform: translateX(calc(-220px * 7 - 20px * 7)); }
         }
     </style>
 </head>
@@ -290,6 +285,28 @@
             </div>
             <div class="w-full overflow-hidden bg-black/30 backdrop-blur-xs py-4 rounded-2xl border border-zinc-800/30">
                 <div class="slider-track-right gap-4 px-4">
+                    <div class="w-[210px] h-[373px] bg-zinc-900/90 rounded-xl border border-zinc-700/50 flex-shrink-0 bg-cover bg-center overflow-hidden flex items-end p-3" style="background-image: url('FixPlus_20260522_015636857.jpg');">
+                        <span class="text-[9px] font-bold tracking-wider uppercase bg-black/70 px-2.5 py-1 rounded text-amber-400 border border-amber-500/20">Luxury Room</span>
+                    </div>
+                    <div class="w-[210px] h-[373px] bg-zinc-900/90 rounded-xl border border-zinc-700/50 flex-shrink-0 bg-cover bg-center overflow-hidden flex items-end p-3" style="background-image: url('Snapchat-1585899800.jpg');">
+                        <span class="text-[9px] font-bold tracking-wider uppercase bg-black/70 px-2.5 py-1 rounded text-amber-400 border border-amber-500/20">Moroccan Bath</span>
+                    </div>
+                    <div class="w-[210px] h-[373px] bg-zinc-900/90 rounded-xl border border-zinc-700/50 flex-shrink-0 bg-cover bg-center overflow-hidden flex items-end p-3" style="background-image: url('FixPlus_20260510_165850154.jpg');">
+                        <span class="text-[9px] font-bold tracking-wider uppercase bg-black/70 px-2.5 py-1 rounded text-amber-400 border border-amber-500/20">Jacuzzi Area</span>
+                    </div>
+                    <div class="w-[210px] h-[373px] bg-zinc-900/90 rounded-xl border border-zinc-700/50 flex-shrink-0 bg-cover bg-center overflow-hidden flex items-end p-3" style="background-image: url('FixPlus_20260510_170005442.jpg');">
+                        <span class="text-[9px] font-bold tracking-wider uppercase bg-black/70 px-2.5 py-1 rounded text-amber-400 border border-amber-500/20">Massage Deck</span>
+                    </div>
+                    <div class="w-[210px] h-[373px] bg-zinc-900/90 rounded-xl border border-zinc-700/50 flex-shrink-0 bg-cover bg-center overflow-hidden flex items-end p-3" style="background-image: url('FixPlus_20260519_041654631(1)(1).jpg');">
+                        <span class="text-[9px] font-bold tracking-wider uppercase bg-black/70 px-2.5 py-1 rounded text-amber-400 border border-amber-500/20">Therapy Lounge</span>
+                    </div>
+                    <div class="w-[210px] h-[373px] bg-zinc-900/90 rounded-xl border border-zinc-700/50 flex-shrink-0 bg-cover bg-center overflow-hidden flex items-end p-3" style="background-image: url('FixPlus_20260510_170152764.jpg');">
+                        <span class="text-[9px] font-bold tracking-wider uppercase bg-black/70 px-2.5 py-1 rounded text-amber-400 border border-amber-500/20">VIP Spa Suite</span>
+                    </div>
+                    <div class="w-[210px] h-[373px] bg-zinc-900/90 rounded-xl border border-zinc-700/50 flex-shrink-0 bg-cover bg-center overflow-hidden flex items-end p-3" style="background-image: url('FixPlus_20260515_224325099.png');">
+                        <span class="text-[9px] font-bold tracking-wider uppercase bg-black/70 px-2.5 py-1 rounded text-amber-400 border border-amber-500/20">Sauna Room</span>
+                    </div>
+
                     <div class="w-[210px] h-[373px] bg-zinc-900/90 rounded-xl border border-zinc-700/50 flex-shrink-0 bg-cover bg-center overflow-hidden flex items-end p-3" style="background-image: url('FixPlus_20260522_015636857.jpg');">
                         <span class="text-[9px] font-bold tracking-wider uppercase bg-black/70 px-2.5 py-1 rounded text-amber-400 border border-amber-500/20">Luxury Room</span>
                     </div>
@@ -450,7 +467,7 @@
             }
         }
 
-        // DIRECT WHATSAPP SENDER (From Floating Chat)
+        // DIRECT WHATSAPP SENDER
         function sendDirectToWhatsApp() {
             const customText = document.getElementById('custCustomMessage').value.trim();
             let finalMessage = "Hi Cola Wellness Center! I am browsing your exclusive facilities gallery and I would like to book an appointment slot.";
