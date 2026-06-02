@@ -151,6 +151,7 @@
     </div>
 
     <header class="w-full py-4 px-4 md:px-12 flex flex-col md:flex-row justify-between items-center bg-black/80 backdrop-blur-md border-b border-zinc-800/50 sticky top-0 z-50 gap-4 md:gap-0">
+        
         <div class="w-full md:w-auto flex justify-between items-center">
             <div class="flex items-center space-x-2 md:space-x-3">
                 <img src="colalogo.png" alt="COLA Logo" class="w-9 h-9 md:w-12 md:h-12 object-contain rounded-full border border-amber-500/30">
@@ -159,6 +160,7 @@
                     <span class="text-[6px] md:text-[7px] tracking-[0.25em] text-zinc-400 mt-1 uppercase font-light">Wellness Center</span>
                 </div>
             </div>
+           
             <div class="flex md:hidden items-center space-x-2">
                 <a href="https://wa.me/966560958973" class="p-2 bg-emerald-600/20 border border-emerald-500/40 text-emerald-400 rounded-lg active:bg-emerald-600/40">
                     <i class="fa-brands fa-whatsapp text-lg"></i>
@@ -194,28 +196,20 @@
     </div>
 
     <main class="flex-grow w-full max-w-7xl mx-auto flex flex-col gap-10 py-4 px-4 relative z-20 mb-16">
-        
-        <div class="w-full max-w-xl mx-auto bg-black/60 backdrop-blur-md border border-zinc-800/80 p-5 md:p-6 rounded-2xl shadow-xl">
-            <form id="appointmentForm" onsubmit="sendBookingToWhatsApp(event)" class="space-y-4">
-                <div class="flex flex-col space-y-1">
-                    <label class="text-[9px] uppercase tracking-widest text-zinc-400 font-semibold">Pangalan / Full Name</label>
-                    <input type="text" id="bookName" required placeholder="I-type ang iyong buong pangalan" 
-                           class="w-full bg-zinc-950 border border-zinc-800 text-white p-3 rounded-xl text-xs focus:outline-none focus:border-amber-400 transition-colors">
-                </div>
 
                 <div class="flex flex-col space-y-1">
                     <label class="text-[9px] uppercase tracking-widest text-zinc-400 font-semibold">Piliin ang Serbisyo / Select Service</label>
                     <select id="bookService" required 
                             class="w-full bg-zinc-950 border border-zinc-800 text-white p-3 rounded-xl text-xs focus:outline-none focus:border-amber-400 transition-colors">
                         <option value="" disabled selected>-- Pumili ng Serbisyo / Choose --</option>
-                        <option value="Luxury Massage Room">Luxury Room Massage</option>
-                        <option value="Moroccan Bath">Moroccan Bath</option>
-                        <option value="Jacuzzi Area Care">Jacuzzi Area Care</option>
-                        <option value="VIP Spa Suite">VIP Spa Suite</option>
-                        <option value="Sauna Room Treatment">Sauna Room Treatment</option>
-                        <option value="Traditional Thai">Traditional Thai Massage</option>
-                        <option value="Premium Oil care">Premium Oil Massage</option>
-                        <option value="Hot Stone Care">Hot Stone Care</option>
+                        <option value="Luxury Massage Room">Book Now</option>
+                        <option value="Moroccan Bath">Book Now</option>
+                        <option value="Jacuzzi Area Care">Book Now</option>
+                        <option value="VIP Spa Suite">Book Now</option>
+                        <option value="Sauna Room Treatment">Book Now</option>
+                        <option value="Traditional Thai">Book Now</option>
+                        <option value="Premium Oil care">Book NowOil Massage</option>
+                        <option value="Hot Stone Care">Book Now</option>
                     </select>
                 </div>
 
@@ -293,16 +287,34 @@
                         <span class="text-[9px] font-bold tracking-wider uppercase bg-black/70 px-2.5 py-1 rounded text-amber-400 border border-amber-500/20">Sauna Room</span>
                     </div>
                 </div>
+             </div>
+            
+        </div> 
+   
+    </main>
+     
+   <div class="w-full max-w-md mx-auto mb-12 text-center bg-black/60 backdrop-blur-md p-5 rounded-2xl border border-zinc-800/80 shadow-2xl relative z-20">
+        <div class="flex justify-center items-center gap-4 mb-4">
+            <div class="w-8 h-[1px] bg-zinc-700"></div>
+            <span class="text-[10px] tracking-[0.3em] uppercase text-zinc-400 block font-medium">Executive Suite Features</span>
+            <div class="w-8 h-[1px] bg-zinc-700"></div>
+        </div>
+        <div class="grid grid-cols-3 gap-4 text-center">
+            <div>
+                <p class="luxury-font text-base md:text-lg font-bold text-white">100%</p>
+                <p class="text-[8px] tracking-widest text-zinc-500 uppercase mt-1">Premium</p>
+            </div>
+            <div class="border-x border-zinc-800">
+                <p class="luxury-font text-base md:text-lg font-bold text-white">VIP</p>
+                <p class="text-[8px] tracking-widest text-zinc-500 uppercase mt-1">Suites</p>
+            </div>
+            <div>
+                <p class="luxury-font text-base md:text-lg font-bold text-white">24/7</p>
+                <p class="text-[8px] tracking-widest text-zinc-500 uppercase mt-1">Service</p>
             </div>
         </div>
-
-    </main>
-
-    <div class="fixed bottom-6 right-6 z-50 flex flex-col items-end">
-        <div id="marketingBubble" class="bg-zinc-950 border gold-border text-zinc-200 text-xs py-2 px-4 rounded-xl shadow-2xl mb-3 max-w-[240px] relative font-medium backdrop-blur-md">
-            <span id="bubbleTypewriter" class="typewriter-cursor"></span>
-            <div class="absolute bottom-[-6px] right-5 w-3 h-3 bg-zinc-950 border-r border-b gold-border rotate-45"></div>
-        </div>
+        <p class="text-[9px] text-zinc-500 tracking-widest mt-4 uppercase">⚡ FAST CONFIRMATION VIA WHATSAPP</p>
+    </div>
 
         <div id="chatBox" class="hidden w-80 bg-zinc-950 border gold-border rounded-2xl shadow-2xl overflow-hidden mb-4 transition-all duration-300">
             <div class="gold-bg p-4 flex items-center justify-between text-black">
