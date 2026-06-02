@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18066238938"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'AW-18066238938');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Menu | Sweet Cola Massage In Riyadh</title>
+
+    <link rel="icon" type="image/png" href="Logo.png?v=3">
+    <link rel="apple-touch-icon" href="Logo.png?v=3">
+
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;900&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style> 
+        :root {
+            --gold: #d4a017;
+            --gold-bright: #f2b600;
+            --dark-card: #0a0a0a;
+            --pure-gold: #FFD700;
+            --yellow-btn: #e6b012;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background-color: #000; 
+            color: #fff;
+            padding: 40px 5%; 
+            text-align: center; 
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        .video-bg {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            object-fit: cover;
+            z-index: -2;
+            pointer-events: none;
+        }
+
+        .video-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .header-title { 
+            font-family: 'Playfair Display', serif; 
+            font-size: 32px; 
+            margin-bottom: 8px; 
+            color: var(--gold-bright); 
+            text-shadow: 0 0 15px rgba(242, 182, 0, 0.4);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .promo-text { color: #fff; font-weight: 700; font-size: 18px; margin-bottom: 40px; display: block; }
+
+        .promotion-slider {
+            max-width: 1200px;
+            margin: 0 auto 60px auto;
+            overflow: hidden;
+            position: relative;
+            z-index: 5;
+            background: rgba(0,0,0,0.65);
+            border: 1px solid var(--gold);
+            border-radius: 25px;
+            padding: 30px 0;
+            backdrop-filter: blur(5px);
+        }
+
+        .slider-track {
+            display: flex;
+            width: calc(220px * 14 + 20px * 14); 
+            gap: 20px;
+            animation: slideRight 25s linear infinite;
+        }
+
+        .slide-item {
+            flex-shrink: 0;
+            position: relative;
+            width: 220px;
+            height: 300px;
+            background: #000;
+            border-radius: 20px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .slide-item::before {
+            content: '';
+            position: absolute;
+            top: -50%; left: -50%;
+            width: 200%; height: 200%;
+            background: conic-gradient(transparent, var(--gold-bright), transparent 30%, transparent 50%, var(--pure-gold), transparent 80%);
+            animation: spin 4s linear infinite;
+            z-index: 1;
+        }
+
+        .slide-item::after {
+            content: '';
+            position: absolute;
+            inset: 3px;
+            background: var(--dark-card);
+            border-radius: 17px;
+            z-index: 2;
+        }
+
+        .slide-content {
+            position: relative;
+            z-index: 3;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .img-container {
+            position: relative;
+            width: 100%;
+            height: 75%;
+            overflow: hidden;
+            background: #000;
+        }
+
+        .img-container img { 
+            width: 100%; 
+            height: 100%; 
+            object-fit: cover; 
+            display: block;
+        }
+
+        .slide-content .shop-now-btn {
+            width: 100%; height: 25%;
+            background: var(--yellow-btn);
+            color: #000; font-weight: 900;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 14px; text-decoration: none;
+            position: relative;
+            z-index: 5;
+        }
+
+        .booking-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+            gap: 30px; 
+            max-width: 1100px; 
+            margin: 0 auto; 
+        }
+
+        .service-card { 
+            position: relative;
+            padding: 30px; 
+            border-radius: 25px; 
+            text-decoration: none; 
+            color: #fff; 
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow: hidden;
+            transition: 0.3s;
+            backdrop-filter: blur(3px);
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: -100%; left: -100%;
+            width: 300%; height: 300%;
+            background: conic-gradient(transparent 0deg, transparent 90deg, var(--gold-bright) 180deg, transparent 180deg, transparent 270deg, var(--gold-bright) 360deg);
+            z-index: 0;
+            animation: spin 3s linear infinite;
+        }
+
+        .service-card::after {
+            content: '';
+            position: absolute;
+            inset: 3px;
+            background: rgba(10, 10, 10, 0.85);
+            border-radius: 22px;
+            z-index: 1;
+        }
+
+        .service-card > * { position: relative; z-index: 2; }
+        .service-card i { font-size: 30px; color: var(--gold); margin-bottom: 15px; }
+        .service-card h3 { font-family: 'Playfair Display', serif; font-size: 24px; margin-bottom: 5px; }
+        .service-card .arabic-title { font-size: 20px; color: var(--gold); font-weight: bold; margin-bottom: 15px; }
+        .service-card p { font-size: 14px; color: #ccc; line-height: 1.5; margin-bottom: 20px; }
+
+        .price-btn { 
+            background: #000; 
+            color: var(--gold-bright); 
+            padding: 12px 30px; 
+            border-radius: 50px; 
+            font-weight: 700; 
+            font-size: 16px;
+            border: 1px solid #333;
+        }
+
+        .premium-card::after { background: var(--gold); }
+        .premium-card::before { background: conic-gradient(transparent 0deg, #000 180deg, #fff 360deg); }
+        .premium-card > * { color: #000 !important; }
+        .premium-card p { color: #000 !important; font-weight: 600; }
+        .premium-card .price-btn { background: #000 !important; color: var(--gold-bright) !important; border: none; }
+
+        @keyframes spin { 100% { transform: rotate(360deg); } }
+        @keyframes slideRight { 
+            0% { transform: translateX(0); }
+            100% { transform: translateX(calc(-220px * 7 - 20px * 7)); }
+        }
+
+        .note { font-size: 12px; color: #999; margin-top: 50px; font-style: italic; }
+        
+        .footer-nav { margin-top: 30px; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+        .footer-link { color: var(--gold); text-decoration: none; font-weight: 600; font-size: 16px; transition: 0.3s; }
+        .footer-link:hover { color: #fff; text-shadow: 0 0 10px var(--gold); }
+        .separator { color: #444; }
+    </style>
+</head>
+<body>
+
+    <video class="video-bg" autoplay loop muted playsinline>
+        <source src="vecteezy_stunning-golden-glitter-particle-streams-flow-dynamically_69209508.mp4" type="video/mp4">
+    </video>
+    <div class="video-overlay"></div>
+
+    <h1 class="header-title">Ready to schedule your session today? Book now!</h1>
+    <span class="promo-text">DISCOUNT JUST TODAY! السعر المخفض اليوم فقط</span>
+
+    <section class="promotion-slider">
+        <div class="slider-track">
+            <div class="slide-item"><div class="slide-content"><div class="img-container"><img src="FixPlus_20260510_155256719.jpg"></div><a href="https://wa.me/966560958973" class="shop-now-btn">BOOK NOW</a></div></div>
+            <div class="slide-item"><div class="slide-content"><div class="img-container"><img src="FixPlus_20260510_155341453.jpg"></div><a href="https://wa.me/966560958973" class="shop-now-btn">BOOK NOW</a></div></div>
+            <div class="slide-item"><div class="slide-content"><div class="img-container"><img src="FixPlus_20260510_155517438.jpg"></div><a href="https://wa.me/966560958973" class="shop-now-btn">BOOK NOW</a></div></div>
+            <div class="slide-item"><div class="slide-content"><div class="img-container"><img src="FixPlus_20260510_155553693.jpg"></div><a href="https://wa.me/966560958973" class="shop-now-btn">BOOK NOW</a></div></div>
+            <div class="slide-item"><div class="slide-content"><div class="img-container"><img src="FixPlus_20260510_155636508.jpg"></div><a href="https://wa.me/966560958973" class="shop-now-btn">BOOK NOW</a></div></div>
+            <div class="slide-item"><div class="slide-content"><div class="img-container"><img src="FixPlus_20260510_155714910.jpg"></div><a href="https://wa.me/966560958973" class="shop-now-btn">BOOK NOW</a></div></div>
+            <div class="slide-item"><div class="slide-content"><div class="img-container"><img src="FixPlus_20260510_155748650.jpg"></div><a href="https://wa.me/966560958973" class="shop-now-btn">BOOK NOW</a></div></div>
+            <div class="slide-item"><div class="slide-content"><div class="img-container"><img src="FixPlus_20260510_155256719.jpg"></div><a href="https://wa.me/966560958973" class="shop-now-btn">BOOK NOW</a></div></div>
+            <div class="slide-item"><div class="slide-content"><div class="img-container"><img src="FixPlus_20260510_155341453.jpg"></div><a href="https://wa.me/966560958973" class="shop-now-btn">BOOK NOW</a></div></div>
+            <div class="slide-item"><div class="slide-content"><div class="img-container"><img src="FixPlus_20260510_155517438.jpg"></div><a href="https://wa.me/966560958973" class="shop-now-btn">BOOK NOW</a></div></div>
+            <div class="slide-item"><div class="slide-content"><div class="img-container"><img src="FixPlus_20260510_155553693.jpg"></div><a href="https://wa.me/966560958973" class="shop-now-btn">BOOK NOW</a></div></div>
+            <div class="slide-item"><div class="slide-content"><div class="img-container"><img src="FixPlus_20260510_155636508.jpg"></div><a href="https://wa.me/966560958973" class="shop-now-btn">BOOK NOW</a></div></div>
+            <div class="slide-item"><div class="slide-content"><div class="img-container"><img src="FixPlus_20260510_155714910.jpg"></div><a href="https://wa.me/966560958973" class="shop-now-btn">BOOK NOW</a></div></div>
+            <div class="slide-item"><div class="slide-content"><div class="img-container"><img src="FixPlus_20260510_155748650.jpg"></div><a href="https://wa.me/966560958973" class="shop-now-btn">BOOK NOW</a></div></div>
+        </div>
+    </section>
+
+    <div class="booking-grid">
+        <a href="https://wa.me/966560958973?text=Hi! I want to book Thai Massage" class="service-card" onclick="gtag('event', 'ads_conversion_Book_appointment_1', {});">
+            <i class="fas fa-hands-holding"></i>
+            <h3>Thai Massage</h3>
+            <span class="arabic-title">مساج تايلاندي</span>
+            <p>Traditional deep stretch therapy.<br>العلاج التقليدي للتمدد العميق.</p>
+            <div class="price-btn">130 SR / 40 MINS</div>
+        </a>
+
+        <a href="https://wa.me/966560958973?text=Hi! I want to book Swedish Massage" class="service-card" onclick="gtag('event', 'ads_conversion_Book_appointment_1', {});">
+            <i class="fas fa-spa"></i>
+            <h3>Swedish Massage</h3>
+            <span class="arabic-title">مساج سويدي</span>
+            <p>Gentle strokes for relaxation.<br>ضربات لطيفة للاسترخاء.</p>
+            <div class="price-btn">130 SR / 40 MINS</div>
+        </a>
+
+        <a href="https://wa.me/966560958973?text=Hi! I want to book Oil Massage" class="service-card" onclick="gtag('event', 'ads_conversion_Book_appointment_1', {});">
+            <i class="fas fa-droplet"></i>
+            <h3>Oil Massage</h3>
+            <span class="arabic-title">مساج بالزيت</span>
+            <p>Full body calming massage.<br>تدليك مهدئ للجسم بالكامل.</p>
+            <div class="price-btn">130 SR / 40 MINS</div>
+        </a>
+
+        <a href="https://wa.me/966560958973?text=Hi! I want to book Moroccan Bath" class="service-card" onclick="gtag('event', 'ads_conversion_Book_appointment_1', {});">
+            <i class="fas fa-bath"></i>
+            <h3>Moroccan Bath</h3>
+            <span class="arabic-title">حمام مغربي</span>
+            <p>Traditional skin cleansing.<br>تنظيف البشرة التقليدي.</p>
+            <div class="price-btn">130 SR / 40 MINS</div>
+        </a>
+
+        <a href="https://wa.me/966560958973?text=Hi! I want to book Shaving Service" class="service-card" onclick="gtag('event', 'ads_conversion_Book_appointment_1', {});">
+            <i class="fas fa-razor"></i>
+            <h3>Shaving (On Demand)</h3>
+            <span class="arabic-title">حلاقة عند الطلب</span>
+            <p>Clean and professional grooming services including Full Body Shaving, Bikini, and Underarm cleaning.<br>خدمات الحلاقة والنظافة الشخصية الاحترافية.</p>
+            <div class="price-btn">FULL CARE</div>
+        </a>
+
+        <a href="https://wa.me/966560958973?text=Hi! I want to book the PREMIUM PACKAGE" class="service-card premium-card" onclick="gtag('event', 'ads_conversion_Book_appointment_1', {});">
+            <i class="fas fa-crown"></i>
+            <h3>PREMIUM PACKAGE</h3>
+            <span class="arabic-title">باقة بريميوم</span>
+            <p>2h 30m of Luxury: Massage, Bath, Stone, Mani & Pedi.<br>2 ساعة و30 دقيقة من الفخامة.</p>
+            <div class="price-btn">450 SR / FULL CARE</div>
+        </a>
+    </div>
+</body>
+</html>
