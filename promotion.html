@@ -23,8 +23,7 @@
     <style>
         body {
             font-family: 'Montserrat', sans-serif;
-            background-color: #1a1a1a;
-            background-image: radial-gradient(circle at center, #262626 0%, #0d0d0d 100%);
+            background-color: #0d0d0d;
             color: #E5E5E5;
             overflow-x: hidden;
         }
@@ -47,7 +46,66 @@
             box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
             border: 1px solid #FFF6D6;
         }
-        /* Custom scrollbar para sa Event Feed sa loob */
+        
+        /* SLIDESHOW BACKGROUND SETUP FOR SPA BACKGROUND (Magkaibang Pics) */
+        .slideshow-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+        }
+        .slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            opacity: 0;
+            animation: imageFade 18s linear infinite;
+        }
+        
+        @media (max-width: 768px) {
+            .slide:nth-child(1) {
+                background-image: url('https://images.unsplash.com/photo-1515377905703-c4788e51af15?q=70&w=600&auto=format&fit=crop');
+                animation-delay: 0s;
+            }
+            .slide:nth-child(2) {
+                background-image: url('https://images.unsplash.com/photo-1544161515-4ab6ce6db874?q=70&w=600&auto=format&fit=crop');
+                animation-delay: 6s;
+            }
+            .slide:nth-child(3) {
+                background-image: url('https://images.unsplash.com/photo-1596178065887-1198b6148b2b?q=70&w=600&auto=format&fit=crop');
+                animation-delay: 12s;
+            }
+        }
+
+        @media (min-width: 769px) {
+            .slide:nth-child(1) {
+                background-image: url('https://images.unsplash.com/photo-1515377905703-c4788e51af15?q=70&w=1200&auto=format&fit=crop');
+                animation-delay: 0s;
+            }
+            .slide:nth-child(2) {
+                background-image: url('https://images.unsplash.com/photo-1544161515-4ab6ce6db874?q=70&w=1200&auto=format&fit=crop');
+                animation-delay: 6s;
+            }
+            .slide:nth-child(3) {
+                background-image: url('https://images.unsplash.com/photo-1596178065887-1198b6148b2b?q=70&w=1200&auto=format&fit=crop');
+                animation-delay: 12s;
+            }
+        }
+        
+        @keyframes imageFade {
+            0% { opacity: 0; animation-timing-function: ease-in; }
+            8% { opacity: 1; }
+            33% { opacity: 1; }
+            41% { opacity: 0; }
+            100% { opacity: 0; }
+        }
+
         .event-feed-scroll::-webkit-scrollbar {
             width: 4px;
         }
@@ -59,25 +117,44 @@
             background: #C49A33;
             border-radius: 4px;
         }
+
+        .typewriter-cursor::after {
+            content: '|';
+            animation: blink 0.8s infinite;
+            color: #D4AF37;
+            margin-left: 2px;
+            font-weight: bold;
+        }
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
     </style>
 </head>
-<body class="min-h-screen flex flex-col justify-between p-4 md:p-8">
+<body class="min-h-screen flex flex-col justify-between p-4 md:p-8 relative">
 
-    <header class="w-full max-w-6xl mx-auto flex justify-between items-center mb-6">
-        <a href="index.html" class="text-zinc-500 hover:text-amber-400 text-xs tracking-widest uppercase flex items-center gap-2 transition-colors">
+    <div class="slideshow-container">
+        <div class="slide"></div>
+        <div class="slide"></div>
+        <div class="slide"></div>
+        <div class="absolute inset-0 bg-black/70 z-10"></div>
+    </div>
+
+    <header class="w-full py-2 max-w-6xl mx-auto flex justify-between items-center mb-6 relative z-20">
+        <a href="index.html" class="text-zinc-400 hover:text-amber-400 text-xs tracking-widest uppercase flex items-center gap-2 transition-colors">
             <i class="fa-solid fa-arrow-left"></i> Back
         </a>
         <div class="w-20"></div>
     </header>
 
-    <div class="w-full flex flex-col items-center justify-center text-center mb-8 shrink-0">
-        <img src="colalogo.png" alt="Cola Logo" class="h-16 md:h-20 object-contain mb-2">
-        <h2 class="luxury-font text-xl md:text-2xl font-bold tracking-[0.25em] text-white">OUR EXCLUSIVE SPA SERVICES</h2>
+    <div class="w-full flex flex-col items-center justify-center text-center mb-8 shrink-0 relative z-20">
+        <img src="colalogo.png" alt="Cola Logo" class="h-16 md:h-20 object-contain mb-2 rounded-full border border-amber-500/20">
+        <h2 class="luxury-font text-xl md:text-2xl font-bold tracking-[0.25em] text-white bg-black/20 px-4 py-1 rounded-lg backdrop-blur-xs">OUR EXCLUSIVE SPA SERVICES</h2>
     </div>
 
-    <main class="flex-grow max-w-6xl w-full mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 items-start mb-12">
+    <main class="flex-grow max-w-6xl w-full mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 items-start mb-12 relative z-20">
         
-        <div class="lg:col-span-7 bg-[#212121]/95 border border-zinc-800/80 p-6 md:p-8 rounded-2xl shadow-2xl flex flex-col justify-between h-full min-h-[460px]">
+        <div class="lg:col-span-7 bg-[#141414]/90 backdrop-blur-md border border-zinc-800 p-6 md:p-8 rounded-2xl shadow-2xl flex flex-col justify-between h-full min-h-[460px]">
             <div>
                 <div class="text-center mb-6">
                     <h3 class="luxury-font text-base md:text-lg font-bold tracking-widest text-amber-400 uppercase">BASIC WELLNESS MASSAGE</h3>
@@ -87,25 +164,25 @@
                 </div>
 
                 <div class="space-y-5 my-6 max-w-md mx-auto">
-                    <div class="flex items-center space-x-4">
+                    <div class="flex items-center space-x-4 bg-zinc-900/40 p-3 rounded-xl border border-zinc-800/30">
                         <div class="w-8 text-center text-xl text-amber-400"><i class="fa-solid fa-hands"></i></div>
                         <div>
                             <p class="text-xs md:text-sm font-bold tracking-wider text-zinc-200 uppercase">THAI MASSAGE (DEEP EXTENSION)</p>
                         </div>
                     </div>
-                    <div class="flex items-center space-x-4">
+                    <div class="flex items-center space-x-4 bg-zinc-900/40 p-3 rounded-xl border border-zinc-800/30">
                         <div class="w-8 text-center text-xl text-amber-400"><i class="fa-solid fa-leaf"></i></div>
                         <div>
                             <p class="text-xs md:text-sm font-bold tracking-wider text-zinc-200 uppercase">SWEDISH MASSAGE (RELIEVING STRESS)</p>
                         </div>
                     </div>
-                    <div class="flex items-center space-x-4">
+                    <div class="flex items-center space-x-4 bg-zinc-900/40 p-3 rounded-xl border border-zinc-800/30">
                         <div class="w-8 text-center text-xl text-amber-400"><i class="fa-solid fa-droplet"></i></div>
                         <div>
                             <p class="text-xs md:text-sm font-bold tracking-wider text-zinc-200 uppercase">OIL MASSAGE (RELAXING BODY)</p>
                         </div>
                     </div>
-                    <div class="flex items-center space-x-4">
+                    <div class="flex items-center space-x-4 bg-zinc-900/40 p-3 rounded-xl border border-zinc-800/30">
                         <div class="w-8 text-center text-xl text-amber-400"><i class="fa-solid fa-bath"></i></div>
                         <div>
                             <p class="text-xs md:text-sm font-bold tracking-wider text-zinc-200 uppercase">MOROCCAN BATH (SKIN CLEANSING)</p>
@@ -115,8 +192,8 @@
             </div>
 
             <div class="pt-4 border-t border-zinc-800/80 flex justify-center">
-                <a href="https://wa.me/966560369386?text=Hi%20Cola%20Wellness,%20I%20want%20to%20book%20a%20Basic%20Wellness%20Massage%20Treatment%20(150%20SR)." target="_blank" 
-                   class="border gold-border text-amber-400 font-bold tracking-widest text-[10px] uppercase py-3 px-8 rounded-full hover:bg-amber-500/10 transition-all">
+                <a href="https://wa.me/966560369386?text=Hi%20Cola%20Wellness,%20I%20want%20to%20book%20a%20Basic%20Wellness%20Massage%20Treatment%20(150%20SR)." 
+                   class="w-full text-center border gold-border text-amber-400 font-bold tracking-widest text-[11px] uppercase py-3.5 px-8 rounded-full hover:bg-amber-500/10 transition-all duration-300">
                     Book Basic Treatment via WhatsApp
                 </a>
             </div>
@@ -139,15 +216,15 @@
                 </div>
 
                 <div class="mt-5 flex flex-col items-center gap-2">
-                    <a href="https://wa.me/966560369386?text=Hi%20Cola%20Wellness,%20I%20want%20to%20book%20the%20Premium%20Spa%20Package%20(450%20SR)." target="_blank" 
-                       class="bg-stone-950 text-white font-bold tracking-widest text-[10px] py-2.5 px-6 rounded-full uppercase shadow-lg block w-full max-w-[220px] text-center">
+                    <a href="https://wa.me/966560369386?text=Hi%20Cola%20Wellness,%20I%20want%20to%20book%20the%20Premium%20Spa%20Package%20(450%20SR)." 
+                       class="bg-stone-950 text-white font-bold tracking-widest text-[11px] py-3 px-6 rounded-full uppercase shadow-lg block w-full max-w-[240px] text-center active:scale-95 transition-transform">
                         450 SR / FULL CARE
                     </a>
                     <span class="text-[9px] uppercase tracking-widest font-bold text-stone-900 mt-1">BOOK NOW | احجز الآن</span>
                 </div>
             </div>
 
-            <div class="bg-[#1c1c1c] border border-zinc-800 p-5 rounded-2xl shadow-xl flex flex-col justify-between h-[230px]">
+            <div class="bg-[#141414]/90 backdrop-blur-md border border-zinc-800 p-5 rounded-2xl shadow-xl flex flex-col justify-between h-[230px]">
                 
                 <div class="border-b border-zinc-900 pb-2 flex justify-between items-center shrink-0">
                     <h4 class="luxury-font text-xs font-bold text-white tracking-widest uppercase flex items-center gap-2">
@@ -161,7 +238,7 @@
                     <div class="bg-zinc-900/60 p-3 rounded-xl border border-zinc-800/40 text-left">
                         <div class="flex justify-between items-center mb-1">
                             <span class="text-[9px] font-bold text-amber-400 uppercase tracking-widest">📢 Today's Update</span>
-                            <span class="text-[8px] text-zinc-500 font-mono">May 23, 2026</span>
+                            <span class="text-[8px] text-zinc-500 font-mono">June 02, 2026</span>
                         </div>
                         <p class="text-[11px] text-zinc-300 font-light leading-relaxed">
                             Good evening! Active full roster of certified Filipina therapists ready for tonight's slots. Open until late!
@@ -171,7 +248,7 @@
                     <div class="bg-zinc-900/60 p-3 rounded-xl border border-zinc-800/40 text-left">
                         <div class="flex justify-between items-center mb-1">
                             <span class="text-[9px] font-bold text-red-400 uppercase tracking-widest">🔥 Flash Promo</span>
-                            <span class="text-[8px] text-zinc-500 font-mono">May 23, 2026</span>
+                            <span class="text-[8px] text-zinc-500 font-mono">June 02, 2026</span>
                         </div>
                         <p class="text-[11px] text-zinc-300 font-light leading-relaxed">
                             Flash discount alert! Book any Moroccan bath combo between 1 PM to 4 PM tomorrow and get an extra 10 minutes hot stone extension completely free.
@@ -189,10 +266,131 @@
 
     </main>
 
-    <footer class="w-full py-4 text-center text-[10px] text-zinc-600 border-t border-zinc-900/60 bg-black/20 shrink-0">
-        <p class="tracking-widest luxury-font mb-0.5">© 2026 COLA PROFESSIONAL WELLNESS CENTER</p>
-        <p class="font-light">Al Yarmuk, Riyadh, Kingdom of Saudi Arabia</p>
+    <div class="fixed bottom-6 right-6 z-50 flex flex-col items-end">
+        
+        <div id="marketingBubble" class="bg-zinc-950 border gold-border text-zinc-200 text-xs py-2 px-4 rounded-xl shadow-2xl mb-3 max-w-[240px] relative font-medium backdrop-blur-md">
+            <span id="bubbleTypewriter" class="typewriter-cursor"></span>
+            <div class="absolute bottom-[-6px] right-5 w-3 h-3 bg-zinc-950 border-r border-b gold-border rotate-45"></div>
+        </div>
+
+        <div id="chatBox" class="hidden w-80 bg-zinc-950 border gold-border rounded-2xl shadow-2xl overflow-hidden mb-4 transition-all duration-300">
+            <div class="gold-bg p-4 flex items-center justify-between text-black">
+                <div class="flex items-center space-x-3">
+                    <div class="w-8 h-8 rounded-full bg-black flex items-center justify-center text-white text-xs font-bold">CO</div>
+                    <div>
+                        <p class="font-bold text-sm tracking-wide">Cola Assistant</p>
+                        <p class="text-[9px] font-medium opacity-75">Direct to WhatsApp • Fast Response</p>
+                    </div>
+                </div>
+                <button onclick="toggleChat()" class="text-black font-bold text-lg hover:opacity-60 px-2">×</button>
+            </div>
+            
+            <div class="p-5 space-y-4 bg-zinc-900/90 backdrop-blur">
+                <div class="space-y-1">
+                    <label class="text-[10px] uppercase tracking-widest text-zinc-400">Anong maitutulong namin sa iyo?</label>
+                    <textarea id="custCustomMessage" rows="3" placeholder="I-type rito ang iyong katanungan tungkol sa aming packages..." 
+                              class="w-full bg-zinc-950 border border-zinc-800 text-white p-3 rounded-xl text-xs focus:outline-none focus:border-amber-400 resize-none"></textarea>
+                </div>
+                <button onclick="sendDirectToWhatsApp()" 
+                        class="w-full gold-bg text-black text-xs font-bold uppercase tracking-widest py-3 rounded-xl hover:opacity-90 transition-all block text-center cursor-pointer">
+                    Send to WhatsApp →
+                </button>
+            </div>
+            <div class="p-2 text-center text-[8px] text-zinc-600 bg-zinc-950 border-t border-zinc-900">
+                Your message will automatically mirror on WhatsApp
+            </div>
+        </div>
+
+        <button onclick="toggleChat()" aria-label="Open Live Chat" class="w-14 h-14 bg-zinc-950 border gold-border text-amber-400 rounded-full flex items-center justify-center shadow-2xl hover:scale-105 transition-transform duration-200 cursor-pointer relative">
+            <span class="absolute top-0 right-0 flex h-3 w-3">
+                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
+                <span class="relative inline-flex rounded-full h-3 w-3 bg-amber-500"></span>
+            </span>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M8.625 12a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H8.25m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H12m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H16M21 12c0 4.556-4.03 8.25-9 8.25a9.764 9.764 0 01-2.555-.337A5.972 5.972 0 015.41 20.97a5.969 5.969 0 01-.474-3.658C3.05 15.82 2 13.98 2 12c0-4.556 4.03-8.25 9-8.25s9 3.694 9 8.25z" />
+            </svg>
+        </button>
+    </div>
+
+    <footer class="w-full py-6 text-center border-t border-zinc-900/80 bg-black/80 backdrop-blur-md shrink-0 relative z-20">
+        <div class="max-w-md mx-auto flex flex-col items-center gap-2">
+            <div class="flex items-center gap-2 text-amber-500/80 text-[10px] tracking-widest font-bold uppercase bg-amber-500/5 px-4 py-1.5 rounded-full border border-amber-500/10">
+                <i class="fa-solid fa-shield-badge text-amber-400"></i> 100% Certified & Licensed Commercial Establishment
+            </div>
+            <p class="tracking-widest luxury-font text-[10px] text-zinc-400 mt-1">© 2026 COLA PROFESSIONAL WELLNESS CENTER</p>
+            <p class="font-medium text-[9px] text-zinc-500 uppercase tracking-wider">Al Yarmuk, Riyadh, Kingdom of Saudi Arabia</p>
+        </div>
     </footer>
+
+    <script>
+        // TYPEWRITER EFFECT SETTINGS
+        const phrases = [
+            "Hi! I am Cola. How can I help you? ✨",
+            "Inquire about our packages here! 💆‍♂️",
+            "Check out our Premium Services! 👑",
+            "Chat with us directly via WhatsApp! ⚡"
+        ];
+        
+        let phraseIndex = 0;
+        let characterIndex = 0;
+        let isDeleting = false;
+        const bubbleElement = document.getElementById("bubbleTypewriter");
+
+        function loopTypewriter() {
+            const currentPhrase = phrases[phraseIndex];
+
+            if (isDeleting) {
+                bubbleElement.innerHTML = currentPhrase.substring(0, characterIndex - 1);
+                characterIndex--;
+            } else {
+                bubbleElement.innerHTML = currentPhrase.substring(0, characterIndex + 1);
+                characterIndex++;
+            }
+
+            let typeSpeed = isDeleting ? 20 : 45;
+
+            if (!isDeleting && characterIndex === currentPhrase.length) {
+                typeSpeed = 2500; 
+                isDeleting = true;
+            } else if (isDeleting && characterIndex === 0) {
+                isDeleting = false;
+                phraseIndex = (phraseIndex + 1) % phrases.length; 
+                typeSpeed = 400; 
+            }
+
+            setTimeout(loopTypewriter, typeSpeed);
+        }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            loopTypewriter();
+        });
+
+        function toggleChat() {
+            const chatBox = document.getElementById('chatBox');
+            const marketingBubble = document.getElementById('marketingBubble');
+            
+            chatBox.classList.toggle('hidden');
+            
+            if (chatBox.classList.contains('hidden')) {
+                marketingBubble.classList.remove('hidden');
+            } else {
+                marketingBubble.classList.add('hidden');
+                document.getElementById('custCustomMessage').focus();
+            }
+        }
+
+        function sendDirectToWhatsApp() {
+            const customText = document.getElementById('custCustomMessage').value.trim();
+            let finalMessage = "Hi Cola Wellness Center! I am checking your exclusive spa services page and I would like to inquire about booking a slot.";
+            
+            if (customText !== "") {
+                finalMessage = customText;
+            }
+            
+            const encodedMessage = encodeURIComponent(finalMessage);
+            window.open(`https://wa.me/966560369386?text=${encodedMessage}`, '_blank');
+        }
+    </script>
 
 </body>
 </html>
