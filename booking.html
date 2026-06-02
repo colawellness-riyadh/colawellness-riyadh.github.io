@@ -115,10 +115,6 @@
             0% { transform: translateX(0); }
             100% { transform: translateX(calc(-226px * 7)); }
         }
-        @keyframes scrollLeft {
-            0% { transform: translateX(calc(-226px * 7)); }
-            100% { transform: translateX(0); }
-        }
 
         .slider-track-right {
             display: flex;
@@ -127,8 +123,11 @@
        }
         .slider-track-right:hover {
             animation-play-state: paused;
-       }
+      }
 
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        
         .typewriter-cursor::after {
             content: '|';
             animation: blink 0.8s infinite;
