@@ -312,12 +312,29 @@
                     <i class="fa-brands fa-whatsapp text-sm"></i> WhatsApp
                 </a>
                 
-                <a href="/" class="bg-zinc-900 hover:bg-zinc-800 text-amber-400 border border-zinc-800 font-bold text-[11px] px-3 py-2 rounded-xl uppercase tracking-wider transition-all">
-                    <i class="fa-solid fa-house text-[10px]"></i> Menu
-                </a>
+                <button onclick="toggleNavMenu()" class="bg-zinc-900 hover:bg-zinc-800 text-amber-400 border border-zinc-800 font-bold text-[11px] px-3 py-2 rounded-xl uppercase tracking-wider transition-all cursor-pointer">
+                    <i class="fa-solid fa-bars text-[10px]"></i> Menu
+                </button>
             </div>
         </div>
     </header>
+
+    <div id="navMenuDropdown" class="hidden fixed top-[65px] left-0 w-full bg-black/95 border-b gold-border z-40 backdrop-blur-lg transition-all duration-300">
+        <div class="max-w-7xl mx-auto p-6 grid grid-cols-2 gap-4 text-center">
+            <a href="#" onclick="toggleNavMenu()" class="p-3 bg-zinc-900/50 rounded-xl border border-zinc-800 text-amber-400 font-bold text-xs uppercase tracking-wider hover:bg-zinc-800">
+                <i class="fa-solid fa-house mr-2"></i> Home
+            </a>
+            <a href="#relaxation-zones" onclick="toggleNavMenu()" class="p-3 bg-zinc-900/50 rounded-xl border border-zinc-800 text-zinc-300 font-bold text-xs uppercase tracking-wider hover:bg-zinc-800">
+                <i class="fa-solid fa-images mr-2"></i> Gallery
+            </a>
+            <a href="#services-section" onclick="toggleNavMenu()" class="p-3 bg-zinc-900/50 rounded-xl border border-zinc-800 text-zinc-300 font-bold text-xs uppercase tracking-wider hover:bg-zinc-800">
+                <i class="fa-solid fa-spa mr-2"></i> Services
+            </a>
+            <a href="tel:0560958973" class="p-3 bg-zinc-900/50 rounded-xl border border-zinc-800 text-emerald-400 font-bold text-xs uppercase tracking-wider hover:bg-zinc-800">
+                <i class="fa-solid fa-phone mr-2"></i> Call Now
+            </a>
+        </div>
+    </div>
 
     <div class="slideshow-container">
         <div class="slide"></div>
@@ -331,12 +348,13 @@
 
     <main class="flex-grow w-full max-w-7xl mx-auto flex flex-col gap-10 py-4 px-4 relative z-20 mb-16">
         
-        <div class="w-full flex flex-col gap-2">
-            <div class="flex items-center gap-2 px-2 text-zinc-400 text-[10px] tracking-widest uppercase font-semibold">
-                <i class="fa-solid fa-circle-chevron-right text-amber-400 animate-pulse"></i> Premium Relaxation Zones
+        <div id="relaxation-zones" class="w-full flex flex-col gap-2">
+            <div class="flex items-center justify-between px-2 text-zinc-400 text-[10px] tracking-widest uppercase font-semibold">
+                <span><i class="fa-solid fa-circle-chevron-right text-amber-400 animate-pulse"></i> Premium Relaxation Zones</span>
+                <span class="text-zinc-500 font-normal">Auto-scrolling Gallery</span>
             </div>
             <div class="w-full overflow-hidden bg-black/30 backdrop-blur-xs py-4 rounded-2xl border border-zinc-800/30">
-                <div class="flex overflow-x-auto gap-4 px-4 no-scrollbar">
+                <div id="sliderContainer" class="flex overflow-x-auto gap-4 px-4 no-scrollbar scroll-smooth">
                     <div class="w-[210px] h-[373px] bg-zinc-900/90 rounded-xl border border-zinc-700/50 flex-shrink-0 bg-cover bg-center overflow-hidden flex items-end p-3" style="background-image: url('FixPlus_20260522_015636857.jpg');">
                         <span class="text-[9px] font-bold tracking-wider uppercase bg-black/70 px-2.5 py-1 rounded text-amber-400 border border-amber-500/20">Luxury Room</span>
                     </div>
@@ -362,7 +380,7 @@
             </div>
         </div>
 
-        <div class="booking-grid">
+        <div id="services-section" class="booking-grid">
             <a href="#" class="service-card" onclick="return gtag_report_conversion('https://wa.me/966560958973?text=Hi!%20I%20want%20to%20book%20Thai%20Massage');">
                 <i class="fas fa-hands-holding"></i>
                 <h3>Thai Massage</h3>
@@ -508,9 +526,44 @@
             setTimeout(loopTypewriter, typeSpeed);
         }
 
+        // INAYOS: Idinagdag ang JavaScript para sa automatic smooth scroll ng slider at navigation menu toggle
         document.addEventListener("DOMContentLoaded", function() {
             loopTypewriter();
+            startAutoScroll();
         });
+
+        // Toggle para sa Menu Button
+        function toggleNavMenu() {
+            const navMenu = document.getElementById('navMenuDropdown');
+            navMenu.classList.toggle('hidden');
+        }
+
+        // Auto Scroll Function para sa Relaxation Zones Slider
+        function startAutoScroll() {
+            const slider = document.getElementById('sliderContainer');
+            let scrollSpeed = 1; // Bilis ng scroll (pixels)
+            let direction = 1;   // 1 = pakanan, -1 = pakaliwa
+
+            setInterval(() => {
+                if (!slider) return;
+                
+                slider.scrollLeft += scrollSpeed * direction;
+
+                // Kapag umabot na sa dulo pakanan, babalik o lilingon pakaliwa
+                if (slider.scrollLeft >= (slider.scrollWidth - slider.clientWidth)) {
+                    direction = -1;
+                } 
+                // Kapag bumalik na sa pinaka-umpisa
+                else if (slider.scrollLeft <= 0) {
+                    direction = 1;
+                }
+            }, 30); // Uulit kada 30 milliseconds para sa swabeng galaw
+
+            // Hihinto ang auto-scroll kapag ini-swipe ng user gamit ang kamay/mouse
+            slider.addEventListener('pointerdown', () => {
+                scrollSpeed = 0;
+            });
+        }
 
         // CHAT WINDOW TOGGLE
         function toggleChat() {
