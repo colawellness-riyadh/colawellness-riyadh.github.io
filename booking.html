@@ -21,7 +21,10 @@
     <link rel="shortcut icon" type="image/png" href="colalogo.png">
     
     <link rel="preload" as="image" href="https://images.unsplash.com/photo-1540555700478-4be289fbecef?q=70&w=600&auto=format&fit=crop" media="(max-width: 768px)">
-    <link class="preload" as="image" href="https://images.unsplash.com/photo-1540555700478-4be289fbecef?q=70&w=1200&auto=format&fit=crop" media="(min-width: 769px)">
+    <link rel="preload" as="image" href="https://images.unsplash.com/photo-1540555700478-4be289fbecef?q=70&w=1200&auto=format&fit=crop" media="(min-width: 769px)">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
     <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18066238938"></script>
     <script>
@@ -50,8 +53,8 @@
       // 4. IPINAG-ISA NA ANG TRACKING FUNCTION (WHATSAPP, LIVE CHAT AT CALLS)
       function gtag_report_conversion(url) {
         var callback = function () {
-          if (typeof(url) != 'undefined') {
-            window.location = url;
+          if (typeof(url) != 'undefined' && url !== '') {
+            window.open(url, '_blank');
           }
         };
         
@@ -61,12 +64,24 @@
             'currency': 'SAR',
             'event_callback': callback
         });
+        
+        // Fail-safe kung sakaling mabagal ang Google Tag tracker para ma-open pa rin ang link
+        setTimeout(function() {
+            if (typeof(url) != 'undefined' && url !== '') {
+                window.open(url, '_blank');
+            }
+        }, 500);
+
         return false;
       }
 
-      // Shortcut wrapper para tumugma sa lumang tawag ng mga button mo nang walang error
+      // Shortcut wrapper para sa chat box button
       function trackWhatsAppConversion() {
-         gtag_report_conversion();
+         gtag('event', 'conversion', {
+            'send_to': 'AW-18066238938/nYKyCPCjvLEcENrb06ZD',
+            'value': 1.0,
+            'currency': 'SAR'
+         });
       }
     </script>
     <script type="module">
@@ -75,6 +90,14 @@
     </script>
     
     <style>
+        :root {
+            --gold: #D4AF37;
+            --gold-bright: #FFF6D6;
+            --pure-gold: #AA7C11;
+            --dark-card: #0a0a0a;
+            --yellow-btn: #FFD700;
+        }
+
         body {
             font-family: 'Montserrat', -apple-system, sans-serif;
             background-color: #0a0a0a;
@@ -98,13 +121,14 @@
             border-color: #D4AF37;
         }
         
+        /* Background Slideshow Styling */
         .slideshow-container {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            z-index: 0;
+            z-index: -1; 
             pointer-events: none;
         }
         .slide {
@@ -116,6 +140,18 @@
             background-repeat: no-repeat;
             opacity: 0;
             animation: imageFade 18s linear infinite;
+        }
+
+        /* Dark overlay para mabasa ang text sa ibabaw ng slideshow */
+        .slideshow-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.75);
+            z-index: 0;
+            pointer-events: none;
         }
         
         @media (max-width: 768px) {
@@ -175,100 +211,13 @@
             0%, 100% { opacity: 1; }
             50% { opacity: 0; }
         }
-    </style>
-
-        .promotion-slider {
-            max-width: 1200px;
-            margin: 0 auto 60px auto;
-            overflow: hidden;
-            position: relative;
-            z-index: 5;
-            background: rgba(0,0,0,0.65);
-            border: 1px solid var(--gold);
-            border-radius: 25px;
-            padding: 30px 0;
-            backdrop-filter: blur(5px);
-        }
-
-        .slider-track {
-            display: flex;
-            width: calc(220px * 14 + 20px * 14); 
-            gap: 20px;
-            animation: slideRight 25s linear infinite;
-        }
-
-        .slide-item {
-            flex-shrink: 0;
-            position: relative;
-            width: 220px;
-            height: 300px;
-            background: #000;
-            border-radius: 20px;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .slide-item::before {
-            content: '';
-            position: absolute;
-            top: -50%; left: -50%;
-            width: 200%; height: 200%;
-            background: conic-gradient(transparent, var(--gold-bright), transparent 30%, transparent 50%, var(--pure-gold), transparent 80%);
-            animation: spin 4s linear infinite;
-            z-index: 1;
-        }
-
-        .slide-item::after {
-            content: '';
-            position: absolute;
-            inset: 3px;
-            background: var(--dark-card);
-            border-radius: 17px;
-            z-index: 2;
-        }
-
-        .slide-content {
-            position: relative;
-            z-index: 3;
-            width: 100%;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            overflow: hidden;
-        }
-
-        .img-container {
-            position: relative;
-            width: 100%;
-            height: 75%;
-            overflow: hidden;
-            background: #000;
-        }
-
-        .img-container img { 
-            width: 100%; 
-            height: 100%; 
-            object-fit: cover; 
-            display: block;
-        }
-
-        .slide-content .shop-now-btn {
-            width: 100%; height: 25%;
-            background: var(--yellow-btn);
-            color: #000; font-weight: 900;
-            display: flex; align-items: center; justify-content: center;
-            font-size: 14px; text-decoration: none;
-            position: relative;
-            z-index: 5;
-        }
 
         .booking-grid { 
             display: grid; 
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
             gap: 30px; 
             max-width: 1100px; 
-            margin: 0 auto; 
+            margin: 40px auto; 
         }
 
         .service-card { 
@@ -308,7 +257,7 @@
         .service-card i { font-size: 30px; color: var(--gold); margin-bottom: 15px; }
         .service-card h3 { font-family: 'Playfair Display', serif; font-size: 24px; margin-bottom: 5px; }
         .service-card .arabic-title { font-size: 20px; color: var(--gold); font-weight: bold; margin-bottom: 15px; }
-        .service-card p { font-size: 14px; color: #ccc; line-height: 1.5; margin-bottom: 20px; }
+        .service-card p { font-size: 14px; color: #ccc; line-height: 1.5; margin-bottom: 20px; text-align: center; }
 
         .price-btn { 
             background: #000; 
@@ -326,38 +275,44 @@
         .premium-card p { color: #000 !important; font-weight: 600; }
         .premium-card .price-btn { background: #000 !important; color: var(--gold-bright) !important; border: none; }
 
-        @keyframes spin { 100% { transform: rotate(360deg); } }
-        @keyframes slideRight { 
-            0% { transform: translateX(0); }
-            100% { transform: translateX(calc(-220px * 7 - 20px * 7)); }
+        .header-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-top: 40px;
+            color: #FFF;
+        }
+        .promo-text {
+            display: block;
+            text-align: center;
+            color: #D4AF37;
+            font-weight: bold;
+            margin-bottom: 20px;
         }
 
-        .note { font-size: 12px; color: #999; margin-top: 50px; font-style: italic; }
-        
-        .footer-nav { margin-top: 30px; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
-        .footer-link { color: var(--gold); text-decoration: none; font-weight: 600; font-size: 16px; transition: 0.3s; }
-        .footer-link:hover { color: #fff; text-shadow: 0 0 10px var(--gold); }
-        .separator { color: #444; }
+        @keyframes spin { 100% { transform: rotate(360deg); } }
     </style>
 </head>
 <body>
 
-    <video class="video-bg" autoplay loop muted playsinline>
-        <source src="vecteezy_stunning-golden-glitter-particle-streams-flow-dynamically_69209508.mp4" type="video/mp4">
-    </video>
-    <div class="video-overlay"></div>
+    <div class="slideshow-container">
+        <div class="slide"></div>
+        <div class="slide"></div>
+        <div class="slide"></div>
+    </div>
+    <div class="slideshow-overlay"></div>
 
     <h1 class="header-title">Ready to schedule your session today? Book now!</h1>
     <span class="promo-text">DISCOUNT JUST TODAY! السعر المخفض اليوم فقط</span>
 
-   main class="flex-grow w-full max-w-7xl mx-auto flex flex-col gap-10 py-4 px-4 relative z-20 mb-16">
+    <main class="flex-grow w-full max-w-7xl mx-auto flex flex-col gap-10 py-4 px-4 relative z-20 mb-16">
         
         <div class="w-full flex flex-col gap-2">
             <div class="flex items-center gap-2 px-2 text-zinc-400 text-[10px] tracking-widest uppercase font-semibold">
                 <i class="fa-solid fa-circle-chevron-right text-amber-400 animate-pulse"></i> Premium Relaxation Zones
             </div>
             <div class="w-full overflow-hidden bg-black/30 backdrop-blur-xs py-4 rounded-2xl border border-zinc-800/30">
-                <div class="slider-track-right gap-4 px-4">
+                <div class="flex overflow-x-auto gap-4 px-4 no-scrollbar">
                     <div class="w-[210px] h-[373px] bg-zinc-900/90 rounded-xl border border-zinc-700/50 flex-shrink-0 bg-cover bg-center overflow-hidden flex items-end p-3" style="background-image: url('FixPlus_20260522_015636857.jpg');">
                         <span class="text-[9px] font-bold tracking-wider uppercase bg-black/70 px-2.5 py-1 rounded text-amber-400 border border-amber-500/20">Luxury Room</span>
                     </div>
@@ -379,129 +334,106 @@
                     <div class="w-[210px] h-[373px] bg-zinc-900/90 rounded-xl border border-zinc-700/50 flex-shrink-0 bg-cover bg-center overflow-hidden flex items-end p-3" style="background-image: url('FixPlus_20260515_224325099.png');">
                         <span class="text-[9px] font-bold tracking-wider uppercase bg-black/70 px-2.5 py-1 rounded text-amber-400 border border-amber-500/20">Sauna Room</span>
                     </div>
-
-                     <div class="w-[210px] h-[373px] bg-zinc-900/90 rounded-xl border border-zinc-700/50 flex-shrink-0 bg-cover bg-center overflow-hidden flex items-end p-3" style="background-image: url('FixPlus_20260522_015636857.jpg');">
-                        <span class="text-[9px] font-bold tracking-wider uppercase bg-black/70 px-2.5 py-1 rounded text-amber-400 border border-amber-500/20">Luxury Room</span>
-                    </div>
-                    <div class="w-[210px] h-[373px] bg-zinc-900/90 rounded-xl border border-zinc-700/50 flex-shrink-0 bg-cover bg-center overflow-hidden flex items-end p-3" style="background-image: url('Snapchat-1585899800.jpg');">
-                        <span class="text-[9px] font-bold tracking-wider uppercase bg-black/70 px-2.5 py-1 rounded text-amber-400 border border-amber-500/20">Moroccan Bath</span>
-                    </div>
-                    <div class="w-[210px] h-[373px] bg-zinc-900/90 rounded-xl border border-zinc-700/50 flex-shrink-0 bg-cover bg-center overflow-hidden flex items-end p-3" style="background-image: url('FixPlus_20260510_165850154.jpg');">
-                        <span class="text-[9px] font-bold tracking-wider uppercase bg-black/70 px-2.5 py-1 rounded text-amber-400 border border-amber-500/20">Jacuzzi Area</span>
-                    </div>
-                    <div class="w-[210px] h-[373px] bg-zinc-900/90 rounded-xl border border-zinc-700/50 flex-shrink-0 bg-cover bg-center overflow-hidden flex items-end p-3" style="background-image: url('FixPlus_20260510_170005442.jpg');">
-                        <span class="text-[9px] font-bold tracking-wider uppercase bg-black/70 px-2.5 py-1 rounded text-amber-400 border border-amber-500/20">Massage Deck</span>
-                    </div>
-                    <div class="w-[210px] h-[373px] bg-zinc-900/90 rounded-xl border border-zinc-700/50 flex-shrink-0 bg-cover bg-center overflow-hidden flex items-end p-3" style="background-image: url('FixPlus_20260519_041654631(1)(1).jpg');">
-                        <span class="text-[9px] font-bold tracking-wider uppercase bg-black/70 px-2.5 py-1 rounded text-amber-400 border border-amber-500/20">Therapy Lounge</span>
-                    </div>
-                    <div class="w-[210px] h-[373px] bg-zinc-900/90 rounded-xl border border-zinc-700/50 flex-shrink-0 bg-cover bg-center overflow-hidden flex items-end p-3" style="background-image: url('FixPlus_20260510_170152764.jpg');">
-                        <span class="text-[9px] font-bold tracking-wider uppercase bg-black/70 px-2.5 py-1 rounded text-amber-400 border border-amber-500/20">VIP Spa Suite</span>
-                    </div>
-                    <div class="w-[210px] h-[373px] bg-zinc-900/90 rounded-xl border border-zinc-700/50 flex-shrink-0 bg-cover bg-center overflow-hidden flex items-end p-3" style="background-image: url('FixPlus_20260515_224325099.png');">
-                        <span class="text-[9px] font-bold tracking-wider uppercase bg-black/70 px-2.5 py-1 rounded text-amber-400 border border-amber-500/20">Sauna Room</span>
-                    </div>
                 </div>
             </div>
         </div>
 
-    <div class="booking-grid">
-        <a href="https://wa.me/966560958973?text=Hi! I want to book Thai Massage" class="service-card" onclick="gtag('event', 'ads_conversion_Book_appointment_1', {});">
-            <i class="fas fa-hands-holding"></i>
-            <h3>Thai Massage</h3>
-            <span class="arabic-title">مساج تايلاندي</span>
-            <p>Traditional deep stretch therapy.<br>العلاج التقليدي للتمدد العميق.</p>
-            <div class="price-btn">130 SR / 40 MINS</div>
-        </a>
+        <div class="booking-grid">
+            <a href="#" class="service-card" onclick="return gtag_report_conversion('https://wa.me/966560958973?text=Hi!%20I%20want%20to%20book%20Thai%20Massage');">
+                <i class="fas fa-hands-holding"></i>
+                <h3>Thai Massage</h3>
+                <span class="arabic-title">مساج تايلاندي</span>
+                <p>Traditional deep stretch therapy.<br>العلاج التقليدي للتمدد العميق.</p>
+                <div class="price-btn">130 SR / 40 MINS</div>
+            </a>
 
-        <a href="https://wa.me/966560958973?text=Hi! I want to book Swedish Massage" class="service-card" onclick="gtag('event', 'ads_conversion_Book_appointment_1', {});">
-            <i class="fas fa-spa"></i>
-            <h3>Swedish Massage</h3>
-            <span class="arabic-title">مساج سويدي</span>
-            <p>Gentle strokes for relaxation.<br>ضربات لطيفة للاسترخاء.</p>
-            <div class="price-btn">130 SR / 40 MINS</div>
-        </a>
+            <a href="#" class="service-card" onclick="return gtag_report_conversion('https://wa.me/966560958973?text=Hi!%20I%20want%20to%20book%20Swedish%20Massage');">
+                <i class="fas fa-spa"></i>
+                <h3>Swedish Massage</h3>
+                <span class="arabic-title">مساج سويدي</span>
+                <p>Gentle strokes for relaxation.<br>ضربات لطيفة للاسترخاء.</p>
+                <div class="price-btn">130 SR / 40 MINS</div>
+            </a>
 
-        <a href="https://wa.me/966560958973?text=Hi! I want to book Oil Massage" class="service-card" onclick="gtag('event', 'ads_conversion_Book_appointment_1', {});">
-            <i class="fas fa-droplet"></i>
-            <h3>Oil Massage</h3>
-            <span class="arabic-title">مساج بالزيت</span>
-            <p>Full body calming massage.<br>تدليك مهدئ للجسم بالكامل.</p>
-            <div class="price-btn">130 SR / 40 MINS</div>
-        </a>
+            <a href="#" class="service-card" onclick="return gtag_report_conversion('https://wa.me/966560958973?text=Hi!%20I%20want%20to%20book%20Oil%20Massage');">
+                <i class="fas fa-droplet"></i>
+                <h3>Oil Massage</h3>
+                <span class="arabic-title">مساج بالزيت</span>
+                <p>Full body calming massage.<br>تدليك مهدئ للجسم بالكامل.</p>
+                <div class="price-btn">130 SR / 40 MINS</div>
+            </a>
 
-        <a href="https://wa.me/966560958973?text=Hi! I want to book Moroccan Bath" class="service-card" onclick="gtag('event', 'ads_conversion_Book_appointment_1', {});">
-            <i class="fas fa-bath"></i>
-            <h3>Moroccan Bath</h3>
-            <span class="arabic-title">حمام مغربي</span>
-            <p>Traditional skin cleansing.<br>تنظيف البشرة التقليدي.</p>
-            <div class="price-btn">130 SR / 40 MINS</div>
-        </a>
+            <a href="#" class="service-card" onclick="return gtag_report_conversion('https://wa.me/966560958973?text=Hi!%20I%20want%20to%20book%20Moroccan%20Bath');">
+                <i class="fas fa-bath"></i>
+                <h3>Moroccan Bath</h3>
+                <span class="arabic-title">حمام مغربي</span>
+                <p>Traditional skin cleansing.<br>تنظيف البشرة التقليدي.</p>
+                <div class="price-btn">130 SR / 40 MINS</div>
+            </a>
 
-        <a href="https://wa.me/966560958973?text=Hi! I want to book Shaving Service" class="service-card" onclick="gtag('event', 'ads_conversion_Book_appointment_1', {});">
-            <i class="fas fa-razor"></i>
-            <h3>Shaving (On Demand)</h3>
-            <span class="arabic-title">حلاقة عند الطلب</span>
-            <p>Clean and professional grooming services including Full Body Shaving, Bikini, and Underarm cleaning.<br>خدمات الحلاقة والنظافة الشخصية الاحترافية.</p>
-            <div class="price-btn">FULL CARE</div>
-        </a>
+            <a href="#" class="service-card" onclick="return gtag_report_conversion('https://wa.me/966560958973?text=Hi!%20I%20want%20to%20book%20Shaving%20Service');">
+                <i class="fas fa-razor"></i>
+                <h3>Shaving (On Demand)</h3>
+                <span class="arabic-title">حلاقة عند الطلب</span>
+                <p>Clean and professional grooming services including Full Body Shaving, Bikini, and Underarm cleaning.<br>خدمات الحلاقة والنظافة الشخصية الاحترافية.</p>
+                <div class="price-btn">FULL CARE</div>
+            </a>
 
-        <a href="https://wa.me/966560958973?text=Hi! I want to book the PREMIUM PACKAGE" class="service-card premium-card" onclick="gtag('event', 'ads_conversion_Book_appointment_1', {});">
-            <i class="fas fa-crown"></i>
-            <h3>PREMIUM PACKAGE</h3>
-            <span class="arabic-title">باقة بريميوم</span>
-            <p>2h 30m of Luxury: Massage, Bath, Stone, Mani & Pedi.<br>2 ساعة و30 دقيقة من الفخامة.</p>
-            <div class="price-btn">450 SR / FULL CARE</div>
-        </a>
-    <div class="fixed bottom-6 right-6 z-50 flex flex-col items-end">
-      <div id="marketingBubble" class="bg-zinc-950 border gold-border text-zinc-200 text-xs py-2 px-4 rounded-xl shadow-2xl mb-3 max-w-[240px] relative font-medium backdrop-blur-md">
-        <span id="bubbleTypewriter" class="typewriter-cursor"></span>
-            <div class="absolute bottom-[-6px] right-5 w-3 h-3 bg-zinc-950 border-r border-b gold-border rotate-45"></div>
-           </div>
-         </div>
-       </div>
-     </div>
+            <a href="#" class="service-card premium-card" onclick="return gtag_report_conversion('https://wa.me/966560958973?text=Hi!%20I%20want%20to%20book%20the%20PREMIUM%20PACKAGE');">
+                <i class="fas fa-crown"></i>
+                <h3>PREMIUM PACKAGE</h3>
+                <span class="arabic-title">باقة بريميوم</span>
+                <p>2h 30m of Luxury: Massage, Bath, Stone, Mani & Pedi.<br>2 ساعة و30 دقيقة من الفخامة.</p>
+                <div class="price-btn">450 SR / FULL CARE</div>
+            </a>
+        </div>
+
+        <div class="fixed bottom-6 right-6 z-50 flex flex-col items-end">
+            <div id="marketingBubble" class="bg-zinc-950 border gold-border text-zinc-200 text-xs py-2 px-4 rounded-xl shadow-2xl mb-3 max-w-[240px] relative font-medium backdrop-blur-md">
+                <span id="bubbleTypewriter" class="typewriter-cursor"></span>
+                <div class="absolute bottom-[-6px] right-5 w-3 h-3 bg-zinc-950 border-r border-b gold-border rotate-45"></div>
+            </div>
+
+            <div id="chatBox" class="hidden w-80 bg-zinc-950 border gold-border rounded-2xl shadow-2xl overflow-hidden mb-4 transition-all duration-300">
+                <div class="gold-bg p-4 flex items-center justify-between text-black">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-8 h-8 rounded-full bg-black flex items-center justify-center text-white text-xs font-bold">CO</div>
+                        <div>
+                            <p class="font-bold text-sm tracking-wide">Cola Assistant</p>
+                            <p class="text-[9px] font-medium opacity-75">Direct to WhatsApp • Fast Response</p>
+                        </div>
+                    </div>
+                    <button onclick="toggleChat()" class="text-black font-bold text-lg hover:opacity-60 px-2">×</button>
+                </div>
+                
+                <div class="p-5 space-y-4 bg-zinc-900/90 backdrop-blur">
+                    <div class="space-y-1">
+                        <label class="text-[10px] uppercase tracking-widest text-zinc-400">Anong maitutulong namin sa iyo?</label>
+                        <textarea id="custCustomMessage" rows="3" placeholder="I-type rito ang iyong katanungan tungkol sa aming luxury facilities..." 
+                                  class="w-full bg-zinc-950 border border-zinc-800 text-white p-3 rounded-xl text-xs focus:outline-none focus:border-amber-400 resize-none"></textarea>
+                    </div>
+                    <button onclick="sendDirectToWhatsApp()" 
+                            class="w-full gold-bg text-black text-xs font-bold uppercase tracking-widest py-3 rounded-xl hover:opacity-90 transition-all block text-center cursor-pointer">
+                        Send to WhatsApp →
+                    </button>
+                </div>
+                <div class="p-2 text-center text-[8px] text-zinc-600 bg-zinc-950 border-t border-zinc-900">
+                    Your message will automatically mirror on WhatsApp
+                </div>
+            </div>
+
+            <button onclick="toggleChat()" aria-label="Open Live Chat" class="w-14 h-14 bg-zinc-950 border gold-border text-amber-400 rounded-full flex items-center justify-center shadow-2xl hover:scale-105 transition-transform duration-200 cursor-pointer relative">
+                <span class="absolute top-0 right-0 flex h-3 w-3">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-3 w-3 bg-amber-500"></span>
+                </span>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M8.625 12a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H8.25m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H12m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H16M21 12c0 4.556-4.03 8.25-9 8.25a9.764 9.764 0 01-2.555-.337A5.972 5.972 0 015.41 20.97a5.969 5.969 0 01-.474-3.658C3.05 15.82 2 13.98 2 12c0-4.556 4.03-8.25 9-8.25s9 3.694 9 8.25z" />
+                </svg>
+            </button>
+        </div>
 
     </main>
-
-    <div id="chatBox" class="hidden w-80 bg-zinc-950 border gold-border rounded-2xl shadow-2xl overflow-hidden mb-4 transition-all duration-300">
-            <div class="gold-bg p-4 flex items-center justify-between text-black">
-                <div class="flex items-center space-x-3">
-                    <div class="w-8 h-8 rounded-full bg-black flex items-center justify-center text-white text-xs font-bold">CO</div>
-                    <div>
-                        <p class="font-bold text-sm tracking-wide">Cola Assistant</p>
-                        <p class="text-[9px] font-medium opacity-75">Direct to WhatsApp • Fast Response</p>
-                    </div>
-                </div>
-                <button onclick="toggleChat()" class="text-black font-bold text-lg hover:opacity-60 px-2">×</button>
-            </div>
-            
-            <div class="p-5 space-y-4 bg-zinc-900/90 backdrop-blur">
-                <div class="space-y-1">
-                    <label class="text-[10px] uppercase tracking-widest text-zinc-400">Anong maitutulong namin sa iyo?</label>
-                    <textarea id="custCustomMessage" rows="3" placeholder="I-type rito ang iyong katanungan tungkol sa aming luxury facilities..." 
-                              class="w-full bg-zinc-950 border border-zinc-800 text-white p-3 rounded-xl text-xs focus:outline-none focus:border-amber-400 resize-none"></textarea>
-                </div>
-                <button onclick="sendDirectToWhatsApp()" 
-                        class="w-full gold-bg text-black text-xs font-bold uppercase tracking-widest py-3 rounded-xl hover:opacity-90 transition-all block text-center cursor-pointer">
-                    Send to WhatsApp →
-                </button>
-            </div>
-            <div class="p-2 text-center text-[8px] text-zinc-600 bg-zinc-950 border-t border-zinc-900">
-                Your message will automatically mirror on WhatsApp
-            </div>
-        </div>
-
-        <button onclick="toggleChat()" aria-label="Open Live Chat" class="w-14 h-14 bg-zinc-950 border gold-border text-amber-400 rounded-full flex items-center justify-center shadow-2xl hover:scale-105 transition-transform duration-200 cursor-pointer relative">
-            <span class="absolute top-0 right-0 flex h-3 w-3">
-                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
-                <span class="relative inline-flex rounded-full h-3 w-3 bg-amber-500"></span>
-            </span>
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M8.625 12a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H8.25m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H12m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H16M21 12c0 4.556-4.03 8.25-9 8.25a9.764 9.764 0 01-2.555-.337A5.972 5.972 0 015.41 20.97a5.969 5.969 0 01-.474-3.658C3.05 15.82 2 13.98 2 12c0-4.556 4.03-8.25 9-8.25s9 3.694 9 8.25z" />
-            </svg>
-        </button>
-    </div>
 
     <footer class="w-full py-6 text-center border-t border-zinc-900/80 bg-black/85 backdrop-blur-md shrink-0 relative z-20">
         <div class="max-w-md mx-auto flex flex-col items-center gap-2">
@@ -580,6 +512,7 @@
                 finalMessage = customText;
             }
             
+            trackWhatsAppConversion(); // Tinitrigger muna ang conversion tracking bago umalis
             const encodedMessage = encodeURIComponent(finalMessage);
             window.open(`https://wa.me/966560958973?text=${encodedMessage}`, '_blank');
         }
