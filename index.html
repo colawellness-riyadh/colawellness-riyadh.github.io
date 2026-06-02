@@ -20,7 +20,7 @@
     <link rel="shortcut icon" type="image/png" href="colalogo.png">
     
     <link rel="preload" as="image" href="https://images.unsplash.com/photo-1540555700478-4be289fbecef?q=70&w=600&auto=format&fit=crop" media="(max-width: 768px)">
-    <link rel="preload" as="image" href="https://images.unsplash.com/photo-1540555700478-4be289fbecef?q=70&w=1200&auto=format&fit=crop" media="(min-width: 769px)">
+    <link class="preload" as="image" href="https://images.unsplash.com/photo-1540555700478-4be289fbecef?q=70&w=1200&auto=format&fit=crop" media="(min-width: 769px)">
 
     <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18066238938"></script>
     <script>
@@ -159,7 +159,6 @@
         ::-webkit-scrollbar-track { background: #121212; }
         ::-webkit-scrollbar-thumb { background: #D4AF37; border-radius: 3px; }
         
-        /* Tinatago ang scrollbar para sa malinis na navbar view pero gumagana pa rin ang scroll */
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
     </style>
@@ -211,15 +210,15 @@
         </div>
         
         <nav class="w-full md:w-auto flex flex-row overflow-x-auto no-scrollbar justify-start md:justify-center items-center space-x-5 text-[9px] md:text-[10px] tracking-widest uppercase text-zinc-300 font-medium py-1">
-            <a href="#" class="hover:text-amber-400 text-amber-400 font-semibold whitespace-nowrap transition-colors">Home</a>
-            <a href="#services" class="hover:text-amber-400 whitespace-nowrap transition-colors">Facilities</a>
-            <a href="https://wa.me/966560958973?text=Send%20me%20the%20Services%20Menu" onclick="trackWhatsAppConversion()" class="hover:text-amber-400 whitespace-nowrap transition-colors">Service Menu</a>
+            <a href="index.html" class="hover:text-amber-400 text-amber-400 font-semibold whitespace-nowrap transition-colors">Home</a>
+            <a href="index.html#services" class="hover:text-amber-400 whitespace-nowrap transition-colors">Facilities</a>
+            <a href="servicemenu.html" class="hover:text-amber-400 whitespace-nowrap transition-colors">Service Menu</a>
             <a href="promotion.html" class="hover:text-amber-400 whitespace-nowrap transition-colors">Event/Promotion</a>
             <a href="location.html" class="hover:text-amber-400 whitespace-nowrap transition-colors">Location</a>
             <a href="https://www.facebook.com/sweetcola31/" target="_blank" class="hover:text-amber-400 whitespace-nowrap transition-colors">Facebook</a>
             <a href="https://instagram.com" target="_blank" class="hover:text-amber-400 whitespace-nowrap transition-colors">Instagram</a>
             <a href="https://g.page/r/CbAoACwjDz6lEBM/review" target="_blank" class="hover:text-amber-400 whitespace-nowrap transition-colors">Rate/Review</a>
-            <a href="#about" class="hover:text-amber-400 whitespace-nowrap transition-colors">About</a>
+            <a href="index.html#about" class="hover:text-amber-400 whitespace-nowrap transition-colors">About</a>
         </nav>
 
         <div class="hidden md:block">
