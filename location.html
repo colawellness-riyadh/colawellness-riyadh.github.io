@@ -50,7 +50,7 @@
             border-color: #C49A33;
         }
         
-        /* BACKGROUND SLIDESHOW ANIMATION */
+        /* BACKGROUND SLIDESHOW ANIMATION (DIFFERENT REFRESHING SPA PICS) */
         .slideshow-container {
             position: fixed;
             top: 0;
@@ -70,17 +70,35 @@
             opacity: 0;
             animation: imageFade 18s linear infinite;
         }
-        .slide:nth-child(1) {
-            background-image: url('https://images.unsplash.com/photo-1540555700478-4be289fbecef?q=80&w=2070&auto=format&fit=crop');
-            animation-delay: 0s;
+        
+        @media (max-width: 768px) {
+            .slide:nth-child(1) {
+                background-image: url('https://images.unsplash.com/photo-1544161515-4ab6ce6db874?q=70&w=600&auto=format&fit=crop');
+                animation-delay: 0s;
+            }
+            .slide:nth-child(2) {
+                background-image: url('https://images.unsplash.com/photo-1519699047748-de8e457a634e?q=70&w=600&auto=format&fit=crop');
+                animation-delay: 6s;
+            }
+            .slide:nth-child(3) {
+                background-image: url('https://images.unsplash.com/photo-1596178065887-1198b6148b2b?q=70&w=600&auto=format&fit=crop');
+                animation-delay: 12s;
+            }
         }
-        .slide:nth-child(2) {
-            background-image: url('https://images.unsplash.com/photo-1600334129128-685c5582fd35?q=80&w=2070&auto=format&fit=crop');
-            animation-delay: 6s;
-        }
-        .slide:nth-child(3) {
-            background-image: url('https://images.unsplash.com/photo-1519699047748-de8e457a634e?q=80&w=2080&auto=format&fit=crop');
-            animation-delay: 12s;
+
+        @media (min-width: 769px) {
+            .slide:nth-child(1) {
+                background-image: url('https://images.unsplash.com/photo-1544161515-4ab6ce6db874?q=70&w=1200&auto=format&fit=crop');
+                animation-delay: 0s;
+            }
+            .slide:nth-child(2) {
+                background-image: url('https://images.unsplash.com/photo-1519699047748-de8e457a634e?q=70&w=1200&auto=format&fit=crop');
+                animation-delay: 6s;
+            }
+            .slide:nth-child(3) {
+                background-image: url('https://images.unsplash.com/photo-1596178065887-1198b6148b2b?q=70&w=1200&auto=format&fit=crop');
+                animation-delay: 12s;
+            }
         }
         
         @keyframes imageFade {
@@ -97,16 +115,25 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, rgba(10, 10, 10, 0.9) 0%, rgba(5, 5, 5, 0.8) 100%);
+            background: linear-gradient(135deg, rgba(10, 10, 10, 0.88) 0%, rgba(5, 5, 5, 0.82) 100%);
             z-index: 1;
             pointer-events: none;
         }
 
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-        ::-webkit-scrollbar { width: 6px; }
-        ::-webkit-scrollbar-track { background: #121212; }
-        ::-webkit-scrollbar-thumb { background: #D4AF37; border-radius: 3px; }
+        
+        .typewriter-cursor::after {
+            content: '|';
+            animation: blink 0.8s infinite;
+            color: #D4AF37;
+            margin-left: 2px;
+            font-weight: bold;
+        }
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
     </style>
 </head>
 <body class="min-h-screen flex flex-col justify-between relative">
@@ -168,7 +195,7 @@
             </p>
             
             <div class="map-wrapper w-full h-[300px] sm:h-[380px] rounded-xl overflow-hidden border border-zinc-800 shadow-inner bg-neutral-900">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3623.111956557451!2d46.7937402!3d24.7573033!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjTCbDQ1JzI2LjMiTiA0NsKwNDcnMzcuNSJF!5e0!3m2!1sen!2ssa!4v1716480000000!5m2!1sen!2ssa" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>           
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3623.633902128859!2d46.79427329999999!3d24.739433499999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e2eff0039bc07bf%3A0xa53e0f232c0029b6!2sCola%20Wellness%20Center!5e0!3m2!1sen!2ssa!4v1716480000000!5m2!1sen!2ssa" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>           
             </div>
         </div>
 
@@ -198,65 +225,128 @@
     </main>
 
     <div class="fixed bottom-6 right-6 z-50 flex flex-col items-end">
+        
+        <div id="marketingBubble" class="bg-zinc-950 border gold-border text-zinc-200 text-xs py-2 px-4 rounded-xl shadow-2xl mb-3 max-w-[240px] relative font-medium backdrop-blur-md">
+            <span id="bubbleTypewriter" class="typewriter-cursor"></span>
+            <div class="absolute bottom-[-6px] right-5 w-3 h-3 bg-zinc-950 border-r border-b gold-border rotate-45"></div>
+        </div>
+
         <div id="chatBox" class="hidden w-80 bg-zinc-950 border gold-border rounded-2xl shadow-2xl overflow-hidden mb-4 transition-all duration-300">
             <div class="gold-bg p-4 flex items-center justify-between text-black">
                 <div class="flex items-center space-x-3">
                     <div class="w-8 h-8 rounded-full bg-black flex items-center justify-center text-white text-xs font-bold">CO</div>
                     <div>
                         <p class="font-bold text-sm tracking-wide">Cola Assistant</p>
-                        <p class="text-[9px] font-medium opacity-75">Online • Fast Response</p>
+                        <p class="text-[9px] font-medium opacity-75">Online • Direct Link</p>
                     </div>
                 </div>
                 <button onclick="toggleChat()" class="text-black font-bold text-lg hover:opacity-60 px-2 cursor-pointer">×</button>
             </div>
             <div class="p-5 space-y-4 bg-zinc-900/95 backdrop-blur">
-                <p class="text-xs text-zinc-300 leading-relaxed font-light">
-                    Hello! I am your virtual assistant. How can we help you with your spa booking today? Please enter your name below to start.
-                </p>
                 <div class="space-y-1">
-                    <label class="text-[9px] uppercase tracking-widest text-zinc-400 block">Your Name</label>
-                    <input type="text" id="custName" placeholder="Enter your name here..." 
-                           class="w-full bg-zinc-950 border border-zinc-800 text-white p-3 rounded-xl text-xs focus:outline-none focus:border-amber-400">
+                    <label class="text-[9px] uppercase tracking-widest text-zinc-400 block">I-type ang iyong mensahe rito:</label>
+                    <textarea id="custCustomMessage" rows="3" placeholder="Gusto ko pong magpa-book ng appointment ngayong araw..." 
+                              class="w-full bg-zinc-950 border border-zinc-800 text-white p-3 rounded-xl text-xs focus:outline-none focus:border-amber-400 resize-none"></textarea>
                 </div>
                 <button onclick="startWhatsAppChat()" 
                         class="w-full gold-bg text-black text-xs font-bold uppercase tracking-widest py-3 rounded-xl hover:opacity-90 transition-all block text-center cursor-pointer">
-                    Start Conversation
+                    Start Chat via WhatsApp
                 </button>
             </div>
             <div class="p-2 text-center text-[8px] text-zinc-600 bg-zinc-950 border-t border-zinc-900">
-                Powered by Cola Care
+                Your message will automatically mirror on WhatsApp
             </div>
         </div>
 
-        <button onclick="toggleChat()" aria-label="Open Live Chat" class="w-14 h-14 bg-zinc-950 border gold-border text-amber-400 rounded-full flex items-center justify-center shadow-2xl hover:scale-105 transition-transform duration-200 cursor-pointer">
+        <button onclick="toggleChat()" aria-label="Open Live Chat" class="w-14 h-14 bg-zinc-950 border gold-border text-amber-400 rounded-full flex items-center justify-center shadow-2xl hover:scale-105 transition-transform duration-200 cursor-pointer relative">
+            <span class="absolute top-0 right-0 flex h-3 w-3">
+                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
+                <span class="relative inline-flex rounded-full h-3 w-3 bg-amber-500"></span>
+            </span>
             <i class="fa-regular fa-comments text-xl"></i>
         </button>
     </div>
 
+    <footer class="w-full py-6 text-center border-t border-zinc-900/80 bg-black/90 backdrop-blur-md relative z-10">
+        <div class="max-w-md mx-auto flex flex-col items-center gap-2 px-4">
+            <div class="flex items-center gap-2 text-amber-500/90 text-[9px] tracking-widest font-bold uppercase bg-amber-500/5 px-4 py-1.5 rounded-full border border-amber-500/20 shadow-xs">
+                <i class="fa-solid fa-shield-halved text-amber-400"></i> 100% Certified & Licensed Commercial Establishment
+            </div>
+            <p class="tracking-widest luxury-font text-[10px] text-zinc-400 mt-1">© 2026 COLA PROFESSIONAL WELLNESS CENTER</p>
+            <p class="font-light text-[9px] text-zinc-500 uppercase tracking-wider">Al Yarmuk, Riyadh, Kingdom of Saudi Arabia</p>
+        </div>
+    </footer>
+
     <script>
+        // MARKETING BUBBLE TYPEWRITER CONFIGURATION
+        const phrases = [
+            "Need dynamic navigation directions? 📍",
+            "Gusto mo bang magpa-reserve ng slot? 💆‍♂️",
+            "Message our team instantly on WhatsApp! ⚡",
+            "We are open and fully staffed tonight! ✨"
+        ];
+        
+        let phraseIndex = 0;
+        let characterIndex = 0;
+        let isDeleting = false;
+        const bubbleElement = document.getElementById("bubbleTypewriter");
+
+        function loopTypewriter() {
+            const currentPhrase = phrases[phraseIndex];
+
+            if (isDeleting) {
+                bubbleElement.innerHTML = currentPhrase.substring(0, characterIndex - 1);
+                characterIndex--;
+            } else {
+                bubbleElement.innerHTML = currentPhrase.substring(0, characterIndex + 1);
+                characterIndex++;
+            }
+
+            let typeSpeed = isDeleting ? 25 : 50;
+
+            if (!isDeleting && characterIndex === currentPhrase.length) {
+                typeSpeed = 2800; 
+                isDeleting = true;
+            } else if (isDeleting && characterIndex === 0) {
+                isDeleting = false;
+                phraseIndex = (phraseIndex + 1) % phrases.length; 
+                typeSpeed = 400; 
+            }
+
+            setTimeout(loopTypewriter, typeSpeed);
+        }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            loopTypewriter();
+        });
+
         function toggleChat() {
             const chatBox = document.getElementById('chatBox');
+            const marketingBubble = document.getElementById('marketingBubble');
+            
             chatBox.classList.toggle('hidden');
+            
+            if (chatBox.classList.contains('hidden')) {
+                marketingBubble.classList.remove('hidden');
+            } else {
+                marketingBubble.classList.add('hidden');
+                document.getElementById('custCustomMessage').focus();
+            }
         }
 
         function startWhatsAppChat() {
             trackWhatsAppConversion();
-            const name = document.getElementById('custName').value.trim();
-            let message = "Hi Cola Wellness Center, I am checking your location on your website and I would like to book a treatment slot.";
+            const customText = document.getElementById('custCustomMessage').value.trim();
+            let message = "Hi Cola Wellness Center, I am checking your map location on your website and I would like to lock in a booking appointment.";
             
-            if (name !== "") {
-                message = `Hi Cola Wellness Center, my name is ${name}. I am looking at your map location and I would like to secure an appointment.`;
+            if (customText !== "") {
+                message = customText;
             }
             
             const encodedMessage = encodeURIComponent(message);
             window.open(`https://wa.me/966560958973?text=${encodedMessage}`, '_blank');
         }
     </script>
-
-    <footer class="w-full py-4 text-center text-[10px] text-zinc-600 border-t border-zinc-900/60 bg-black/50 relative z-10">
-        <p class="tracking-widest luxury-font mb-0.5">© 2026 COLA PROFESSIONAL WELLNESS CENTER</p>
-        <p class="font-light">Al Yarmuk, Riyadh, Kingdom of Saudi Arabia</p>
-    </footer>
 
 </body>
 </html>
