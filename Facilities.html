@@ -296,9 +296,33 @@
             </div>
         </div>
 
-    </main>
+   </main>
+
+    <div class="w-full max-w-md mx-auto mb-12 text-center bg-black/60 backdrop-blur-md p-5 rounded-2xl border border-zinc-800/80 shadow-2xl relative z-20">
+        <div class="flex justify-center items-center gap-4 mb-4">
+            <div class="w-8 h-[1px] bg-zinc-700"></div>
+            <span class="text-[10px] tracking-[0.3em] uppercase text-zinc-400 block font-medium">Executive Suite Features</span>
+            <div class="w-8 h-[1px] bg-zinc-700"></div>
+        </div>
+        <div class="grid grid-cols-3 gap-4 text-center">
+            <div>
+                <p class="luxury-font text-base md:text-lg font-bold text-white">100%</p>
+                <p class="text-[8px] tracking-widest text-zinc-500 uppercase mt-1">Premium</p>
+            </div>
+            <div class="border-x border-zinc-800">
+                <p class="luxury-font text-base md:text-lg font-bold text-white">VIP</p>
+                <p class="text-[8px] tracking-widest text-zinc-500 uppercase mt-1">Suites</p>
+            </div>
+            <div>
+                <p class="luxury-font text-base md:text-lg font-bold text-white">24/7</p>
+                <p class="text-[8px] tracking-widest text-zinc-500 uppercase mt-1">Service</p>
+            </div>
+        </div>
+        <p class="text-[9px] text-zinc-500 tracking-widest mt-4 uppercase">⚡ FAST CONFIRMATION VIA WHATSAPP</p>
+    </div>
 
     <div class="fixed bottom-6 right-6 z-50 flex flex-col items-end">
+        
         <div id="marketingBubble" class="bg-zinc-950 border gold-border text-zinc-200 text-xs py-2 px-4 rounded-xl shadow-2xl mb-3 max-w-[240px] relative font-medium backdrop-blur-md">
             <span id="bubbleTypewriter" class="typewriter-cursor"></span>
             <div class="absolute bottom-[-6px] right-5 w-3 h-3 bg-zinc-950 border-r border-b gold-border rotate-45"></div>
@@ -319,7 +343,7 @@
             <div class="p-5 space-y-4 bg-zinc-900/90 backdrop-blur">
                 <div class="space-y-1">
                     <label class="text-[10px] uppercase tracking-widest text-zinc-400">Anong maitutulong namin sa iyo?</label>
-                    <textarea id="custCustomMessage" rows="3" placeholder="I-type rito ang iyong katanungan tungkol sa aming luxury facilities..." 
+                    <textarea id="custCustomMessage" rows="3" placeholder="I-type rito ang iyong katanungan tungkol sa aming packages..." 
                               class="w-full bg-zinc-950 border border-zinc-800 text-white p-3 rounded-xl text-xs focus:outline-none focus:border-amber-400 resize-none"></textarea>
                 </div>
                 <button onclick="sendDirectToWhatsApp()" 
@@ -343,10 +367,10 @@
         </button>
     </div>
 
-    <footer class="w-full py-6 text-center border-t border-zinc-900/80 bg-black/85 backdrop-blur-md shrink-0 relative z-20">
+    <footer class="w-full py-6 text-center border-t border-zinc-900/80 bg-black/80 backdrop-blur-md shrink-0 relative z-20">
         <div class="max-w-md mx-auto flex flex-col items-center gap-2">
             <div class="flex items-center gap-2 text-amber-500/80 text-[10px] tracking-widest font-bold uppercase bg-amber-500/5 px-4 py-1.5 rounded-full border border-amber-500/10">
-                <i class="fa-solid fa-shield-halved text-amber-400"></i> 100% Certified & Licensed Commercial Establishment
+                <i class="fa-solid fa-shield-cat text-amber-400"></i> 100% Certified & Licensed Commercial Establishment
             </div>
             <p class="tracking-widest luxury-font text-[10px] text-zinc-400 mt-1">© 2026 COLA PROFESSIONAL WELLNESS CENTER</p>
             <p class="font-medium text-[9px] text-zinc-500 uppercase tracking-wider">Al Yarmuk, Riyadh, Kingdom of Saudi Arabia</p>
@@ -354,11 +378,10 @@
     </footer>
 
     <script>
-        // TYPEWRITER TEXTS
         const phrases = [
-            "Hi! Welcome to Cola Facilities. ✨",
-            "Inquire about room bookings! 💆‍♂️",
-            "See our VIP exclusive massage suite! 👑",
+            "Hi! I am Cola. How can I help you? ✨",
+            "Inquire about our packages here! 💆‍♂️",
+            "Check out our Premium Services! 👑",
             "Chat with us directly via WhatsApp! ⚡"
         ];
         
@@ -396,7 +419,6 @@
             loopTypewriter();
         });
 
-        // CHAT WINDOW TOGGLE
         function toggleChat() {
             const chatBox = document.getElementById('chatBox');
             const marketingBubble = document.getElementById('marketingBubble');
@@ -411,10 +433,9 @@
             }
         }
 
-        // DIRECT WHATSAPP SENDER
         function sendDirectToWhatsApp() {
             const customText = document.getElementById('custCustomMessage').value.trim();
-            let finalMessage = "Hi Cola Wellness Center! I am browsing your exclusive facilities gallery and I would like to book an appointment slot.";
+            let finalMessage = "Hi Cola Wellness Center! I am checking your exclusive spa services page and I would like to inquire about booking a slot.";
             
             if (customText !== "") {
                 finalMessage = customText;
