@@ -161,6 +161,19 @@
         
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+        /* Custom Typewriter Cursor Animation */
+        .typewriter-cursor::after {
+            content: '|';
+            animation: blink 0.8s infinite;
+            color: #D4AF37;
+            margin-left: 2px;
+            font-weight: bold;
+        }
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
     </style>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -305,9 +318,8 @@
                 <button onclick="toggleChat()" class="text-black font-bold text-lg hover:opacity-60 px-2">×</button>
             </div>
             <div class="p-5 space-y-4 bg-zinc-900/90 backdrop-blur">
-                <p class="text-xs text-zinc-300 leading-relaxed font-light">
-                    Hello! I am your virtual assistant. How can we help you with your spa booking today? Please enter your name below to start.
-                </p>
+                <p id="typewriterText" class="text-xs text-zinc-300 leading-relaxed font-light min-h-[40px] typewriter-cursor"></p>
+                
                 <div class="space-y-1">
                     <label class="text-[10px] uppercase tracking-widest text-zinc-400">Your Name</label>
                     <input type="text" id="custName" placeholder="Enter your name here..." 
@@ -331,9 +343,42 @@
     </div>
 
     <script>
+        let typingTimeout;
+
+        function typeWriter(text, elementId, speed) {
+            let i = 0;
+            const element = document.getElementById(elementId);
+            element.innerHTML = ""; // I-clear ang lumang text
+            element.classList.add('typewriter-cursor'); // Ipakita ang cursor habang nagta-type
+
+            function type() {
+                if (i < text.length) {
+                    element.innerHTML += text.charAt(i);
+                    i++;
+                    typingTimeout = setTimeout(type, speed);
+                } else {
+                    // Opsyonal: Pwede mong alisin ang cursor kapag tapos na magtype gamit ito:
+                    // element.classList.remove('typewriter-cursor');
+                }
+            }
+            type();
+        }
+
         function toggleChat() {
             const chatBox = document.getElementById('chatBox');
+            const isHidden = chatBox.classList.contains('hidden');
+            
+            // I-clear ang kahit anong tumatakbong typing timeout para iwas mag-overlap
+            clearTimeout(typingTimeout);
+            
             chatBox.classList.toggle('hidden');
+
+            // Kung binubuksan pa lang ang chat, simulan ang typewriter animation
+            if (isHidden) {
+                const welcomeMessage = "Hi, I am Cola! How can I help you today? Please enter your name below to start.";
+                // 35ms ang bilis ng bawat letra (sakto lang para sa mata ng user)
+                typeWriter(welcomeMessage, 'typewriterText', 35);
+            }
         }
 
         function startWhatsAppChat() {
