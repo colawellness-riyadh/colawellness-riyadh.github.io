@@ -48,8 +48,8 @@
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 
-        /* Nature/Ocean Relaxing Animated Background */
-        .nature-bg {
+        /* NATURE SLIDE SHOW BACKGROUND CONTAINER */
+        .slideshow-container {
             position: fixed;
             top: 0;
             left: 0;
@@ -57,13 +57,48 @@
             height: 100%;
             z-index: 0;
             pointer-events: none;
-            background-image: url('images/ocean-bg.jpg');
-            background-size: cover;
-            background-position: center;
-            filter: brightness(0.35) contrast(1.05);
+            overflow: hidden;
         }
 
-        /* Continuous Loop Animation Settings (Adjusted for 210px width + 16px gap = 226px total per card) */
+        .slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            filter: brightness(0.30) contrast(1.05) saturate(0.85); /* Medyo mas madilim para lumutang ang gold text at nakakarelax sa mata */
+            animation: natureSlideshow 24s linear infinite;
+        }
+
+        /* Pagkakasunod-sunod ng mga slides (4 slides, tig-6 na segundo bawat isa) */
+        .slide:nth-child(1) {
+            background-image: url('https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=1920'); /* Relaxing Forest/Sunshine */
+            animation-delay: 0s;
+        }
+        .slide:nth-child(2) {
+            background-image: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1920'); /* Relaxing Ocean Beach */
+            animation-delay: 6s;
+        }
+        .slide:nth-child(3) {
+            background-image: url('https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?q=80&w=1920'); /* Relaxing River/Greenery */
+            animation-delay: 12s;
+        }
+        .slide:nth-child(4) {
+            background-image: url('https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?q=80&w=1920'); /* Relaxing Foggy Mountain/Sunset */
+            animation-delay: 18s;
+        }
+
+        /* Smooth Crossfade Animation */
+        @keyframes natureSlideshow {
+            0% { opacity: 0; transform: scale(1); }
+            4% { opacity: 1; }
+            25% { opacity: 1; }
+            29% { opacity: 0; transform: scale(1.04); } /* May banayad na zoom-in effect para mas maging buhay ang nature vibe */
+            100% { opacity: 0; }
+        }
+
+        /* Continuous Loop Animation Settings */
         @keyframes scrollRight {
             0% { transform: translateX(0); }
             100% { transform: translateX(calc(-226px * 7)); }
@@ -103,7 +138,12 @@
 </head>
 <body class="min-h-screen flex flex-col justify-between relative">
 
-    <div class="nature-bg"></div>
+    <div class="slideshow-container">
+        <div class="slide"></div>
+        <div class="slide"></div>
+        <div class="slide"></div>
+        <div class="slide"></div>
+    </div>
 
     <header class="w-full py-4 px-4 md:px-12 flex flex-col md:flex-row justify-between items-center bg-black/80 backdrop-blur-md border-b border-zinc-800/50 sticky top-0 z-50 gap-4 md:gap-0">
         <div class="w-full md:w-auto flex justify-between items-center">
