@@ -57,31 +57,30 @@
             height: 100%;
             z-index: 0;
             pointer-events: none;
-            /* PALITAN ITONG BACKGROUND PIC KUNG GUSTO MO */
             background-image: url('images/ocean-bg.jpg');
             background-size: cover;
             background-position: center;
             filter: brightness(0.35) contrast(1.05);
         }
 
-        /* Continuous Loop Animation Settings */
+        /* Continuous Loop Animation Settings (Adjusted for 210px width + 16px gap = 226px total per card) */
         @keyframes scrollRight {
             0% { transform: translateX(0); }
-            100% { transform: translateX(calc(-240px * 7)); }
+            100% { transform: translateX(calc(-226px * 7)); }
         }
         @keyframes scrollLeft {
-            0% { transform: translateX(calc(-240px * 7)); }
+            0% { transform: translateX(calc(-226px * 7)); }
             100% { transform: translateX(0); }
         }
 
         .slider-track-right {
             display: flex;
-            width: calc(240px * 14);
+            width: calc(226px * 14);
             animation: scrollRight 25s linear infinite;
         }
         .slider-track-left {
             display: flex;
-            width: calc(240px * 14);
+            width: calc(226px * 14);
             animation: scrollLeft 25s linear infinite;
         }
         .slider-track-right:hover, .slider-track-left:hover {
@@ -157,47 +156,47 @@
             </div>
             <div class="w-full overflow-hidden bg-black/30 backdrop-blur-xs py-4 rounded-2xl border border-zinc-800/30">
                 <div class="slider-track-right gap-4 px-4">
-                    <div class="w-[224px] h-[150px] bg-zinc-900/90 rounded-xl border border-zinc-700/50 flex-shrink-0 bg-cover bg-center overflow-hidden flex items-end p-3" style="background-image: url('FixPlus_20251229_211832234.png');">
+                    <div class="w-[210px] h-[373px] bg-zinc-900/90 rounded-xl border border-zinc-700/50 flex-shrink-0 bg-cover bg-center overflow-hidden flex items-end p-3" style="background-image: url('FixPlus_20251229_211832234.png');">
                         <span class="text-[9px] font-bold tracking-wider uppercase bg-black/70 px-2.5 py-1 rounded text-amber-400 border border-amber-500/20">Luxury Room</span>
                     </div>
-                    <div class="w-[224px] h-[150px] bg-zinc-900/90 rounded-xl border border-zinc-700/50 flex-shrink-0 bg-cover bg-center overflow-hidden flex items-end p-3" style="background-image: url('FixPlus_20260510_155256719.jpg');">
+                    <div class="w-[210px] h-[373px] bg-zinc-900/90 rounded-xl border border-zinc-700/50 flex-shrink-0 bg-cover bg-center overflow-hidden flex items-end p-3" style="background-image: url('FixPlus_20260510_155256719.jpg');">
                         <span class="text-[9px] font-bold tracking-wider uppercase bg-black/70 px-2.5 py-1 rounded text-amber-400 border border-amber-500/20">Moroccan Bath</span>
                     </div>
-                    <div class="w-[224px] h-[150px] bg-zinc-900/90 rounded-xl border border-zinc-700/50 flex-shrink-0 bg-cover bg-center overflow-hidden flex items-end p-3" style="background-image: url('FixPlus_20260510_165850154.jpg');">
+                    <div class="w-[210px] h-[373px] bg-zinc-900/90 rounded-xl border border-zinc-700/50 flex-shrink-0 bg-cover bg-center overflow-hidden flex items-end p-3" style="background-image: url('FixPlus_20260510_165850154.jpg');">
                         <span class="text-[9px] font-bold tracking-wider uppercase bg-black/70 px-2.5 py-1 rounded text-amber-400 border border-amber-500/20">Jacuzzi Area</span>
                     </div>
-                    <div class="w-[224px] h-[150px] bg-zinc-900/90 rounded-xl border border-zinc-700/50 flex-shrink-0 bg-cover bg-center overflow-hidden flex items-end p-3" style="background-image: url('FixPlus_20260510_170005442.jpg');">
+                    <div class="w-[210px] h-[373px] bg-zinc-900/90 rounded-xl border border-zinc-700/50 flex-shrink-0 bg-cover bg-center overflow-hidden flex items-end p-3" style="background-image: url('FixPlus_20260510_170005442.jpg');">
                         <span class="text-[9px] font-bold tracking-wider uppercase bg-black/70 px-2.5 py-1 rounded text-amber-400 border border-amber-500/20">Massage Deck</span>
                     </div>
-                    <div class="w-[224px] h-[150px] bg-zinc-900/90 rounded-xl border border-zinc-700/50 flex-shrink-0 bg-cover bg-center overflow-hidden flex items-end p-3" style="background-image: url('FixPlus_20260510_170116109.jpg');">
+                    <div class="w-[210px] h-[373px] bg-zinc-900/90 rounded-xl border border-zinc-700/50 flex-shrink-0 bg-cover bg-center overflow-hidden flex items-end p-3" style="background-image: url('FixPlus_20260510_170116109.jpg');">
                         <span class="text-[9px] font-bold tracking-wider uppercase bg-black/70 px-2.5 py-1 rounded text-amber-400 border border-amber-500/20">Therapy Lounge</span>
                     </div>
-                    <div class="w-[224px] h-[150px] bg-zinc-900/90 rounded-xl border border-zinc-700/50 flex-shrink-0 bg-cover bg-center overflow-hidden flex items-end p-3" style="background-image: url('FixPlus_20260510_170152764.jpg');">
+                    <div class="w-[210px] h-[373px] bg-zinc-900/90 rounded-xl border border-zinc-700/50 flex-shrink-0 bg-cover bg-center overflow-hidden flex items-end p-3" style="background-image: url('FixPlus_20260510_170152764.jpg');">
                         <span class="text-[9px] font-bold tracking-wider uppercase bg-black/70 px-2.5 py-1 rounded text-amber-400 border border-amber-500/20">VIP Spa Suite</span>
                     </div>
-                    <div class="w-[224px] h-[150px] bg-zinc-900/90 rounded-xl border border-zinc-700/50 flex-shrink-0 bg-cover bg-center overflow-hidden flex items-end p-3" style="background-image: url('FixPlus_20260515_224325099.png');">
+                    <div class="w-[210px] h-[373px] bg-zinc-900/90 rounded-xl border border-zinc-700/50 flex-shrink-0 bg-cover bg-center overflow-hidden flex items-end p-3" style="background-image: url('FixPlus_20260515_224325099.png');">
                         <span class="text-[9px] font-bold tracking-wider uppercase bg-black/70 px-2.5 py-1 rounded text-amber-400 border border-amber-500/20">Sauna Room</span>
                     </div>
 
-                    <div class="w-[224px] h-[150px] bg-zinc-900/90 rounded-xl border border-zinc-700/50 flex-shrink-0 bg-cover bg-center overflow-hidden flex items-end p-3" style="background-image: url('images/luxury-room.jpg');">
+                    <div class="w-[210px] h-[373px] bg-zinc-900/90 rounded-xl border border-zinc-700/50 flex-shrink-0 bg-cover bg-center overflow-hidden flex items-end p-3" style="background-image: url('images/luxury-room.jpg');">
                         <span class="text-[9px] font-bold tracking-wider uppercase bg-black/70 px-2.5 py-1 rounded text-amber-400 border border-amber-500/20">Luxury Room</span>
                     </div>
-                    <div class="w-[224px] h-[150px] bg-zinc-900/90 rounded-xl border border-zinc-700/50 flex-shrink-0 bg-cover bg-center overflow-hidden flex items-end p-3" style="background-image: url('images/moroccan-bath.jpg');">
+                    <div class="w-[210px] h-[373px] bg-zinc-900/90 rounded-xl border border-zinc-700/50 flex-shrink-0 bg-cover bg-center overflow-hidden flex items-end p-3" style="background-image: url('images/moroccan-bath.jpg');">
                         <span class="text-[9px] font-bold tracking-wider uppercase bg-black/70 px-2.5 py-1 rounded text-amber-400 border border-amber-500/20">Moroccan Bath</span>
                     </div>
-                    <div class="w-[224px] h-[150px] bg-zinc-900/90 rounded-xl border border-zinc-700/50 flex-shrink-0 bg-cover bg-center overflow-hidden flex items-end p-3" style="background-image: url('images/jacuzzi-area.jpg');">
+                    <div class="w-[210px] h-[373px] bg-zinc-900/90 rounded-xl border border-zinc-700/50 flex-shrink-0 bg-cover bg-center overflow-hidden flex items-end p-3" style="background-image: url('images/jacuzzi-area.jpg');">
                         <span class="text-[9px] font-bold tracking-wider uppercase bg-black/70 px-2.5 py-1 rounded text-amber-400 border border-amber-500/20">Jacuzzi Area</span>
                     </div>
-                    <div class="w-[224px] h-[150px] bg-zinc-900/90 rounded-xl border border-zinc-700/50 flex-shrink-0 bg-cover bg-center overflow-hidden flex items-end p-3" style="background-image: url('images/massage-deck.jpg');">
+                    <div class="w-[210px] h-[373px] bg-zinc-900/90 rounded-xl border border-zinc-700/50 flex-shrink-0 bg-cover bg-center overflow-hidden flex items-end p-3" style="background-image: url('images/massage-deck.jpg');">
                         <span class="text-[9px] font-bold tracking-wider uppercase bg-black/70 px-2.5 py-1 rounded text-amber-400 border border-amber-500/20">Massage Deck</span>
                     </div>
-                    <div class="w-[224px] h-[150px] bg-zinc-900/90 rounded-xl border border-zinc-700/50 flex-shrink-0 bg-cover bg-center overflow-hidden flex items-end p-3" style="background-image: url('images/therapy-lounge.jpg');">
+                    <div class="w-[210px] h-[373px] bg-zinc-900/90 rounded-xl border border-zinc-700/50 flex-shrink-0 bg-cover bg-center overflow-hidden flex items-end p-3" style="background-image: url('images/therapy-lounge.jpg');">
                         <span class="text-[9px] font-bold tracking-wider uppercase bg-black/70 px-2.5 py-1 rounded text-amber-400 border border-amber-500/20">Therapy Lounge</span>
                     </div>
-                    <div class="w-[224px] h-[150px] bg-zinc-900/90 rounded-xl border border-zinc-700/50 flex-shrink-0 bg-cover bg-center overflow-hidden flex items-end p-3" style="background-image: url('images/vip-spa-suite.jpg');">
+                    <div class="w-[210px] h-[373px] bg-zinc-900/90 rounded-xl border border-zinc-700/50 flex-shrink-0 bg-cover bg-center overflow-hidden flex items-end p-3" style="background-image: url('images/vip-spa-suite.jpg');">
                         <span class="text-[9px] font-bold tracking-wider uppercase bg-black/70 px-2.5 py-1 rounded text-amber-400 border border-amber-500/20">VIP Spa Suite</span>
                     </div>
-                    <div class="w-[224px] h-[150px] bg-zinc-900/90 rounded-xl border border-zinc-700/50 flex-shrink-0 bg-cover bg-center overflow-hidden flex items-end p-3" style="background-image: url('images/sauna-room.jpg');">
+                    <div class="w-[210px] h-[373px] bg-zinc-900/90 rounded-xl border border-zinc-700/50 flex-shrink-0 bg-cover bg-center overflow-hidden flex items-end p-3" style="background-image: url('images/sauna-room.jpg');">
                         <span class="text-[9px] font-bold tracking-wider uppercase bg-black/70 px-2.5 py-1 rounded text-amber-400 border border-amber-500/20">Sauna Room</span>
                     </div>
                 </div>
@@ -210,47 +209,47 @@
             </div>
             <div class="w-full overflow-hidden bg-black/30 backdrop-blur-xs py-4 rounded-2xl border border-zinc-800/30">
                 <div class="slider-track-left gap-4 px-4">
-                    <div class="w-[224px] h-[150px] bg-zinc-900/90 rounded-xl border border-zinc-700/50 flex-shrink-0 bg-cover bg-center overflow-hidden flex items-end p-3" style="background-image: url('images/traditional-thai.jpg');">
+                    <div class="w-[210px] h-[373px] bg-zinc-900/90 rounded-xl border border-zinc-700/50 flex-shrink-0 bg-cover bg-center overflow-hidden flex items-end p-3" style="background-image: url('images/traditional-thai.jpg');">
                         <span class="text-[9px] font-bold tracking-wider uppercase bg-black/70 px-2.5 py-1 rounded text-amber-400 border border-amber-500/20">Traditional Thai</span>
                     </div>
-                    <div class="w-[224px] h-[150px] bg-zinc-900/90 rounded-xl border border-zinc-700/50 flex-shrink-0 bg-cover bg-center overflow-hidden flex items-end p-3" style="background-image: url('images/premium-oil.jpg');">
+                    <div class="w-[210px] h-[373px] bg-zinc-900/90 rounded-xl border border-zinc-700/50 flex-shrink-0 bg-cover bg-center overflow-hidden flex items-end p-3" style="background-image: url('images/premium-oil.jpg');">
                         <span class="text-[9px] font-bold tracking-wider uppercase bg-black/70 px-2.5 py-1 rounded text-amber-400 border border-amber-500/20">Premium Oil</span>
                     </div>
-                    <div class="w-[224px] h-[150px] bg-zinc-900/90 rounded-xl border border-zinc-700/50 flex-shrink-0 bg-cover bg-center overflow-hidden flex items-end p-3" style="background-image: url('images/swedish-area.jpg');">
+                    <div class="w-[210px] h-[373px] bg-zinc-900/90 rounded-xl border border-zinc-700/50 flex-shrink-0 bg-cover bg-center overflow-hidden flex items-end p-3" style="background-image: url('images/swedish-area.jpg');">
                         <span class="text-[9px] font-bold tracking-wider uppercase bg-black/70 px-2.5 py-1 rounded text-amber-400 border border-amber-500/20">Swedish Area</span>
                     </div>
-                    <div class="w-[224px] h-[150px] bg-zinc-900/90 rounded-xl border border-zinc-700/50 flex-shrink-0 bg-cover bg-center overflow-hidden flex items-end p-3" style="background-image: url('images/hot-stone.jpg');">
+                    <div class="w-[210px] h-[373px] bg-zinc-900/90 rounded-xl border border-zinc-700/50 flex-shrink-0 bg-cover bg-center overflow-hidden flex items-end p-3" style="background-image: url('images/hot-stone.jpg');">
                         <span class="text-[9px] font-bold tracking-wider uppercase bg-black/70 px-2.5 py-1 rounded text-amber-400 border border-amber-500/20">Hot Stone Care</span>
                     </div>
-                    <div class="w-[224px] h-[150px] bg-zinc-900/90 rounded-xl border border-zinc-700/50 flex-shrink-0 bg-cover bg-center overflow-hidden flex items-end p-3" style="background-image: url('images/steam-therapy.jpg');">
+                    <div class="w-[210px] h-[373px] bg-zinc-900/90 rounded-xl border border-zinc-700/50 flex-shrink-0 bg-cover bg-center overflow-hidden flex items-end p-3" style="background-image: url('images/steam-therapy.jpg');">
                         <span class="text-[9px] font-bold tracking-wider uppercase bg-black/70 px-2.5 py-1 rounded text-amber-400 border border-amber-500/20">Steam Therapy</span>
                     </div>
-                    <div class="w-[224px] h-[150px] bg-zinc-900/90 rounded-xl border border-zinc-700/50 flex-shrink-0 bg-cover bg-center overflow-hidden flex items-end p-3" style="background-image: url('images/royal-jacuzzi.jpg');">
+                    <div class="w-[210px] h-[373px] bg-zinc-900/90 rounded-xl border border-zinc-700/50 flex-shrink-0 bg-cover bg-center overflow-hidden flex items-end p-3" style="background-image: url('images/royal-jacuzzi.jpg');">
                         <span class="text-[9px] font-bold tracking-wider uppercase bg-black/70 px-2.5 py-1 rounded text-amber-400 border border-amber-500/20">Royal Jacuzzi</span>
                     </div>
-                    <div class="w-[224px] h-[150px] bg-zinc-900/90 rounded-xl border border-zinc-700/50 flex-shrink-0 bg-cover bg-center overflow-hidden flex items-end p-3" style="background-image: url('images/moroccan-scrub.jpg');">
+                    <div class="w-[210px] h-[373px] bg-zinc-900/90 rounded-xl border border-zinc-700/50 flex-shrink-0 bg-cover bg-center overflow-hidden flex items-end p-3" style="background-image: url('images/moroccan-scrub.jpg');">
                         <span class="text-[9px] font-bold tracking-wider uppercase bg-black/70 px-2.5 py-1 rounded text-amber-400 border border-amber-500/20">Moroccan Scrub</span>
                     </div>
 
-                    <div class="w-[224px] h-[150px] bg-zinc-900/90 rounded-xl border border-zinc-700/50 flex-shrink-0 bg-cover bg-center overflow-hidden flex items-end p-3" style="background-image: url('images/traditional-thai.jpg');">
+                    <div class="w-[210px] h-[373px] bg-zinc-900/90 rounded-xl border border-zinc-700/50 flex-shrink-0 bg-cover bg-center overflow-hidden flex items-end p-3" style="background-image: url('images/traditional-thai.jpg');">
                         <span class="text-[9px] font-bold tracking-wider uppercase bg-black/70 px-2.5 py-1 rounded text-amber-400 border border-amber-500/20">Traditional Thai</span>
                     </div>
-                    <div class="w-[224px] h-[150px] bg-zinc-900/90 rounded-xl border border-zinc-700/50 flex-shrink-0 bg-cover bg-center overflow-hidden flex items-end p-3" style="background-image: url('images/premium-oil.jpg');">
+                    <div class="w-[210px] h-[373px] bg-zinc-900/90 rounded-xl border border-zinc-700/50 flex-shrink-0 bg-cover bg-center overflow-hidden flex items-end p-3" style="background-image: url('images/premium-oil.jpg');">
                         <span class="text-[9px] font-bold tracking-wider uppercase bg-black/70 px-2.5 py-1 rounded text-amber-400 border border-amber-500/20">Premium Oil</span>
                     </div>
-                    <div class="w-[224px] h-[150px] bg-zinc-900/90 rounded-xl border border-zinc-700/50 flex-shrink-0 bg-cover bg-center overflow-hidden flex items-end p-3" style="background-image: url('images/swedish-area.jpg');">
+                    <div class="w-[210px] h-[373px] bg-zinc-900/90 rounded-xl border border-zinc-700/50 flex-shrink-0 bg-cover bg-center overflow-hidden flex items-end p-3" style="background-image: url('images/swedish-area.jpg');">
                         <span class="text-[9px] font-bold tracking-wider uppercase bg-black/70 px-2.5 py-1 rounded text-amber-400 border border-amber-500/20">Swedish Area</span>
                     </div>
-                    <div class="w-[224px] h-[150px] bg-zinc-900/90 rounded-xl border border-zinc-700/50 flex-shrink-0 bg-cover bg-center overflow-hidden flex items-end p-3" style="background-image: url('images/hot-stone.jpg');">
+                    <div class="w-[210px] h-[373px] bg-zinc-900/90 rounded-xl border border-zinc-700/50 flex-shrink-0 bg-cover bg-center overflow-hidden flex items-end p-3" style="background-image: url('images/hot-stone.jpg');">
                         <span class="text-[9px] font-bold tracking-wider uppercase bg-black/70 px-2.5 py-1 rounded text-amber-400 border border-amber-500/20">Hot Stone Care</span>
                     </div>
-                    <div class="w-[224px] h-[150px] bg-zinc-900/90 rounded-xl border border-zinc-700/50 flex-shrink-0 bg-cover bg-center overflow-hidden flex items-end p-3" style="background-image: url('images/steam-therapy.jpg');">
+                    <div class="w-[210px] h-[373px] bg-zinc-900/90 rounded-xl border border-zinc-700/50 flex-shrink-0 bg-cover bg-center overflow-hidden flex items-end p-3" style="background-image: url('images/steam-therapy.jpg');">
                         <span class="text-[9px] font-bold tracking-wider uppercase bg-black/70 px-2.5 py-1 rounded text-amber-400 border border-amber-500/20">Steam Therapy</span>
                     </div>
-                    <div class="w-[224px] h-[150px] bg-zinc-900/90 rounded-xl border border-zinc-700/50 flex-shrink-0 bg-cover bg-center overflow-hidden flex items-end p-3" style="background-image: url('images/royal-jacuzzi.jpg');">
+                    <div class="w-[210px] h-[373px] bg-zinc-900/90 rounded-xl border border-zinc-700/50 flex-shrink-0 bg-cover bg-center overflow-hidden flex items-end p-3" style="background-image: url('images/royal-jacuzzi.jpg');">
                         <span class="text-[9px] font-bold tracking-wider uppercase bg-black/70 px-2.5 py-1 rounded text-amber-400 border border-amber-500/20">Royal Jacuzzi</span>
                     </div>
-                    <div class="w-[224px] h-[150px] bg-zinc-900/90 rounded-xl border border-zinc-700/50 flex-shrink-0 bg-cover bg-center overflow-hidden flex items-end p-3" style="background-image: url('images/moroccan-scrub.jpg');">
+                    <div class="w-[210px] h-[373px] bg-zinc-900/90 rounded-xl border border-zinc-700/50 flex-shrink-0 bg-cover bg-center overflow-hidden flex items-end p-3" style="background-image: url('images/moroccan-scrub.jpg');">
                         <span class="text-[9px] font-bold tracking-wider uppercase bg-black/70 px-2.5 py-1 rounded text-amber-400 border border-amber-500/20">Moroccan Scrub</span>
                     </div>
                 </div>
