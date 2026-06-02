@@ -306,36 +306,45 @@
     </main>
 
     <div class="fixed bottom-6 right-6 z-50 flex flex-col items-end">
+        
+        <div id="marketingBubble" class="bg-zinc-950 border gold-border text-zinc-200 text-xs py-2 px-4 rounded-xl shadow-2xl mb-3 max-w-[240px] relative font-medium backdrop-blur-md">
+            <span id="bubbleTypewriter" class="typewriter-cursor"></span>
+            <div class="absolute bottom-[-6px] right-5 w-3 h-3 bg-zinc-950 border-r border-b gold-border rotate-45"></div>
+        </div>
+
         <div id="chatBox" class="hidden w-80 bg-zinc-950 border gold-border rounded-2xl shadow-2xl overflow-hidden mb-4 transition-all duration-300">
             <div class="gold-bg p-4 flex items-center justify-between text-black">
                 <div class="flex items-center space-x-3">
                     <div class="w-8 h-8 rounded-full bg-black flex items-center justify-center text-white text-xs font-bold">CO</div>
                     <div>
                         <p class="font-bold text-sm tracking-wide">Cola Assistant</p>
-                        <p class="text-[9px] font-medium opacity-75">Online • Fast Response</p>
+                        <p class="text-[9px] font-medium opacity-75">Direct to WhatsApp • Fast Response</p>
                     </div>
                 </div>
                 <button onclick="toggleChat()" class="text-black font-bold text-lg hover:opacity-60 px-2">×</button>
             </div>
+            
             <div class="p-5 space-y-4 bg-zinc-900/90 backdrop-blur">
-                <p id="typewriterText" class="text-xs text-zinc-300 leading-relaxed font-light min-h-[40px] typewriter-cursor"></p>
-                
                 <div class="space-y-1">
-                    <label class="text-[10px] uppercase tracking-widest text-zinc-400">Your Name</label>
-                    <input type="text" id="custName" placeholder="Enter your name here..." 
-                           class="w-full bg-zinc-950 border border-zinc-800 text-white p-3 rounded-xl text-xs focus:outline-none focus:border-amber-400">
+                    <label class="text-[10px] uppercase tracking-widest text-zinc-400">Anong maitutulong namin sa iyo?</label>
+                    <textarea id="custCustomMessage" rows="3" placeholder="I-type rito ang iyong katanungan o gustong i-book..." 
+                              class="w-full bg-zinc-950 border border-zinc-800 text-white p-3 rounded-xl text-xs focus:outline-none focus:border-amber-400 resize-none"></textarea>
                 </div>
-                <button onclick="startWhatsAppChat()" 
-                        class="w-full gold-bg text-black text-xs font-bold uppercase tracking-widest py-3 rounded-xl hover:opacity-90 transition-all block text-center">
-                    Start Conversation
+                <button onclick="sendDirectToWhatsApp()" 
+                        class="w-full gold-bg text-black text-xs font-bold uppercase tracking-widest py-3 rounded-xl hover:opacity-90 transition-all block text-center cursor-pointer">
+                    Send to WhatsApp →
                 </button>
             </div>
             <div class="p-2 text-center text-[8px] text-zinc-600 bg-zinc-950 border-t border-zinc-900">
-                Powered by Cola Care
+                Your message will automatically mirror on WhatsApp
             </div>
         </div>
 
-        <button onclick="toggleChat()" aria-label="Open Live Chat" class="w-14 h-14 bg-zinc-950 border gold-border text-amber-400 rounded-full flex items-center justify-center shadow-2xl hover:scale-105 transition-transform duration-200 cursor-pointer">
+        <button onclick="toggleChat()" aria-label="Open Live Chat" class="w-14 h-14 bg-zinc-950 border gold-border text-amber-400 rounded-full flex items-center justify-center shadow-2xl hover:scale-105 transition-transform duration-200 cursor-pointer relative">
+            <span class="absolute top-0 right-0 flex h-3 w-3">
+                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
+                <span class="relative inline-flex rounded-full h-3 w-3 bg-amber-500"></span>
+            </span>
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M8.625 12a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H8.25m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H12m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H16M21 12c0 4.556-4.03 8.25-9 8.25a9.764 9.764 0 01-2.555-.337A5.972 5.972 0 015.41 20.97a5.969 5.969 0 01-.474-3.658C3.05 15.82 2 13.98 2 12c0-4.556 4.03-8.25 9-8.25s9 3.694 9 8.25z" />
             </svg>
@@ -343,55 +352,84 @@
     </div>
 
     <script>
-        let typingTimeout;
+        // --- 1. UNLIMITED TYPEWRITER LOOP PARA SA OUTSIDE FLOATING BUBBLE ---
+        const phrases = [
+            "Hi! I am Cola. How can I help you? ✨",
+            "Book your Premium Massage now! 💆‍♂️",
+            "Available 24/7 in Al Yarmuk, Riyadh! 📍",
+            "Chat with us directly via WhatsApp! ⚡"
+        ];
+        
+        let phraseIndex = 0;
+        let characterIndex = 0;
+        let isDeleting = false;
+        const bubbleElement = document.getElementById("bubbleTypewriter");
 
-        function typeWriter(text, elementId, speed) {
-            let i = 0;
-            const element = document.getElementById(elementId);
-            element.innerHTML = ""; // I-clear ang lumang text
-            element.classList.add('typewriter-cursor'); // Ipakita ang cursor habang nagta-type
+        function loopTypewriter() {
+            const currentPhrase = phrases[phraseIndex];
 
-            function type() {
-                if (i < text.length) {
-                    element.innerHTML += text.charAt(i);
-                    i++;
-                    typingTimeout = setTimeout(type, speed);
-                } else {
-                    // Opsyonal: Pwede mong alisin ang cursor kapag tapos na magtype gamit ito:
-                    // element.classList.remove('typewriter-cursor');
-                }
+            if (isDeleting) {
+                // Pagbura ng letra
+                bubbleElement.innerHTML = currentPhrase.substring(0, characterIndex - 1);
+                characterIndex--;
+            } else {
+                // Pagtatatype ng letra
+                bubbleElement.innerHTML = currentPhrase.substring(0, characterIndex + 1);
+                characterIndex++;
             }
-            type();
+
+            // Bilis ng pag-type at pagbura (milliseconds)
+            let typeSpeed = isDeleting ? 20 : 45;
+
+            if (!isDeleting && characterIndex === currentPhrase.length) {
+                typeSpeed = 2500; // Naka-steady ng 2.5 segundo para madaling mabasa ng kustomer
+                isDeleting = true;
+            } else if (isDeleting && characterIndex === 0) {
+                isDeleting = false;
+                phraseIndex = (phraseIndex + 1) % phrases.length; // Lilipat sa susunod na phrase kapag nabura na lahat
+                typeSpeed = 400; // Sandaling pahinga bago magsimulang magtype muli
+            }
+
+            setTimeout(loopTypewriter, typeSpeed);
         }
 
+        // Awtomatikong pinapagana ang loop pagkaka-load ng HTML body
+        document.addEventListener("DOMContentLoaded", function() {
+            loopTypewriter();
+        });
+
+        // --- 2. CHAT BOX TOGGLE FUNCTIONS ---
         function toggleChat() {
             const chatBox = document.getElementById('chatBox');
-            const isHidden = chatBox.classList.contains('hidden');
-            
-            // I-clear ang kahit anong tumatakbong typing timeout para iwas mag-overlap
-            clearTimeout(typingTimeout);
+            const marketingBubble = document.getElementById('marketingBubble');
             
             chatBox.classList.toggle('hidden');
-
-            // Kung binubuksan pa lang ang chat, simulan ang typewriter animation
-            if (isHidden) {
-                const welcomeMessage = "Hi, I am Cola! How can I help you today? Please enter your name below to start.";
-                // 35ms ang bilis ng bawat letra (sakto lang para sa mata ng user)
-                typeWriter(welcomeMessage, 'typewriterText', 35);
+            
+            // Itatago ang attractive speech bubble kapag binuksan ang main window upang malinis tingnan
+            if (chatBox.classList.contains('hidden')) {
+                marketingBubble.classList.remove('hidden');
+            } else {
+                marketingBubble.classList.add('hidden');
+                document.getElementById('custCustomMessage').focus();
             }
         }
 
-        function startWhatsAppChat() {
+        // --- 3. DYNAMIC TEXT MIRRORING TO WHATSAPP ---
+        function sendDirectToWhatsApp() {
+            // I-trigger ang iyong Google Ads Conversion Tracker
             trackWhatsAppConversion();
 
-            const name = document.getElementById('custName').value.trim();
-            let message = "Hi Cola Wellness Center, I am on your website and I would like to inquire about booking a premium treatment.";
+            const customText = document.getElementById('custCustomMessage').value.trim();
             
-            if (name !== "") {
-                message = `Hi Cola Wellness Center, my name is ${name}. I am visiting your website and I would like to book a relaxation appointment.`;
+            // Backup text kung sakaling pinindot agad ang send nang walang nilalaman ang textbox
+            let finalMessage = "Hi Cola Wellness Center! I am on your website and I am interested in booking a premium relaxation treatment.";
+            
+            if (customText !== "") {
+                // Kung may tinype ang customer, ito mismo ang eksaktong lalabas sa WhatsApp box nila!
+                finalMessage = customText;
             }
             
-            const encodedMessage = encodeURIComponent(message);
+            const encodedMessage = encodeURIComponent(finalMessage);
             window.open(`https://wa.me/966560958973?text=${encodedMessage}`, '_blank');
         }
     </script>
