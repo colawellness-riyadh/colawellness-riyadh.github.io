@@ -36,13 +36,23 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
  <style>
+     :root {
+            --gold: #d4a017;
+            --gold-bright: #f2b600;
+            --dark-card: #0a0a0a;
+            --pure-gold: #FFD700;
+            --yellow-btn: #e6b012;
+        }
+        
         body {
             font-family: 'Montserrat', sans-serif;
             background-color: #0d0d0d;
             color: #E5E5E5;
             overflow-x: hidden;
             margin: 0;
+            
         }
+     
         .luxury-font {
             font-family: 'Cinzel', serif;
         }
@@ -138,9 +148,78 @@
         @keyframes blink {
             0%, 100% { opacity: 1; }
             50% { opacity: 0; }
+         }
+
+        .service-card { 
+            position: relative;
+            padding: 30px; 
+            border-radius: 25px; 
+            text-decoration: none; 
+            color: #fff; 
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow: hidden;
+            transition: 0.3s;
+            backdrop-filter: blur(3px);
         }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: -100%; left: -100%;
+            width: 300%; height: 300%;
+            background: conic-gradient(transparent 0deg, transparent 90deg, var(--gold-bright) 180deg, transparent 180deg, transparent 270deg, var(--gold-bright) 360deg);
+            z-index: 0;
+            animation: spin 3s linear infinite;
+        }
+
+        .service-card::after {
+            content: '';
+            position: absolute;
+            inset: 3px;
+            background: rgba(10, 10, 10, 0.85);
+            border-radius: 22px;
+            z-index: 1;
+        }
+
+        .service-card > * { position: relative; z-index: 2; }
+        .service-card i { font-size: 30px; color: var(--gold); margin-bottom: 15px; }
+        .service-card h3 { font-family: 'Playfair Display', serif; font-size: 24px; margin-bottom: 5px; }
+        .service-card .arabic-title { font-size: 20px; color: var(--gold); font-weight: bold; margin-bottom: 15px; }
+        .service-card p { font-size: 14px; color: #ccc; line-height: 1.5; margin-bottom: 20px; }
+
+        .price-btn { 
+            background: #000; 
+            color: var(--gold-bright); 
+            padding: 12px 30px; 
+            border-radius: 50px; 
+            font-weight: 700; 
+            font-size: 16px;
+            border: 1px solid #333;
+        }
+
+        .premium-card::after { background: var(--gold); }
+        .premium-card::before { background: conic-gradient(transparent 0deg, #000 180deg, #fff 360deg); }
+        .premium-card > * { color: #000 !important; }
+        .premium-card p { color: #000 !important; font-weight: 600; }
+        .premium-card .price-btn { background: #000 !important; color: var(--gold-bright) !important; border: none; }
+
+        @keyframes spin { 100% { transform: rotate(360deg); } }
+        @keyframes slideRight { 
+            0% { transform: translateX(0); }
+            100% { transform: translateX(calc(-220px * 7 - 20px * 7)); }
+        }
+
+        .note { font-size: 12px; color: #999; margin-top: 50px; font-style: italic; }
+        
+        .footer-nav { margin-top: 30px; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+        .footer-link { color: var(--gold); text-decoration: none; font-weight: 600; font-size: 16px; transition: 0.3s; }
+        .footer-link:hover { color: #fff; text-shadow: 0 0 10px var(--gold); }
+        .separator { color: #444; }
     </style>
 </head>
+<body>
 <body class="min-h-screen flex flex-col justify-between relative">
 
     <div class="slideshow-container">
@@ -254,10 +333,57 @@
                     <div class="w-[210px] h-[373px] bg-zinc-900/90 rounded-xl border border-zinc-700/50 flex-shrink-0 bg-cover bg-center overflow-hidden flex items-end p-3" style="background-image: url('FixPlus_20260515_224325099.png');">
                         <span class="text-[9px] font-bold tracking-wider uppercase bg-black/70 px-2.5 py-1 rounded text-amber-400 border border-amber-500/20">Sauna Room</span>
                     </div>
-                </div>
-             </div>
-            
-        </div> 
+                </section>
+
+    <div class="booking-grid">
+        <a href="https://wa.me/966560958973?text=Hi! I want to book Thai Massage" class="service-card" onclick="gtag('event', 'ads_conversion_Book_appointment_1', {});">
+            <i class="fas fa-hands-holding"></i>
+            <h3>Thai Massage</h3>
+            <span class="arabic-title">مساج تايلاندي</span>
+            <p>Traditional deep stretch therapy.<br>العلاج التقليدي للتمدد العميق.</p>
+            <div class="price-btn">130 SR / 40 MINS</div>
+        </a>
+
+        <a href="https://wa.me/966560958973?text=Hi! I want to book Swedish Massage" class="service-card" onclick="gtag('event', 'ads_conversion_Book_appointment_1', {});">
+            <i class="fas fa-spa"></i>
+            <h3>Swedish Massage</h3>
+            <span class="arabic-title">مساج سويدي</span>
+            <p>Gentle strokes for relaxation.<br>ضربات لطيفة للاسترخاء.</p>
+            <div class="price-btn">130 SR / 40 MINS</div>
+        </a>
+
+        <a href="https://wa.me/966560958973?text=Hi! I want to book Oil Massage" class="service-card" onclick="gtag('event', 'ads_conversion_Book_appointment_1', {});">
+            <i class="fas fa-droplet"></i>
+            <h3>Oil Massage</h3>
+            <span class="arabic-title">مساج بالزيت</span>
+            <p>Full body calming massage.<br>تدليك مهدئ للجسم بالكامل.</p>
+            <div class="price-btn">130 SR / 40 MINS</div>
+        </a>
+
+        <a href="https://wa.me/966560958973?text=Hi! I want to book Moroccan Bath" class="service-card" onclick="gtag('event', 'ads_conversion_Book_appointment_1', {});">
+            <i class="fas fa-bath"></i>
+            <h3>Moroccan Bath</h3>
+            <span class="arabic-title">حمام مغربي</span>
+            <p>Traditional skin cleansing.<br>تنظيف البشرة التقليدي.</p>
+            <div class="price-btn">130 SR / 40 MINS</div>
+        </a>
+
+        <a href="https://wa.me/966560958973?text=Hi! I want to book Shaving Service" class="service-card" onclick="gtag('event', 'ads_conversion_Book_appointment_1', {});">
+            <i class="fas fa-razor"></i>
+            <h3>Shaving (On Demand)</h3>
+            <span class="arabic-title">حلاقة عند الطلب</span>
+            <p>Clean and professional grooming services including Full Body Shaving, Bikini, and Underarm cleaning.<br>خدمات الحلاقة والنظافة الشخصية الاحترافية.</p>
+            <div class="price-btn">FULL CARE</div>
+        </a>
+
+        <a href="https://wa.me/966560958973?text=Hi! I want to book the PREMIUM PACKAGE" class="service-card premium-card" onclick="gtag('event', 'ads_conversion_Book_appointment_1', {});">
+            <i class="fas fa-crown"></i>
+            <h3>PREMIUM PACKAGE</h3>
+            <span class="arabic-title">باقة بريميوم</span>
+            <p>2h 30m of Luxury: Massage, Bath, Stone, Mani & Pedi.<br>2 ساعة و30 دقيقة من الفخامة.</p>
+            <div class="price-btn">450 SR / FULL CARE</div>
+        </a>
+    </div>
    
     </main>
      
