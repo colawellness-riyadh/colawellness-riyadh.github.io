@@ -10,12 +10,12 @@
     
     <title>COLA Wellness Center | Riyadh</title>
 
-   <meta property="og:image" content="https://cola-wellness.vercel.app/colalogo.png">
-<meta property="og:image:width" content="300">
-<meta property="og:image:height" content="300">
-<meta property="og:image:type" content="image/png">
-<link rel="icon" type="image/png" href="https://cola-wellness.vercel.app/colalogo.png">
-<link rel="apple-touch-icon" href="https://cola-wellness.vercel.app/colalogo.png">
+    <meta property="og:image" content="https://cola-wellness.vercel.app/colalogo.png">
+    <meta property="og:image:width" content="300">
+    <meta property="og:image:height" content="300">
+    <meta property="og:image:type" content="image/png">
+    <link rel="icon" type="image/png" href="https://cola-wellness.vercel.app/colalogo.png">
+    <link rel="apple-touch-icon" href="https://cola-wellness.vercel.app/colalogo.png">
     
     <link rel="icon" type="image/png" href="colalogo.png">
     <link rel="shortcut icon" type="image/png" href="colalogo.png">
@@ -225,12 +225,11 @@
         
         <nav class="w-full md:w-auto flex flex-row overflow-x-auto no-scrollbar justify-start md:justify-center items-center space-x-5 text-[9px] md:text-[10px] tracking-widest uppercase text-zinc-300 font-medium py-1">
             <a href="index.html" class="hover:text-amber-400 text-amber-400 font-semibold whitespace-nowrap transition-colors">Home</a>
-            <a href="index.html#services" class="hover:text-amber-400 whitespace-nowrap transition-colors">Facilities</a>
+            <a href="Facilities.html" class="hover:text-amber-400 whitespace-nowrap transition-colors">Facilities</a>
             <a href="servicemenu.html" class="hover:text-amber-400 whitespace-nowrap transition-colors">Service Menu</a>
             <a href="promotion.html" class="hover:text-amber-400 whitespace-nowrap transition-colors">Event/Promotion</a>
             <a href="location.html" class="hover:text-amber-400 whitespace-nowrap transition-colors">Location</a>
             <a href="https://www.facebook.com/sweetcola31/" target="_blank" class="hover:text-amber-400 whitespace-nowrap transition-colors">Facebook</a>
-            <a href="https://instagram.com" target="_blank" class="hover:text-amber-400 whitespace-nowrap transition-colors">Instagram</a>
             <a href="https://g.page/r/CbAoACwjDz6lEBM/review" target="_blank" class="hover:text-amber-400 whitespace-nowrap transition-colors">Rate/Review</a>
             <a href="index.html#about" class="hover:text-amber-400 whitespace-nowrap transition-colors">About</a>
         </nav>
@@ -370,31 +369,27 @@
             const currentPhrase = phrases[phraseIndex];
 
             if (isDeleting) {
-                // Pagbura ng letra
                 bubbleElement.innerHTML = currentPhrase.substring(0, characterIndex - 1);
                 characterIndex--;
             } else {
-                // Pagtatatype ng letra
                 bubbleElement.innerHTML = currentPhrase.substring(0, characterIndex + 1);
                 characterIndex++;
             }
 
-            // Bilis ng pag-type at pagbura (milliseconds)
             let typeSpeed = isDeleting ? 20 : 45;
 
             if (!isDeleting && characterIndex === currentPhrase.length) {
-                typeSpeed = 2500; // Naka-steady ng 2.5 segundo para madaling mabasa ng kustomer
+                typeSpeed = 2500; 
                 isDeleting = true;
             } else if (isDeleting && characterIndex === 0) {
                 isDeleting = false;
-                phraseIndex = (phraseIndex + 1) % phrases.length; // Lilipat sa susunod na phrase kapag nabura na lahat
-                typeSpeed = 400; // Sandaling pahinga bago magsimulang magtype muli
+                phraseIndex = (phraseIndex + 1) % phrases.length; 
+                typeSpeed = 400; 
             }
 
             setTimeout(loopTypewriter, typeSpeed);
         }
 
-        // Awtomatikong pinapagana ang loop pagkaka-load ng HTML body
         document.addEventListener("DOMContentLoaded", function() {
             loopTypewriter();
         });
@@ -406,7 +401,6 @@
             
             chatBox.classList.toggle('hidden');
             
-            // Itatago ang attractive speech bubble kapag binuksan ang main window upang malinis tingnan
             if (chatBox.classList.contains('hidden')) {
                 marketingBubble.classList.remove('hidden');
             } else {
@@ -417,16 +411,11 @@
 
         // --- 3. DYNAMIC TEXT MIRRORING TO WHATSAPP ---
         function sendDirectToWhatsApp() {
-            // I-trigger ang iyong Google Ads Conversion Tracker
             trackWhatsAppConversion();
-
             const customText = document.getElementById('custCustomMessage').value.trim();
-            
-            // Backup text kung sakaling pinindot agad ang send nang walang nilalaman ang textbox
             let finalMessage = "Hi Cola Wellness Center! I am on your website and I am interested in booking a premium relaxation treatment.";
             
             if (customText !== "") {
-                // Kung may tinype ang customer, ito mismo ang eksaktong lalabas sa WhatsApp box nila!
                 finalMessage = customText;
             }
             
