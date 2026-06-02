@@ -15,7 +15,7 @@
     <meta property="og:image:height" content="300">
     <meta property="og:image:type" content="image/png">
     <link class="icon" type="image/png" href="https://cola-wellness.vercel.app/colalogo.png">
-    <link rel="apple-touch-icon" href="https://cola-wellness.vercel.app/colalogo.png">
+    <link class="apple-touch-icon" href="https://cola-wellness.vercel.app/colalogo.png">
 
     <link rel="icon" type="image/png" href="colalogo.png">
     <link rel="shortcut icon" type="image/png" href="colalogo.png">
@@ -123,12 +123,12 @@
         /* INFINITE LOOP SLIDER CORRECTION */
         @keyframes scrollRight {
             0% { transform: translateX(0); }
-            100% { transform: translateX(calc(-226px * 7)); } /* Nag-ma-match sa kabuuang sukat ng unang batch */
+            100% { transform: translateX(calc(-226px * 7)); }
         }
 
         .slider-track-right {
             display: flex;
-            width: calc(226px * 14); /* Width para sa orihinal + cloned cards */
+            width: calc(226px * 14);
             animation: scrollRight 30s linear infinite;
         }
         
@@ -175,6 +175,7 @@
             border: 2px solid #b38f24;
             box-shadow: inset 0 0 40px rgba(0,0,0,0.9);
             transition: transform 0.3s ease;
+            cursor: pointer;
         }
         
         .service-card:hover {
@@ -307,80 +308,58 @@
                     <div class="w-[210px] h-[373px] bg-zinc-900/90 rounded-xl border border-zinc-700/50 flex-shrink-0 bg-cover bg-center overflow-hidden flex items-end p-3" style="background-image: url('FixPlus_20260515_224325099.png');">
                         <span class="text-[9px] font-bold tracking-wider uppercase bg-black/70 px-2.5 py-1 rounded text-amber-400 border border-amber-500/20">Sauna Room</span>
                     </div>
-
-                    <div class="w-[210px] h-[373px] bg-zinc-900/90 rounded-xl border border-zinc-700/50 flex-shrink-0 bg-cover bg-center overflow-hidden flex items-end p-3" style="background-image: url('FixPlus_20260522_015636857.jpg');">
-                        <span class="text-[9px] font-bold tracking-wider uppercase bg-black/70 px-2.5 py-1 rounded text-amber-400 border border-amber-500/20">Luxury Room</span>
-                    </div>
-                    <div class="w-[210px] h-[373px] bg-zinc-900/90 rounded-xl border border-zinc-700/50 flex-shrink-0 bg-cover bg-center overflow-hidden flex items-end p-3" style="background-image: url('Snapchat-1585899800.jpg');">
-                        <span class="text-[9px] font-bold tracking-wider uppercase bg-black/70 px-2.5 py-1 rounded text-amber-400 border border-amber-500/20">Moroccan Bath</span>
-                    </div>
-                    <div class="w-[210px] h-[373px] bg-zinc-900/90 rounded-xl border border-zinc-700/50 flex-shrink-0 bg-cover bg-center overflow-hidden flex items-end p-3" style="background-image: url('FixPlus_20260510_165850154.jpg');">
-                        <span class="text-[9px] font-bold tracking-wider uppercase bg-black/70 px-2.5 py-1 rounded text-amber-400 border border-amber-500/20">Jacuzzi Area</span>
-                    </div>
-                    <div class="w-[210px] h-[373px] bg-zinc-900/90 rounded-xl border border-zinc-700/50 flex-shrink-0 bg-cover bg-center overflow-hidden flex items-end p-3" style="background-image: url('FixPlus_20260510_170005442.jpg');">
-                        <span class="text-[9px] font-bold tracking-wider uppercase bg-black/70 px-2.5 py-1 rounded text-amber-400 border border-amber-500/20">Massage Deck</span>
-                    </div>
-                    <div class="w-[210px] h-[373px] bg-zinc-900/90 rounded-xl border border-zinc-700/50 flex-shrink-0 bg-cover bg-center overflow-hidden flex items-end p-3" style="background-image: url('FixPlus_20260519_041654631(1)(1).jpg');">
-                        <span class="text-[9px] font-bold tracking-wider uppercase bg-black/70 px-2.5 py-1 rounded text-amber-400 border border-amber-500/20">Therapy Lounge</span>
-                    </div>
-                    <div class="w-[210px] h-[373px] bg-zinc-900/90 rounded-xl border border-zinc-700/50 flex-shrink-0 bg-cover bg-center overflow-hidden flex items-end p-3" style="background-image: url('FixPlus_20260510_170152764.jpg');">
-                        <span class="text-[9px] font-bold tracking-wider uppercase bg-black/70 px-2.5 py-1 rounded text-amber-400 border border-amber-500/20">VIP Spa Suite</span>
-                    </div>
-                    <div class="w-[210px] h-[373px] bg-zinc-900/90 rounded-xl border border-zinc-700/50 flex-shrink-0 bg-cover bg-center overflow-hidden flex items-end p-3" style="background-image: url('FixPlus_20260515_224325099.png');">
-                        <span class="text-[9px] font-bold tracking-wider uppercase bg-black/70 px-2.5 py-1 rounded text-amber-400 border border-amber-500/20">Sauna Room</span>
-                    </div>
                 </div>
             </div>
         </div>
 
         <div class="booking-grid">
-            <a href="https://wa.me/966560958973?text=Hi! I want to book Thai Massage" class="service-card" onclick="gtag('event', 'ads_conversion_Book_appointment_1', {});">
+            <div class="service-card" onclick="openBookingModal('Thai Massage', '130 SR / 40 MINS')">
                 <i class="fas fa-hands-holding"></i>
                 <h3>Thai Massage</h3>
                 <span class="arabic-title">مساج تايلاندي</span>
                 <p>Traditional deep stretch therapy.<br>العلاج التقليدي للتمدد العميق.</p>
                 <div class="price-btn">130 SR / 40 MINS</div>
-            </a>
+            </div>
 
-            <a href="https://wa.me/966560958973?text=Hi! I want to book Swedish Massage" class="service-card" onclick="gtag('event', 'ads_conversion_Book_appointment_1', {});">
+            <div class="service-card" onclick="openBookingModal('Swedish Massage', '130 SR / 40 MINS')">
                 <i class="fas fa-spa"></i>
                 <h3>Swedish Massage</h3>
                 <span class="arabic-title">مساج سويدي</span>
                 <p>Gentle strokes for relaxation.<br>ضربات لطيفة للاسترخاء.</p>
                 <div class="price-btn">130 SR / 40 MINS</div>
-            </a>
+            </div>
 
-            <a href="https://wa.me/966560958973?text=Hi! I want to book Oil Massage" class="service-card" onclick="gtag('event', 'ads_conversion_Book_appointment_1', {});">
+            <div class="service-card" onclick="openBookingModal('Oil Massage', '130 SR / 40 MINS')">
                 <i class="fas fa-droplet"></i>
                 <h3>Oil Massage</h3>
                 <span class="arabic-title">مساج بالزيت</span>
                 <p>Full body calming massage.<br>تدليك مهدئ للجسم بالكامل.</p>
                 <div class="price-btn">130 SR / 40 MINS</div>
-            </a>
+            </div>
 
-            <a href="https://wa.me/966560958973?text=Hi! I want to book Moroccan Bath" class="service-card" onclick="gtag('event', 'ads_conversion_Book_appointment_1', {});">
+            <div class="service-card" onclick="openBookingModal('Moroccan Bath', '130 SR / 40 MINS')">
                 <i class="fas fa-bath"></i>
                 <h3>Moroccan Bath</h3>
                 <span class="arabic-title">حمام مغربي</span>
                 <p>Traditional skin cleansing.<br>تنظيف البشرة التقليدي.</p>
                 <div class="price-btn">130 SR / 40 MINS</div>
-            </a>
+            </div>
 
-            <a href="https://wa.me/966560958973?text=Hi! I want to book Shaving Service" class="service-card" onclick="gtag('event', 'ads_conversion_Book_appointment_1', {});">
+            <div class="service-card" onclick="openBookingModal('Shaving Service', 'FULL CARE')">
                 <i class="fas fa-razor"></i>
                 <h3>Shaving (On Demand)</h3>
                 <span class="arabic-title">حلاقة عند الطلب</span>
                 <p>Clean and professional grooming services including Full Body Shaving, Bikini, and Underarm cleaning.<br>خدمات الحلاقة والنظافة الشخصية الاحترافية.</p>
                 <div class="price-btn">FULL CARE</div>
-            </a>
+            </div>
 
-            <a href="https://wa.me/966560958973?text=Hi! I want to book the PREMIUM PACKAGE" class="service-card premium-card" onclick="gtag('event', 'ads_conversion_Book_appointment_1', {});">
+            <div class="service-card premium-card" onclick="openBookingModal('PREMIUM PACKAGE', '450 SR / FULL CARE')">
                 <i class="fas fa-crown"></i>
                 <h3>PREMIUM PACKAGE</h3>
                 <span class="arabic-title">باقة بريميوم</span>
                 <p>2h 30m of Luxury: Massage, Bath, Stone, Mani & Pedi.<br>2 ساعة و30 دقيقة من الفخامة.</p>
                 <div class="price-btn">450 SR / FULL CARE</div>
-            </a>
+            </div>
         </div>
        
     </main>
@@ -405,11 +384,70 @@
                 <p class="text-[8px] tracking-widest text-zinc-500 uppercase mt-1">Service</p>
             </div>
         </div>
-        <p class="text-[9px] text-zinc-500 tracking-widest mt-4 uppercase">⚡ FAST CONFIRMATION VIA WHATSAPP</p>
+        <p class="text-[9px] text-zinc-500 tracking-widest mt-4 uppercase">⚡ FAST CONFIRMATION</p>
+    </div>
+
+    <div id="bookingModal" class="hidden fixed inset-0 bg-black/80 backdrop-blur-md flex items-center justify-center p-4 z-50">
+        <div class="w-full max-w-md bg-zinc-950 border-2 border-[#b38f24] rounded-3xl p-6 relative shadow-2xl animate-in fade-in zoom-in duration-200">
+            <button onclick="closeBookingModal()" class="absolute top-4 right-4 text-zinc-400 hover:text-white text-xl font-bold bg-zinc-900 w-8 h-8 rounded-full flex items-center justify-center border border-zinc-800">&times;</button>
+            
+            <div class="text-center mb-6">
+                <span class="text-[10px] tracking-widest text-amber-400 uppercase font-bold block mb-1">You Selected</span>
+                <h3 id="modalServiceName" class="luxury-font text-xl font-bold text-white uppercase tracking-wider">Thai Massage</h3>
+                <p id="modalServicePrice" class="text-xs text-zinc-400 mt-1 font-semibold">130 SR / 40 MINS</p>
+            </div>
+
+            <div id="optionsContainer" class="space-y-3">
+                <p class="text-center text-[11px] text-zinc-400 uppercase tracking-widest mb-4">How do you prefer to book?</p>
+                
+                <button onclick="handleOptionAction('chat')" class="w-full bg-emerald-600/10 hover:bg-emerald-600/20 border-2 border-emerald-500/50 text-emerald-400 rounded-xl p-4 flex items-center justify-between font-bold text-sm tracking-wide transition-all group">
+                    <span class="flex items-center gap-3 uppercase text-[12px]"><i class="fa-brands fa-whatsapp text-xl"></i> Chat via WhatsApp</span>
+                    <i class="fa-solid fa-chevron-right text-xs group-hover:translate-x-1 transition-transform"></i>
+                </button>
+
+                <button onclick="handleOptionAction('call')" class="w-full bg-sky-600/10 hover:bg-sky-600/20 border-2 border-sky-500/50 text-sky-400 rounded-xl p-4 flex items-center justify-between font-bold text-sm tracking-wide transition-all group">
+                    <span class="flex items-center gap-3 uppercase text-[12px]"><i class="fa-solid fa-phone text-lg"></i> Direct Local Call</span>
+                    <i class="fa-solid fa-chevron-right text-xs group-hover:translate-x-1 transition-transform"></i>
+                </button>
+
+                <button onclick="handleOptionAction('form')" class="w-full bg-amber-500/10 hover:bg-amber-500/20 border-2 border-amber-500/50 text-amber-400 rounded-xl p-4 flex items-center justify-between font-bold text-sm tracking-wide transition-all group">
+                    <span class="flex items-center gap-3 uppercase text-[12px]"><i class="fa-solid fa-calendar-days text-lg"></i> Fill out Booking Form</span>
+                    <i class="fa-solid fa-chevron-right text-xs group-hover:translate-x-1 transition-transform"></i>
+                </button>
+            </div>
+
+            <div id="formContainer" class="hidden animate-in fade-in duration-200">
+                <button onclick="backToOptions()" class="text-[10px] text-amber-400 hover:underline uppercase tracking-widest font-semibold mb-4 flex items-center gap-1">
+                    <i class="fa-solid fa-arrow-left"></i> Back to options
+                </button>
+                <form id="internalBookingForm" onsubmit="submitFormBooking(event)" class="space-y-3">
+                    <div>
+                        <label class="text-[10px] uppercase tracking-widest text-zinc-400 block mb-1">Full Name *</label>
+                        <input type="text" id="formCustName" required class="w-full bg-zinc-900 border border-zinc-800 text-white p-2.5 rounded-xl text-xs focus:outline-none focus:border-amber-400">
+                    </div>
+                    <div>
+                        <label class="text-[10px] uppercase tracking-widest text-zinc-400 block mb-1">Mobile / WhatsApp Number *</label>
+                        <input type="tel" id="formCustPhone" required class="w-full bg-zinc-900 border border-zinc-800 text-white p-2.5 rounded-xl text-xs focus:outline-none focus:border-amber-400" placeholder="+966">
+                    </div>
+                    <div class="grid grid-cols-2 gap-2">
+                        <div>
+                            <label class="text-[10px] uppercase tracking-widest text-zinc-400 block mb-1">Preferred Date *</label>
+                            <input type="date" id="formCustDate" required class="w-full bg-zinc-900 border border-zinc-800 text-white p-2.5 rounded-xl text-xs focus:outline-none focus:border-amber-400">
+                        </div>
+                        <div>
+                            <label class="text-[10px] uppercase tracking-widest text-zinc-400 block mb-1">Preferred Time *</label>
+                            <input type="time" id="formCustTime" required class="w-full bg-zinc-900 border border-zinc-800 text-white p-2.5 rounded-xl text-xs focus:outline-none focus:border-amber-400">
+                        </div>
+                    </div>
+                    <button type="submit" class="w-full gold-bg text-black text-xs font-bold uppercase tracking-widest py-3 rounded-xl hover:opacity-90 transition-all mt-4">
+                        Confirm Appointment Form
+                    </button>
+                </form>
+            </div>
+        </div>
     </div>
 
     <div class="fixed bottom-6 right-6 z-50 flex flex-col items-end">
-        
         <div id="marketingBubble" class="bg-zinc-950 border gold-border text-zinc-200 text-xs py-2 px-4 rounded-xl shadow-2xl mb-3 max-w-[240px] relative font-medium backdrop-blur-md">
             <span id="bubbleTypewriter" class="typewriter-cursor"></span>
             <div class="absolute bottom-[-6px] right-5 w-3 h-3 bg-zinc-950 border-r border-b gold-border rotate-45"></div>
@@ -530,6 +568,77 @@
             
             const encodedMessage = encodeURIComponent(finalMessage);
             window.open(`https://wa.me/966560958973?text=${encodedMessage}`, '_blank');
+        }
+
+        /* NEW MODAL SYSTEM SCRIPT LOGIC */
+        let activeSelectedService = "";
+        let activeSelectedPrice = "";
+        const hotlineNumber = "+966560958973"; // Palitan mo ito kung may ibang local calling landline/mobile number
+
+        function openBookingModal(serviceName, servicePrice) {
+            activeSelectedService = serviceName;
+            activeSelectedPrice = servicePrice;
+            
+            document.getElementById('modalServiceName').innerText = serviceName;
+            document.getElementById('modalServicePrice').innerText = servicePrice;
+            
+            // I-reset ang view ng modal tuwing magbubukas
+            document.getElementById('optionsContainer').classList.remove('hidden');
+            document.getElementById('formContainer').classList.add('hidden');
+            document.getElementById('internalBookingForm').reset();
+            
+            // Fire target Google Conversion Ads tag base sa orihinal mong code tracking
+            if(typeof gtag === 'function') {
+                gtag('event', 'ads_conversion_Book_appointment_1', {});
+            }
+
+            document.getElementById('bookingModal').classList.remove('hidden');
+        }
+
+        function closeBookingModal() {
+            document.getElementById('bookingModal').classList.add('hidden');
+        }
+
+        function backToOptions() {
+            document.getElementById('optionsContainer').classList.remove('hidden');
+            document.getElementById('formContainer').classList.add('hidden');
+        }
+
+        function handleOptionAction(actionType) {
+            if (actionType === 'chat') {
+                const message = `Hi! I want to book ${activeSelectedService} (${activeSelectedPrice}).`;
+                window.open(`https://wa.me/966560958973?text=${encodeURIComponent(message)}`, '_blank');
+                closeBookingModal();
+            } 
+            else if (actionType === 'call') {
+                window.open(`tel:${hotlineNumber}`, '_self');
+                closeBookingModal();
+            } 
+            else if (actionType === 'form') {
+                document.getElementById('optionsContainer').classList.add('hidden');
+                document.getElementById('formContainer').classList.remove('hidden');
+            }
+        }
+
+        function submitFormBooking(event) {
+            event.preventDefault();
+            
+            const name = document.getElementById('formCustName').value.trim();
+            const phone = document.getElementById('formCustPhone').value.trim();
+            const date = document.getElementById('formCustDate').value;
+            const time = document.getElementById('formCustTime').value;
+
+            // Gagawin nitong maayos na text format at ipapasa sa WhatsApp niyo para automatic niyo paring matanggap
+            const formalMessage = `📌 NEW BOOKING APPOINTMENT FORM\n\n` +
+                                  `Service: ${activeSelectedService}\n` +
+                                  `Price/Duration: ${activeSelectedPrice}\n\n` +
+                                  `Client Name: ${name}\n` +
+                                  `Phone Number: ${phone}\n` +
+                                  `Preferred Date: ${date}\n` +
+                                  `Preferred Time: ${time}`;
+
+            window.open(`https://wa.me/966560958973?text=${encodeURIComponent(formalMessage)}`, '_blank');
+            closeBookingModal();
         }
     </script>
 
