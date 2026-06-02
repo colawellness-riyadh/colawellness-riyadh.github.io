@@ -12,13 +12,19 @@
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
       gtag('config', 'AW-18066238938');
+
+      function trackWhatsAppConversion() {
+         gtag('event', 'conversion', {
+            'send_to': 'AW-18066238938'
+         });
+      }
     </script>
 
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <style>
         body {
@@ -26,6 +32,7 @@
             background-color: #0a0a0a;
             color: #E5E5E5;
             overflow-x: hidden;
+            margin: 0;
         }
         .luxury-font {
             font-family: 'Cinzel', serif;
@@ -37,13 +44,13 @@
             -webkit-text-fill-color: transparent;
         }
         .gold-bg {
-            background: linear-gradient(135deg, #D4AF37 0%, #AA7C11 100%);
+            background: linear-gradient(135deg, #E6C667 0%, #C49A33 50%, #946E19 100%);
         }
         .gold-border {
-            border-color: #D4AF37;
+            border-color: #C49A33;
         }
         
-        /* PURE CSS BACKGROUND SLIDESHOW ANIMATION */
+        /* BACKGROUND SLIDESHOW ANIMATION */
         .slideshow-container {
             position: fixed;
             top: 0;
@@ -84,19 +91,19 @@
             100% { opacity: 0; }
         }
 
-        /* Dark overlay protector over slideshow */
         .dark-overlay {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, rgba(10, 10, 10, 0.88) 0%, rgba(5, 5, 5, 0.75) 100%);
+            background: linear-gradient(135deg, rgba(10, 10, 10, 0.9) 0%, rgba(5, 5, 5, 0.8) 100%);
             z-index: 1;
             pointer-events: none;
         }
 
-        /* Custom Scrollbar */
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
         ::-webkit-scrollbar { width: 6px; }
         ::-webkit-scrollbar-track { background: #121212; }
         ::-webkit-scrollbar-thumb { background: #D4AF37; border-radius: 3px; }
@@ -112,43 +119,80 @@
     </div>
     <div class="dark-overlay"></div>
 
-    <header class="w-full py-5 px-6 md:px-12 flex justify-between items-center bg-black/60 backdrop-blur-md border-b border-zinc-800/50 sticky top-0 z-50">
-        <div class="flex items-center space-x-2">
-            <span class="text-xl">👑</span>
-            <div class="flex flex-col">
-                <span class="luxury-font text-xl md:text-2xl font-bold tracking-widest gold-text leading-none">COLA</span>
-                <span class="text-[7px] tracking-[0.25em] text-zinc-400 mt-1 uppercase font-light">Wellness Center</span>
+    <header class="w-full py-4 px-4 md:px-12 flex flex-col md:flex-row justify-between items-center bg-black/80 backdrop-blur-md border-b border-zinc-800/50 sticky top-0 z-50 gap-4 md:gap-0">
+        
+        <div class="w-full md:w-auto flex justify-between items-center">
+            <div class="flex items-center space-x-2 md:space-x-3">
+                <img src="colalogo.png" alt="COLA Logo" class="w-9 h-9 md:w-12 md:h-12 object-contain rounded-full border border-amber-500/30">
+                <div class="flex flex-col">
+                    <span class="luxury-font text-lg md:text-2xl font-bold tracking-widest gold-text leading-none">COLA</span>
+                    <span class="text-[6px] md:text-[7px] tracking-[0.25em] text-zinc-400 mt-1 uppercase font-light">Wellness Center</span>
+                </div>
+            </div>
+            
+            <div class="flex md:hidden items-center space-x-2">
+                <a href="https://wa.me/966560958973" onclick="trackWhatsAppConversion()" class="p-2 bg-emerald-600/20 border border-emerald-500/40 text-emerald-400 rounded-lg active:bg-emerald-600/40">
+                    <i class="fa-brands fa-whatsapp text-lg"></i>
+                </a>
             </div>
         </div>
         
-        <nav class="xl:flex space-x-6 text-[10px] tracking-widest uppercase text-zinc-300 font-medium mx-auto xl:mx-0">
-            <a href="index.html" class="hover:text-amber-400 transition-colors">Home</a>
-            <a href="index.html#services" class="hover:text-amber-400 transition-colors">Facilities</a>
-            <a href="https://wa.me/966560958973?text=Send%20me%20the%20Services%20Menu" class="hover:text-amber-400 transition-colors">Service Menu</a>
-            <a href="promotion.html" class="hover:text-amber-400 transition-colors">Event/Promotion</a>
-            <a href="location.html" class="hover:text-amber-400 text-amber-400 transition-colors">Location</a>
-            <a href="https://facebook.com" target="_blank" class="hover:text-amber-400 transition-colors">Facebook</a>
-            <a href="https://instagram.com" target="_blank" class="hover:text-amber-400 transition-colors">Instagram</a>
-            <a href="http://maps.google.com/?q=Al+Yarmuk+Riyadh" target="_blank" class="hover:text-amber-400 transition-colors">Rate/Review</a>
-            <a href="index.html#about" class="hover:text-amber-400 transition-colors">About</a>
+        <nav class="w-full md:w-auto flex flex-row overflow-x-auto no-scrollbar justify-start md:justify-center items-center space-x-5 text-[9px] md:text-[10px] tracking-widest uppercase text-zinc-300 font-medium py-1">
+            <a href="index.html" class="hover:text-amber-400 whitespace-nowrap transition-colors">Home</a>
+            <a href="index.html#services" class="hover:text-amber-400 whitespace-nowrap transition-colors">Facilities</a>
+            <a href="servicemenu.html" class="hover:text-amber-400 whitespace-nowrap transition-colors">Service Menu</a>
+            <a href="promotion.html" class="hover:text-amber-400 whitespace-nowrap transition-colors">Event/Promotion</a>
+            <a href="location.html" class="hover:text-amber-400 text-amber-400 font-semibold whitespace-nowrap transition-colors">Location</a>
+            <a href="https://www.facebook.com/sweetcola31/" target="_blank" class="hover:text-amber-400 whitespace-nowrap transition-colors">Facebook</a>
+            <a href="https://g.page/r/CbAoACwjDz6lEBM/review" target="_blank" class="hover:text-amber-400 whitespace-nowrap transition-colors">Rate/Review</a>
+            <a href="index.html#about" class="hover:text-amber-400 whitespace-nowrap transition-colors">About</a>
         </nav>
+
+        <div class="hidden md:block">
+            <a href="https://wa.me/966560958973" onclick="trackWhatsAppConversion()" class="border border-amber-500/50 text-amber-400 text-[10px] tracking-widest font-semibold uppercase py-2 px-4 rounded hover:bg-amber-500/10 transition-all duration-300">
+                Book Online
+            </a>
+        </div>
     </header>
 
-    <main class="flex-grow max-w-7xl w-full mx-auto px-4 md:px-12 flex items-center justify-center py-12 lg:py-16 relative z-10">
+    <main class="flex-grow max-w-7xl w-full mx-auto px-4 md:px-12 flex flex-col items-center justify-center py-12 relative z-10">
         
-        <div class="map-section w-full max-w-2xl bg-[#0f0f0f]/90 backdrop-blur-md border border-[#D4AF37]/30 rounded-2xl p-6 sm:p-8 text-center shadow-2xl shadow-black/80">
+        <div class="map-section w-full max-w-2xl bg-[#0f0f0f]/95 backdrop-blur-md border gold-border rounded-2xl p-5 sm:p-8 text-center shadow-2xl">
             
             <h2 class="luxury-font gold-text text-2xl sm:text-3xl font-bold tracking-widest mb-2">
                 VISIT OUR SPA
             </h2>
             
-            <p class="text-gray-400 text-sm sm:text-base max-w-lg mx-auto mb-6 font-light leading-relaxed">
+            <p class="text-zinc-400 text-xs sm:text-sm max-w-lg mx-auto mb-6 font-light leading-relaxed">
                 3100 Al Misroh, Ishbiliyah, RFYA6194, 6194, Riyadh 13251
             </p>
             
-            <div class="map-wrapper w-full h-[300px] sm:h-[400px] rounded-xl overflow-hidden border border-white/10 shadow-inner shadow-black bg-neutral-900">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3621.85058453843!2d46.78408077604559!3d24.800569347650242!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e2effd68e538899%3A0xa53e0f232c0028b0!2sSweet%20Cola%20Massage%20In%20Riyadh!5e0!3m2!1sen!2sus!4v1779396126755!5m2!1sen!2sus" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>           
+            <div class="map-wrapper w-full h-[300px] sm:h-[380px] rounded-xl overflow-hidden border border-zinc-800 shadow-inner bg-neutral-900">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3623.111956557451!2d46.7937402!3d24.7573033!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjTCbDQ1JzI2LjMiTiA0NsKwNDcnMzcuNSJF!5e0!3m2!1sen!2ssa!4v1716480000000!5m2!1sen!2ssa" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>           
             </div>
+        </div>
+
+        <div class="w-full max-w-md mx-auto mt-12 text-center bg-black/50 backdrop-blur-sm p-6 rounded-2xl border border-zinc-800/80 shadow-xl">
+            <div class="flex justify-center items-center gap-4 mb-4">
+                <div class="w-8 h-[1px] bg-zinc-700"></div>
+                <span class="text-[9px] tracking-[0.3em] uppercase text-zinc-400 block font-medium">Executive Suite Features</span>
+                <div class="w-8 h-[1px] bg-zinc-700"></div>
+            </div>
+            <div class="grid grid-cols-3 gap-4 text-center">
+                <div>
+                    <p class="luxury-font text-base md:text-lg font-bold text-white">100%</p>
+                    <p class="text-[8px] tracking-widest text-zinc-500 uppercase mt-1">Premium</p>
+                </div>
+                <div class="border-x border-zinc-800">
+                    <p class="luxury-font text-base md:text-lg font-bold text-white">VIP</p>
+                    <p class="text-[8px] tracking-widest text-zinc-500 uppercase mt-1">Suites</p>
+                </div>
+                <div>
+                    <p class="luxury-font text-base md:text-lg font-bold text-white">24/7</p>
+                    <p class="text-[8px] tracking-widest text-zinc-500 uppercase mt-1">Service</p>
+                </div>
+            </div>
+            <p class="text-[8px] text-zinc-500 tracking-widest mt-4 uppercase font-mono">⚡ Instant Booking Confirmation Via WhatsApp</p>
         </div>
 
     </main>
@@ -163,19 +207,19 @@
                         <p class="text-[9px] font-medium opacity-75">Online • Fast Response</p>
                     </div>
                 </div>
-                <button onclick="toggleChat()" class="text-black font-bold text-lg hover:opacity-60 px-2">×</button>
+                <button onclick="toggleChat()" class="text-black font-bold text-lg hover:opacity-60 px-2 cursor-pointer">×</button>
             </div>
-            <div class="p-5 space-y-4 bg-zinc-900/90 backdrop-blur">
+            <div class="p-5 space-y-4 bg-zinc-900/95 backdrop-blur">
                 <p class="text-xs text-zinc-300 leading-relaxed font-light">
                     Hello! I am your virtual assistant. How can we help you with your spa booking today? Please enter your name below to start.
                 </p>
                 <div class="space-y-1">
-                    <label class="text-[10px] uppercase tracking-widest text-zinc-400">Your Name</label>
+                    <label class="text-[9px] uppercase tracking-widest text-zinc-400 block">Your Name</label>
                     <input type="text" id="custName" placeholder="Enter your name here..." 
                            class="w-full bg-zinc-950 border border-zinc-800 text-white p-3 rounded-xl text-xs focus:outline-none focus:border-amber-400">
                 </div>
                 <button onclick="startWhatsAppChat()" 
-                        class="w-full gold-bg text-black text-xs font-bold uppercase tracking-widest py-3 rounded-xl hover:opacity-90 transition-all block text-center">
+                        class="w-full gold-bg text-black text-xs font-bold uppercase tracking-widest py-3 rounded-xl hover:opacity-90 transition-all block text-center cursor-pointer">
                     Start Conversation
                 </button>
             </div>
@@ -184,17 +228,10 @@
             </div>
         </div>
 
-        <button onclick="toggleChat()" class="w-14 h-14 bg-zinc-950 border gold-border text-amber-400 rounded-full flex items-center justify-center shadow-2xl hover:scale-105 transition-transform duration-200 cursor-pointer">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M8.625 12a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H8.25m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H12m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H16M21 12c0 4.556-4.03 8.25-9 8.25a9.764 9.764 0 01-2.555-.337A5.972 5.972 0 015.41 20.97a5.969 5.969 0 01-.474-3.658C3.05 15.82 2 13.98 2 12c0-4.556 4.03-8.25 9-8.25s9 3.694 9 8.25z" />
-            </svg>
+        <button onclick="toggleChat()" aria-label="Open Live Chat" class="w-14 h-14 bg-zinc-950 border gold-border text-amber-400 rounded-full flex items-center justify-center shadow-2xl hover:scale-105 transition-transform duration-200 cursor-pointer">
+            <i class="fa-regular fa-comments text-xl"></i>
         </button>
     </div>
-
-    <footer class="w-full py-4 text-center text-[10px] text-zinc-500 border-t border-zinc-900/50 bg-black/80 backdrop-blur-sm relative z-10">
-        <p class="tracking-widest luxury-font mb-1">© 2026 COLA PROFESSIONAL WELLNESS CENTER</p>
-        <p class="font-light text-zinc-600">Licensed in Riyadh, Kingdom of Saudi Arabia</p>
-    </footer>
 
     <script>
         function toggleChat() {
@@ -203,17 +240,23 @@
         }
 
         function startWhatsAppChat() {
+            trackWhatsAppConversion();
             const name = document.getElementById('custName').value.trim();
-            let message = "Hi Cola Wellness Center, I am on your website and I would like to inquire about booking a premium treatment.";
+            let message = "Hi Cola Wellness Center, I am checking your location on your website and I would like to book a treatment slot.";
             
             if (name !== "") {
-                message = `Hi Cola Wellness Center, my name is ${name}. I am visiting your website and I would like to book a relaxation appointment.`;
+                message = `Hi Cola Wellness Center, my name is ${name}. I am looking at your map location and I would like to secure an appointment.`;
             }
             
             const encodedMessage = encodeURIComponent(message);
             window.open(`https://wa.me/966560958973?text=${encodedMessage}`, '_blank');
         }
     </script>
+
+    <footer class="w-full py-4 text-center text-[10px] text-zinc-600 border-t border-zinc-900/60 bg-black/50 relative z-10">
+        <p class="tracking-widest luxury-font mb-0.5">© 2026 COLA PROFESSIONAL WELLNESS CENTER</p>
+        <p class="font-light">Al Yarmuk, Riyadh, Kingdom of Saudi Arabia</p>
+    </footer>
 
 </body>
 </html>
