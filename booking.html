@@ -526,107 +526,116 @@
     </footer>
 
    <script>
-        // --- 1. UNLIMITED TYPEWRITER LOOP PARA SA OUTSIDE FLOATING BUBBLE ---
-        const phrases = [
-            "Hi! I am Cola. How can I help you? ✨",
-            "Book your Premium Massage now! 💆‍♂️",
-            "Available 24/7 in Al Yarmuk, Riyadh! 📍",
-            "Chat with us directly via WhatsApp! ⚡"
-        ];
+    // --- 1. UNLIMITED TYPEWRITER LOOP PARA SA OUTSIDE FLOATING BUBBLE ---
+    const phrases = [
+        "Hi! I am Cola. How can I help you? ✨",
+        "Book your Premium Massage now! 💆‍♂️",
+        "Available 24/7 in Al Yarmuk, Riyadh! 📍",
+        "Chat with us directly via WhatsApp! ⚡"
+    ];
+    
+    let phraseIndex = 0;
+    let characterIndex = 0;
+    let isDeleting = false;
+    const bubbleElement = document.getElementById("bubbleTypewriter");
+
+    function loopTypewriter() {
+        const currentPhrase = phrases[phraseIndex];
+
+        if (isDeleting) {
+            bubbleElement.innerHTML = currentPhrase.substring(0, characterIndex - 1);
+            characterIndex--;
+        } else {
+            bubbleElement.innerHTML = currentPhrase.substring(0, characterIndex + 1);
+            characterIndex++;
+        }
+
+        let typeSpeed = isDeleting ? 20 : 45;
+
+        if (!isDeleting && characterIndex === currentPhrase.length) {
+            typeSpeed = 2500; 
+            isDeleting = true;
+        } else if (isDeleting && characterIndex === 0) {
+            isDeleting = false;
+            phraseIndex = (phraseIndex + 1) % phrases.length; 
+            typeSpeed = 400; 
+        }
+
+        setTimeout(loopTypewriter, typeSpeed);
+    }
+
+    document.addEventListener("DOMContentLoaded", function() {
+        loopTypewriter();
+    });
+
+    // --- 2. CHAT BOX TOGGLE FUNCTIONS ---
+    function toggleChat() {
+        const chatBox = document.getElementById('chatBox');
+        const marketingBubble = document.getElementById('marketingBubble');
         
-        let phraseIndex = 0;
-        let characterIndex = 0;
-        let isDeleting = false;
-        const bubbleElement = document.getElementById("bubbleTypewriter");
-
-        function loopTypewriter() {
-            const currentPhrase = phrases[phraseIndex];
-
-            if (isDeleting) {
-                bubbleElement.innerHTML = currentPhrase.substring(0, characterIndex - 1);
-                characterIndex--;
-            } else {
-                bubbleElement.innerHTML = currentPhrase.substring(0, characterIndex + 1);
-                characterIndex++;
-            }
-
-            let typeSpeed = isDeleting ? 20 : 45;
-
-            if (!isDeleting && characterIndex === currentPhrase.length) {
-                typeSpeed = 2500; 
-                isDeleting = true;
-            } else if (isDeleting && characterIndex === 0) {
-                isDeleting = false;
-                phraseIndex = (phraseIndex + 1) % phrases.length; 
-                typeSpeed = 400; 
-            }
-
-            setTimeout(loopTypewriter, typeSpeed);
+        chatBox.classList.toggle('hidden');
+        
+        if (chatBox.classList.contains('hidden')) {
+            marketingBubble.classList.remove('hidden');
+        } else {
+            marketingBubble.classList.add('hidden');
+            document.getElementById('custCustomMessage').focus();
         }
+    }
 
-        document.addEventListener("DOMContentLoaded", function() {
-            loopTypewriter();
-        });
+    // Placeholder para sa conversion tracker para maiwasan ang "not defined" error
+    function trackWhatsAppConversion() {
+        console.log("WhatsApp click tracked successfully.");
+        // Kung may Google Analytics o Facebook Pixel ka, ilagay mo rito ang code.
+    }
 
-        // --- 2. CHAT BOX TOGGLE FUNCTIONS ---
-        function toggleChat() {
-            const chatBox = document.getElementById('chatBox');
-            const marketingBubble = document.getElementById('marketingBubble');
-            
-            chatBox.classList.toggle('hidden');
-            
-            if (chatBox.classList.contains('hidden')) {
-                marketingBubble.classList.remove('hidden');
-            } else {
-                marketingBubble.classList.add('hidden');
-                document.getElementById('custCustomMessage').focus();
-            }
+    // --- 3. DYNAMIC TEXT MIRRORING TO WHATSAPP WITH WEBSITE LINK ---
+    function sendDirectToWhatsApp() {
+        trackWhatsAppConversion();
+        const customText = document.getElementById('custCustomMessage').value.trim();
+        
+        // Include website URL for preview
+        let finalMessage = "Hi Cola Wellness Center! I am interested in booking a premium relaxation treatment.\n\nhttps://colawellness-riyadh.github.io/";
+        
+        if (customText !== "") {
+            finalMessage = customText + "\n\nhttps://colawellness-riyadh.github.io/";
         }
+        
+        const encodedMessage = encodeURIComponent(finalMessage);
+        window.open(`https://wa.me/966560958973?text=${encodedMessage}`, '_blank');
+    } // <-- Tinanggal ang sobrang } dito na nagpapasira sa code
 
-        // --- 3. DYNAMIC TEXT MIRRORING TO WHATSAPP WITH WEBSITE LINK ---
-        function sendDirectToWhatsApp() {
-            trackWhatsAppConversion();
-            const customText = document.getElementById('custCustomMessage').value.trim();
-            
-            // Include website URL for preview
-            let finalMessage = "Hi Cola Wellness Center! I am interested in booking a premium relaxation treatment.\n\nhttps://colawellness-riyadh.github.io/";
-            
-            if (customText !== "") {
-                finalMessage = customText + "\n\nhttps://colawellness-riyadh.github.io/";
-            }
-            
-            const encodedMessage = encodeURIComponent(finalMessage);
-            window.open(`https://wa.me/966560958973?text=${encodedMessage}`, '_blank');
-         }
-     }
-
-        // Pansamantalang placeholder para sa modal functions para hindi mag-error ang console
-        function openBookingModal(name, price) {
-            document.getElementById('modalServiceName').innerText = name;
-            document.getElementById('modalServicePrice').innerText = price;
-            document.getElementById('bookingModal').classList.remove('hidden');
+    // Pansamantalang placeholder para sa modal functions para hindi mag-error ang console
+    function openBookingModal(name, price) {
+        document.getElementById('modalServiceName').innerText = name;
+        document.getElementById('modalServicePrice').innerText = price;
+        document.getElementById('bookingModal').classList.remove('hidden');
+    }
+    
+    function closeBookingModal() {
+        document.getElementById('bookingModal').classList.add('hidden');
+    }
+    
+    function handleOptionAction(action) {
+        if(action === 'form') {
+            document.getElementById('optionsContainer').classList.add('hidden');
+            document.getElementById('formContainer').classList.remove('hidden');
+        } else if(action === 'chat') {
+            window.open("https://wa.me/966560958973", '_blank');
+        } else if(action === 'call') {
+            window.open("tel:+966560958973");
         }
-        function closeBookingModal() {
-            document.getElementById('bookingModal').classList.add('hidden');
-        }
-        function handleOptionAction(action) {
-            if(action === 'form') {
-                document.getElementById('optionsContainer').classList.add('hidden');
-                document.getElementById('formContainer').classList.remove('hidden');
-            } else if(action === 'chat') {
-                window.open("https://wa.me/966560958973", '_blank');
-            } else if(action === 'call') {
-                window.open("tel:+966560958973");
-            }
-        }
-        function backToOptions() {
-            document.getElementById('formContainer').classList.add('hidden');
-            document.getElementById('optionsContainer').classList.remove('hidden');
-        }
-        function submitFormBooking(e) {
-            e.preventDefault();
-            alert('Form processing...');
-        }
-    </script>
+    }
+    
+    function backToOptions() {
+        document.getElementById('formContainer').classList.add('hidden');
+        document.getElementById('optionsContainer').classList.remove('hidden');
+    }
+    
+    function submitFormBooking(e) {
+        e.preventDefault();
+        alert('Form processing...');
+    }
+</script>
 </body>
 </html>
