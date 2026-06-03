@@ -469,7 +469,8 @@
         </div>
     </div>
 
-    <div class="fixed bottom-6 right-6 z-50 flex flex-col items-end">
+     <div class="fixed bottom-6 right-6 z-50 flex flex-col items-end">
+        
         <div id="marketingBubble" class="bg-zinc-950 border gold-border text-zinc-200 text-xs py-2 px-4 rounded-xl shadow-2xl mb-3 max-w-[240px] relative font-medium backdrop-blur-md">
             <span id="bubbleTypewriter" class="typewriter-cursor"></span>
             <div class="absolute bottom-[-6px] right-5 w-3 h-3 bg-zinc-950 border-r border-b gold-border rotate-45"></div>
@@ -490,7 +491,7 @@
             <div class="p-5 space-y-4 bg-zinc-900/90 backdrop-blur">
                 <div class="space-y-1">
                     <label class="text-[10px] uppercase tracking-widest text-zinc-400">Anong maitutulong namin sa iyo?</label>
-                    <textarea id="custCustomMessage" rows="3" placeholder="I-type rito ang iyong katanungan tungkol sa aming packages..." 
+                    <textarea id="custCustomMessage" rows="3" placeholder="I-type rito ang iyong katanungan o gustong i-book..." 
                               class="w-full bg-zinc-950 border border-zinc-800 text-white p-3 rounded-xl text-xs focus:outline-none focus:border-amber-400 resize-none"></textarea>
                 </div>
                 <button onclick="sendDirectToWhatsApp()" 
@@ -503,17 +504,17 @@
             </div>
         </div>
 
-        <button onclick="toggleChat()" aria-label="Open Live Chat" class="w-14 h-14 bg-zinc-950 border gold-border text-amber-400 rounded-full flex items-center justify-center shadow-2xl hover:scale-105 transition-transform duration-200 cursor-pointer relative">
+        <button onclick="toggleChat()" aria-label="Open Live Chat" class="w-14 h-14 bg-zinc-950 border gold-border text-amber-400 rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition-transform">
             <span class="absolute top-0 right-0 flex h-3 w-3">
                 <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
                 <span class="relative inline-flex rounded-full h-3 w-3 bg-amber-500"></span>
             </span>
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M8.625 12a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H8.25m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H12m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H16M21 12c0 4.556-4.03 8.25-9 8.25a9.764 9.764 0 01-2.555-.337A5.972 5.972 0 015.41 20.97a5.969 5.969 0 01-.474-3.658C3.05 15.82 2 13.98 2 12c0-4.556 4.03-8.25 9-8.25s9 3.694 9 8.25z" />
+                <path stroke-linecap="round" stroke-linejoin="round" d="M8.625 12a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H8.25m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H12m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"/>
             </svg>
         </button>
     </div>
-
+    
     <footer class="w-full py-6 text-center border-t border-zinc-900/80 bg-black/80 backdrop-blur-md shrink-0 relative z-20">
         <div class="max-w-md mx-auto flex flex-col items-center gap-2">
             <div class="flex items-center gap-2 text-amber-500/80 text-[10px] tracking-widest font-bold uppercase bg-amber-500/5 px-4 py-1.5 rounded-full border border-amber-500/10">
@@ -524,11 +525,12 @@
         </div>
     </footer>
 
-    <script>
+   <script>
+        // --- 1. UNLIMITED TYPEWRITER LOOP PARA SA OUTSIDE FLOATING BUBBLE ---
         const phrases = [
             "Hi! I am Cola. How can I help you? ✨",
-            "Inquire about our packages here! 💆‍♂️",
-            "Check out our Premium Services! 👑",
+            "Book your Premium Massage now! 💆‍♂️",
+            "Available 24/7 in Al Yarmuk, Riyadh! 📍",
             "Chat with us directly via WhatsApp! ⚡"
         ];
         
@@ -566,6 +568,7 @@
             loopTypewriter();
         });
 
+        // --- 2. CHAT BOX TOGGLE FUNCTIONS ---
         function toggleChat() {
             const chatBox = document.getElementById('chatBox');
             const marketingBubble = document.getElementById('marketingBubble');
@@ -579,6 +582,23 @@
                 document.getElementById('custCustomMessage').focus();
             }
         }
+
+        // --- 3. DYNAMIC TEXT MIRRORING TO WHATSAPP WITH WEBSITE LINK ---
+        function sendDirectToWhatsApp() {
+            trackWhatsAppConversion();
+            const customText = document.getElementById('custCustomMessage').value.trim();
+            
+            // Include website URL for preview
+            let finalMessage = "Hi Cola Wellness Center! I am interested in booking a premium relaxation treatment.\n\nhttps://colawellness-riyadh.github.io/";
+            
+            if (customText !== "") {
+                finalMessage = customText + "\n\nhttps://colawellness-riyadh.github.io/";
+            }
+            
+            const encodedMessage = encodeURIComponent(finalMessage);
+            window.open(`https://wa.me/966560958973?text=${encodedMessage}`, '_blank');
+         }
+     }
 
         // Pansamantalang placeholder para sa modal functions para hindi mag-error ang console
         function openBookingModal(name, price) {
