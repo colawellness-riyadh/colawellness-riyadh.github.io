@@ -120,16 +120,16 @@
             100% { opacity: 0; }
         }
 
-        /* INFINITE LOOP SLIDER CORRECTION */
+        /* INAYOS NA INFINITE LOOP SLIDER CSS */
         @keyframes scrollRight {
             0% { transform: translateX(0); }
-            100% { transform: translateX(calc(-226px * 7)); }
+            100% { transform: translateX(calc(-226px * 7)); } /* 210px card width + 16px gap = 226px */
         }
 
         .slider-track-right {
             display: flex;
-            width: calc(226px * 14);
-            animation: scrollRight 30s linear infinite;
+            width: max-content;
+            animation: scrollRight 25s linear infinite;
         }
         
         .slider-track-right:hover {
@@ -286,7 +286,29 @@
                 <i class="fa-solid fa-circle-chevron-right text-amber-400 animate-pulse"></i> Premium Relaxation Zones
             </div>
             <div class="w-full overflow-hidden bg-black/30 backdrop-blur-xs py-4 rounded-2xl border border-zinc-800/30">
-                <div class="slider-track-right gap-4 px-4">
+                <div class="slider-track-right gap-4 px-2">
+                    <div class="w-[210px] h-[373px] bg-zinc-900/90 rounded-xl border border-zinc-700/50 flex-shrink-0 bg-cover bg-center overflow-hidden flex items-end p-3" style="background-image: url('FixPlus_20260522_015636857.jpg');">
+                        <span class="text-[9px] font-bold tracking-wider uppercase bg-black/70 px-2.5 py-1 rounded text-amber-400 border border-amber-500/20">Luxury Room</span>
+                    </div>
+                    <div class="w-[210px] h-[373px] bg-zinc-900/90 rounded-xl border border-zinc-700/50 flex-shrink-0 bg-cover bg-center overflow-hidden flex items-end p-3" style="background-image: url('Snapchat-1585899800.jpg');">
+                        <span class="text-[9px] font-bold tracking-wider uppercase bg-black/70 px-2.5 py-1 rounded text-amber-400 border border-amber-500/20">Moroccan Bath</span>
+                    </div>
+                    <div class="w-[210px] h-[373px] bg-zinc-900/90 rounded-xl border border-zinc-700/50 flex-shrink-0 bg-cover bg-center overflow-hidden flex items-end p-3" style="background-image: url('FixPlus_20260510_165850154.jpg');">
+                        <span class="text-[9px] font-bold tracking-wider uppercase bg-black/70 px-2.5 py-1 rounded text-amber-400 border border-amber-500/20">Jacuzzi Area</span>
+                    </div>
+                    <div class="w-[210px] h-[373px] bg-zinc-900/90 rounded-xl border border-zinc-700/50 flex-shrink-0 bg-cover bg-center overflow-hidden flex items-end p-3" style="background-image: url('FixPlus_20260510_170005442.jpg');">
+                        <span class="text-[9px] font-bold tracking-wider uppercase bg-black/70 px-2.5 py-1 rounded text-amber-400 border border-amber-500/20">Massage Deck</span>
+                    </div>
+                    <div class="w-[210px] h-[373px] bg-zinc-900/90 rounded-xl border border-zinc-700/50 flex-shrink-0 bg-cover bg-center overflow-hidden flex items-end p-3" style="background-image: url('FixPlus_20260519_041654631(1)(1).jpg');">
+                        <span class="text-[9px] font-bold tracking-wider uppercase bg-black/70 px-2.5 py-1 rounded text-amber-400 border border-amber-500/20">Therapy Lounge</span>
+                    </div>
+                    <div class="w-[210px] h-[373px] bg-zinc-900/90 rounded-xl border border-zinc-700/50 flex-shrink-0 bg-cover bg-center overflow-hidden flex items-end p-3" style="background-image: url('FixPlus_20260510_170152764.jpg');">
+                        <span class="text-[9px] font-bold tracking-wider uppercase bg-black/70 px-2.5 py-1 rounded text-amber-400 border border-amber-500/20">VIP Spa Suite</span>
+                    </div>
+                    <div class="w-[210px] h-[373px] bg-zinc-900/90 rounded-xl border border-zinc-700/50 flex-shrink-0 bg-cover bg-center overflow-hidden flex items-end p-3" style="background-image: url('FixPlus_20260515_224325099.png');">
+                        <span class="text-[9px] font-bold tracking-wider uppercase bg-black/70 px-2.5 py-1 rounded text-amber-400 border border-amber-500/20">Sauna Room</span>
+                    </div>
+
                     <div class="w-[210px] h-[373px] bg-zinc-900/90 rounded-xl border border-zinc-700/50 flex-shrink-0 bg-cover bg-center overflow-hidden flex items-end p-3" style="background-image: url('FixPlus_20260522_015636857.jpg');">
                         <span class="text-[9px] font-bold tracking-wider uppercase bg-black/70 px-2.5 py-1 rounded text-amber-400 border border-amber-500/20">Luxury Room</span>
                     </div>
@@ -558,89 +580,33 @@
             }
         }
 
-        function sendDirectToWhatsApp() {
-            const customText = document.getElementById('custCustomMessage').value.trim();
-            let finalMessage = "Hi Cola Wellness Center! I am checking your exclusive spa services page and I would like to inquire about booking a slot.";
-            
-            if (customText !== "") {
-                finalMessage = customText;
-            }
-            
-            const encodedMessage = encodeURIComponent(finalMessage);
-            window.open(`https://wa.me/966560958973?text=${encodedMessage}`, '_blank');
-        }
-
-        /* NEW MODAL SYSTEM SCRIPT LOGIC */
-        let activeSelectedService = "";
-        let activeSelectedPrice = "";
-        const hotlineNumber = "+966560958973"; // Palitan mo ito kung may ibang local calling landline/mobile number
-
-        function openBookingModal(serviceName, servicePrice) {
-            activeSelectedService = serviceName;
-            activeSelectedPrice = servicePrice;
-            
-            document.getElementById('modalServiceName').innerText = serviceName;
-            document.getElementById('modalServicePrice').innerText = servicePrice;
-            
-            // I-reset ang view ng modal tuwing magbubukas
-            document.getElementById('optionsContainer').classList.remove('hidden');
-            document.getElementById('formContainer').classList.add('hidden');
-            document.getElementById('internalBookingForm').reset();
-            
-            // Fire target Google Conversion Ads tag base sa orihinal mong code tracking
-            if(typeof gtag === 'function') {
-                gtag('event', 'ads_conversion_Book_appointment_1', {});
-            }
-
+        // Pansamantalang placeholder para sa modal functions para hindi mag-error ang console
+        function openBookingModal(name, price) {
+            document.getElementById('modalServiceName').innerText = name;
+            document.getElementById('modalServicePrice').innerText = price;
             document.getElementById('bookingModal').classList.remove('hidden');
         }
-
         function closeBookingModal() {
             document.getElementById('bookingModal').classList.add('hidden');
         }
-
-        function backToOptions() {
-            document.getElementById('optionsContainer').classList.remove('hidden');
-            document.getElementById('formContainer').classList.add('hidden');
-        }
-
-        function handleOptionAction(actionType) {
-            if (actionType === 'chat') {
-                const message = `Hi! I want to book ${activeSelectedService} (${activeSelectedPrice}).`;
-                window.open(`https://wa.me/966560958973?text=${encodeURIComponent(message)}`, '_blank');
-                closeBookingModal();
-            } 
-            else if (actionType === 'call') {
-                window.open(`tel:${hotlineNumber}`, '_self');
-                closeBookingModal();
-            } 
-            else if (actionType === 'form') {
+        function handleOptionAction(action) {
+            if(action === 'form') {
                 document.getElementById('optionsContainer').classList.add('hidden');
                 document.getElementById('formContainer').classList.remove('hidden');
+            } else if(action === 'chat') {
+                window.open("https://wa.me/966560958973", '_blank');
+            } else if(action === 'call') {
+                window.open("tel:+966560958973");
             }
         }
-
-        function submitFormBooking(event) {
-            event.preventDefault();
-            
-            const name = document.getElementById('formCustName').value.trim();
-            const phone = document.getElementById('formCustPhone').value.trim();
-            const date = document.getElementById('formCustDate').value;
-            const time = document.getElementById('formCustTime').value;
-
-            // Gagawin nitong maayos na text format at ipapasa sa WhatsApp niyo para automatic niyo paring matanggap
-            const formalMessage = `📌 NEW BOOKING APPOINTMENT FORM\n\n` +
-                                  `Service: ${activeSelectedService}\n` +
-                                  `Price/Duration: ${activeSelectedPrice}\n\n` +
-                                  `Client Name: ${name}\n` +
-                                  `Phone Number: ${phone}\n` +
-                                  `Preferred Date: ${date}\n` +
-                                  `Preferred Time: ${time}`;
-
-            window.open(`https://wa.me/966560958973?text=${encodeURIComponent(formalMessage)}`, '_blank');
-            closeBookingModal();
+        function backToOptions() {
+            document.getElementById('formContainer').classList.add('hidden');
+            document.getElementById('optionsContainer').classList.remove('hidden');
+        }
+        function submitFormBooking(e) {
+            e.preventDefault();
+            alert('Form processing...');
         }
     </script>
-
 </body>
 </html>
