@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta name="google-site-verification" content="CKgQ1_bQup7ctUb-Fifs6J74vFfbvAalu3jR2owMpLw" />
-    <meta name="facebook-domain-verification" content="8oq1tfeg133cl97n3i6jzxcr3zi1om" />
+    <meta name="facebook-domain-verification" content="j1hs2sma5d6pexpwbskfn273llij3x" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
@@ -10,17 +10,13 @@
                
     <title>COLA Wellness Center | Riyadh</title>
 
-   <meta property="og:url" content="https://cola-wellness.vercel.app/index.html" />
-   <meta property="og:type" content="website" />
-   <meta property="og:title" content="Cola Wellness | Luxury Massage & Grooming" />
-   <meta property="og:description" content="Premium Thai massage, Swedish massage, Moroccan baths, and grooming services starting from 130 SR." />
-   <meta property="fb:app_id" content="YOUR_FACEBOOK_APP_ID_HERE" /> <meta property="og:image" content="https://cola-wellness.vercel.app/colalogo.png">
-   <meta property="og:image:width" content="300">
-   <meta property="og:image:height" content="300">
-   <meta property="og:image:type" content="image/png">
-   <link class="icon" type="image/png" href="https://cola-wellness.vercel.app/colalogo.png">
-   <link class="apple-touch-icon" href="https://cola-wellness.vercel.app/colalogo.png">
-    
+    <meta property="og:image" content="https://cola-wellness.vercel.app/colalogo.png">
+    <meta property="og:image:width" content="300">
+    <meta property="og:image:height" content="300">
+    <meta property="og:image:type" content="image/png">
+    <link class="icon" type="image/png" href="https://cola-wellness.vercel.app/colalogo.png">
+    <link class="apple-touch-icon" href="https://cola-wellness.vercel.app/colalogo.png">
+
     <link rel="icon" type="image/png" href="colalogo.png">
     <link rel="shortcut icon" type="image/png" href="colalogo.png">
     
@@ -528,12 +524,11 @@
         </div>
     </footer>
 
-       <script>
-        // --- 1. UNLIMITED TYPEWRITER LOOP PARA SA OUTSIDE FLOATING BUBBLE ---
+    <script>
         const phrases = [
             "Hi! I am Cola. How can I help you? ✨",
-            "Book your Premium Massage now! 💆‍♂️",
-            "Available 24/7 in Al Yarmuk, Riyadh! 📍",
+            "Inquire about our packages here! 💆‍♂️",
+            "Check out our Premium Services! 👑",
             "Chat with us directly via WhatsApp! ⚡"
         ];
         
@@ -571,7 +566,6 @@
             loopTypewriter();
         });
 
-        // --- 2. CHAT BOX TOGGLE FUNCTIONS ---
         function toggleChat() {
             const chatBox = document.getElementById('chatBox');
             const marketingBubble = document.getElementById('marketingBubble');
@@ -586,24 +580,7 @@
             }
         }
 
-        // --- 3. DYNAMIC TEXT MIRRORING TO WHATSAPP WITH WEBSITE LINK ---
-        function sendDirectToWhatsApp() {
-            trackWhatsAppConversion();
-            const customText = document.getElementById('custCustomMessage').value.trim();
-            
-            // Include website URL for preview
-            let finalMessage = "Hi Cola Wellness Center! I am interested in booking a premium relaxation treatment.\n\nhttps://colawellness-riyadh.github.io/";
-            
-            if (customText !== "") {
-                finalMessage = customText + "\n\nhttps://colawellness-riyadh.github.io/";
-            }
-            
-            const encodedMessage = encodeURIComponent(finalMessage);
-            window.open(`https://wa.me/966560958973?text=${encodedMessage}`, '_blank');
-            }
-        }
-
-       // Pansamantalang placeholder para sa modal functions para hindi mag-error ang console
+        // Pansamantalang placeholder para sa modal functions para hindi mag-error ang console
         function openBookingModal(name, price) {
             document.getElementById('modalServiceName').innerText = name;
             document.getElementById('modalServicePrice').innerText = price;
