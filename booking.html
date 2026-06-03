@@ -528,11 +528,12 @@
         </div>
     </footer>
 
-    <script>
+       <script>
+        // --- 1. UNLIMITED TYPEWRITER LOOP PARA SA OUTSIDE FLOATING BUBBLE ---
         const phrases = [
             "Hi! I am Cola. How can I help you? ✨",
-            "Inquire about our packages here! 💆‍♂️",
-            "Check out our Premium Services! 👑",
+            "Book your Premium Massage now! 💆‍♂️",
+            "Available 24/7 in Al Yarmuk, Riyadh! 📍",
             "Chat with us directly via WhatsApp! ⚡"
         ];
         
@@ -570,6 +571,7 @@
             loopTypewriter();
         });
 
+        // --- 2. CHAT BOX TOGGLE FUNCTIONS ---
         function toggleChat() {
             const chatBox = document.getElementById('chatBox');
             const marketingBubble = document.getElementById('marketingBubble');
@@ -584,7 +586,24 @@
             }
         }
 
-        // Pansamantalang placeholder para sa modal functions para hindi mag-error ang console
+        // --- 3. DYNAMIC TEXT MIRRORING TO WHATSAPP WITH WEBSITE LINK ---
+        function sendDirectToWhatsApp() {
+            trackWhatsAppConversion();
+            const customText = document.getElementById('custCustomMessage').value.trim();
+            
+            // Include website URL for preview
+            let finalMessage = "Hi Cola Wellness Center! I am interested in booking a premium relaxation treatment.\n\nhttps://colawellness-riyadh.github.io/";
+            
+            if (customText !== "") {
+                finalMessage = customText + "\n\nhttps://colawellness-riyadh.github.io/";
+            }
+            
+            const encodedMessage = encodeURIComponent(finalMessage);
+            window.open(`https://wa.me/966560958973?text=${encodedMessage}`, '_blank');
+            }
+        }
+
+       // Pansamantalang placeholder para sa modal functions para hindi mag-error ang console
         function openBookingModal(name, price) {
             document.getElementById('modalServiceName').innerText = name;
             document.getElementById('modalServicePrice').innerText = price;
