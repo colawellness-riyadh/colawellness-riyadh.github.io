@@ -62,7 +62,6 @@
             color: #E5E5E5;
             overflow-x: hidden;
             margin: 0;
-            /* Iniiwasan ang text selection para sa proteksyon */
             -webkit-user-select: none;
             -moz-user-select: none;
             -ms-user-select: none;
@@ -137,7 +136,7 @@
             100% { opacity: 0; }
         }
 
-        /* INAYOS NA INFINITE LOOP SLIDER CSS */
+        /* INFINITE LOOP SLIDER (NON-STOPPED ON HOVER) */
         @keyframes scrollRight {
             0% { transform: translateX(0); }
             100% { transform: translateX(calc(-226px * 7)); }
@@ -147,10 +146,6 @@
             display: flex;
             width: max-content;
             animation: scrollRight 25s linear infinite;
-        }
-        
-        .slider-track-right:hover {
-            animation-play-state: paused;
         }
 
         .no-scrollbar::-webkit-scrollbar { display: none; }
@@ -242,7 +237,6 @@
             min-width: 180px;
         }
 
-        /* PRIVACY PROTECTION: I-BLANK ANG BANNER AT LABAS KAPAG NI-PRINT O SINUBUKANG I-PDF */
         @media print {
             body {
                 display: none !important;
@@ -544,13 +538,10 @@
 
     <script>
         // --- PRIVACY PROTECTION SYSTEM ---
-        
-        // 1. Harangan ang Right-Click (Anti-Save Image)
         document.addEventListener('contextmenu', function(e) {
             e.preventDefault();
         });
 
-        // 2. Harangan ang Keyboard Copy at Developer Inspect Tools (F12, Ctrl+Shift+I, etc.)
         document.addEventListener('keydown', function(e) {
             if (e.ctrlKey && (e.key === 'c' || e.key === 's' || e.key === 'u' || e.key === 'a')) {
                 e.preventDefault();
@@ -562,7 +553,6 @@
             }
         });
 
-        // 3. Anti-Screenshot/Blur Focus Trick (Napakabisa kapag binalak i-background ang app sa mobile para picturan)
         window.addEventListener('blur', function() {
             document.body.style.filter = 'blur(20px)';
         });
@@ -632,14 +622,9 @@
             }
         }
 
-        function trackWhatsAppConversion() {
-            console.log("WhatsApp conversion event triggered.");
-        }
-
 
         // --- DYNAMIC TEXT MIRRORING TO WHATSAPP ---
         function sendDirectToWhatsApp() {
-            trackWhatsAppConversion();
             const customText = document.getElementById('custCustomMessage').value.trim();
             let finalMessage = "Hi Cola Wellness Center! I am interested in booking a premium relaxation treatment.\n\nhttps://cola-wellness.vercel.app/";
             
