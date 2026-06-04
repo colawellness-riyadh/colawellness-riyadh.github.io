@@ -237,7 +237,7 @@
             min-width: 180px;
         }
 
-        /* WATERMARK OVERLAY DESIGN FOR SLIDER FRAMES */
+        /* SOLID ORIGINAL LOGO COVER FOR SLIDER FRAMES */
         .slider-item {
             position: relative;
             width: 210px;
@@ -250,23 +250,24 @@
             background-position: center;
             overflow: hidden;
             display: flex;
-            items-align: flex-end;
+            align-items: flex-end;
             padding: 12px;
         }
         
+        /* 100% Solid original logo watermark overlay */
         .slider-item::after {
             content: '';
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 110px;
-            height: 110px;
+            width: 125px;
+            height: 125px;
             background-image: url('colalogo.png');
             background-size: contain;
             background-repeat: no-repeat;
             background-position: center;
-            opacity: 0.22;
+            opacity: 1; /* 100% Solid/Original visibility */
             pointer-events: none;
             z-index: 10;
         }
@@ -339,47 +340,47 @@
             </div>
             <div class="w-full overflow-hidden bg-black/30 backdrop-blur-xs py-4 rounded-2xl border border-zinc-800/30">
                 <div class="slider-track-right gap-4 px-2">
-                    <div class="slider-item items-end" style="background-image: url('FixPlus_20260522_015636857.jpg');">
+                    <div class="slider-item" style="background-image: url('FixPlus_20260522_015636857.jpg');">
                         <span class="text-[9px] font-bold tracking-wider uppercase bg-black/70 px-2.5 py-1 rounded text-amber-400 border border-amber-500/20 relative z-20">Luxury Room</span>
                     </div>
-                    <div class="slider-item items-end" style="background-image: url('Snapchat-1585899800.jpg');">
+                    <div class="slider-item" style="background-image: url('Snapchat-1585899800.jpg');">
                         <span class="text-[9px] font-bold tracking-wider uppercase bg-black/70 px-2.5 py-1 rounded text-amber-400 border border-amber-500/20 relative z-20">Moroccan Bath</span>
                     </div>
-                    <div class="slider-item items-end" style="background-image: url('FixPlus_20260510_165850154.jpg');">
+                    <div class="slider-item" style="background-image: url('FixPlus_20260510_165850154.jpg');">
                         <span class="text-[9px] font-bold tracking-wider uppercase bg-black/70 px-2.5 py-1 rounded text-amber-400 border border-amber-500/20 relative z-20">Jacuzzi Area</span>
                     </div>
-                    <div class="slider-item items-end" style="background-image: url('FixPlus_20260510_170005442.jpg');">
+                    <div class="slider-item" style="background-image: url('FixPlus_20260510_170005442.jpg');">
                         <span class="text-[9px] font-bold tracking-wider uppercase bg-black/70 px-2.5 py-1 rounded text-amber-400 border border-amber-500/20 relative z-20">Massage Deck</span>
                     </div>
-                    <div class="slider-item items-end" style="background-image: url('FixPlus_20260519_041654631(1)(1).jpg');">
+                    <div class="slider-item" style="background-image: url('FixPlus_20260519_041654631(1)(1).jpg');">
                         <span class="text-[9px] font-bold tracking-wider uppercase bg-black/70 px-2.5 py-1 rounded text-amber-400 border border-amber-500/20 relative z-20">Therapy Lounge</span>
                     </div>
-                    <div class="slider-item items-end" style="background-image: url('FixPlus_20260510_170152764.jpg');">
+                    <div class="slider-item" style="background-image: url('FixPlus_20260510_170152764.jpg');">
                         <span class="text-[9px] font-bold tracking-wider uppercase bg-black/70 px-2.5 py-1 rounded text-amber-400 border border-amber-500/20 relative z-20">VIP Spa Suite</span>
                     </div>
-                    <div class="slider-item items-end" style="background-image: url('FixPlus_20260515_224325099.png');">
+                    <div class="slider-item" style="background-image: url('FixPlus_20260515_224325099.png');">
                         <span class="text-[9px] font-bold tracking-wider uppercase bg-black/70 px-2.5 py-1 rounded text-amber-400 border border-amber-500/20 relative z-20">Sauna Room</span>
                     </div>
 
-                    <div class="slider-item items-end" style="background-image: url('FixPlus_20260522_015636857.jpg');">
+                    <div class="slider-item" style="background-image: url('FixPlus_20260522_015636857.jpg');">
                         <span class="text-[9px] font-bold tracking-wider uppercase bg-black/70 px-2.5 py-1 rounded text-amber-400 border border-amber-500/20 relative z-20">Luxury Room</span>
                     </div>
-                    <div class="slider-item items-end" style="background-image: url('Snapchat-1585899800.jpg');">
+                    <div class="slider-item" style="background-image: url('Snapchat-1585899800.jpg');">
                         <span class="text-[9px] font-bold tracking-wider uppercase bg-black/70 px-2.5 py-1 rounded text-amber-400 border border-amber-500/20 relative z-20">Moroccan Bath</span>
                     </div>
-                    <div class="slider-item items-end" style="background-image: url('FixPlus_20260510_165850154.jpg');">
+                    <div class="slider-item" style="background-image: url('FixPlus_20260510_165850154.jpg');">
                         <span class="text-[9px] font-bold tracking-wider uppercase bg-black/70 px-2.5 py-1 rounded text-amber-400 border border-amber-500/20 relative z-20">Jacuzzi Area</span>
                     </div>
-                    <div class="slider-item items-end" style="background-image: url('FixPlus_20260510_170005442.jpg');">
+                    <div class="slider-item" style="background-image: url('FixPlus_20260510_170005442.jpg');">
                         <span class="text-[9px] font-bold tracking-wider uppercase bg-black/70 px-2.5 py-1 rounded text-amber-400 border border-amber-500/20 relative z-20">Massage Deck</span>
                     </div>
-                    <div class="slider-item items-end" style="background-image: url('FixPlus_20260519_041654631(1)(1).jpg');">
+                    <div class="slider-item" style="background-image: url('FixPlus_20260519_041654631(1)(1).jpg');">
                         <span class="text-[9px] font-bold tracking-wider uppercase bg-black/70 px-2.5 py-1 rounded text-amber-400 border border-amber-500/20 relative z-20">Therapy Lounge</span>
                     </div>
-                    <div class="slider-item items-end" style="background-image: url('FixPlus_20260510_170152764.jpg');">
+                    <div class="slider-item" style="background-image: url('FixPlus_20260510_170152764.jpg');">
                         <span class="text-[9px] font-bold tracking-wider uppercase bg-black/70 px-2.5 py-1 rounded text-amber-400 border border-amber-500/20 relative z-20">VIP Spa Suite</span>
                     </div>
-                    <div class="slider-item items-end" style="background-image: url('FixPlus_20260515_224325099.png');">
+                    <div class="slider-item" style="background-image: url('FixPlus_20260515_224325099.png');">
                         <span class="text-[9px] font-bold tracking-wider uppercase bg-black/70 px-2.5 py-1 rounded text-amber-400 border border-amber-500/20 relative z-20">Sauna Room</span>
                     </div>
                 </div>
