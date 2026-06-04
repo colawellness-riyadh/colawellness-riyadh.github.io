@@ -237,6 +237,40 @@
             min-width: 180px;
         }
 
+        /* WATERMARK OVERLAY DESIGN FOR SLIDER FRAMES */
+        .slider-item {
+            position: relative;
+            width: 210px;
+            height: 373px;
+            background-color: #18181b;
+            border-radius: 12px;
+            border: 1px solid rgba(63, 63, 70, 0.5);
+            flex-shrink: 0;
+            background-size: cover;
+            background-position: center;
+            overflow: hidden;
+            display: flex;
+            items-align: flex-end;
+            padding: 12px;
+        }
+        
+        .slider-item::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 110px;
+            height: 110px;
+            background-image: url('colalogo.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            opacity: 0.22;
+            pointer-events: none;
+            z-index: 10;
+        }
+
         @media print {
             body {
                 display: none !important;
@@ -305,48 +339,48 @@
             </div>
             <div class="w-full overflow-hidden bg-black/30 backdrop-blur-xs py-4 rounded-2xl border border-zinc-800/30">
                 <div class="slider-track-right gap-4 px-2">
-                    <div class="w-[210px] h-[373px] bg-zinc-900/90 rounded-xl border border-zinc-700/50 flex-shrink-0 bg-cover bg-center overflow-hidden flex items-end p-3" style="background-image: url('FixPlus_20260522_015636857.jpg');">
-                        <span class="text-[9px] font-bold tracking-wider uppercase bg-black/70 px-2.5 py-1 rounded text-amber-400 border border-amber-500/20">Luxury Room</span>
+                    <div class="slider-item items-end" style="background-image: url('FixPlus_20260522_015636857.jpg');">
+                        <span class="text-[9px] font-bold tracking-wider uppercase bg-black/70 px-2.5 py-1 rounded text-amber-400 border border-amber-500/20 relative z-20">Luxury Room</span>
                     </div>
-                    <div class="w-[210px] h-[373px] bg-zinc-900/90 rounded-xl border border-zinc-700/50 flex-shrink-0 bg-cover bg-center overflow-hidden flex items-end p-3" style="background-image: url('Snapchat-1585899800.jpg');">
-                        <span class="text-[9px] font-bold tracking-wider uppercase bg-black/70 px-2.5 py-1 rounded text-amber-400 border border-amber-500/20">Moroccan Bath</span>
+                    <div class="slider-item items-end" style="background-image: url('Snapchat-1585899800.jpg');">
+                        <span class="text-[9px] font-bold tracking-wider uppercase bg-black/70 px-2.5 py-1 rounded text-amber-400 border border-amber-500/20 relative z-20">Moroccan Bath</span>
                     </div>
-                    <div class="w-[210px] h-[373px] bg-zinc-900/90 rounded-xl border border-zinc-700/50 flex-shrink-0 bg-cover bg-center overflow-hidden flex items-end p-3" style="background-image: url('FixPlus_20260510_165850154.jpg');">
-                        <span class="text-[9px] font-bold tracking-wider uppercase bg-black/70 px-2.5 py-1 rounded text-amber-400 border border-amber-500/20">Jacuzzi Area</span>
+                    <div class="slider-item items-end" style="background-image: url('FixPlus_20260510_165850154.jpg');">
+                        <span class="text-[9px] font-bold tracking-wider uppercase bg-black/70 px-2.5 py-1 rounded text-amber-400 border border-amber-500/20 relative z-20">Jacuzzi Area</span>
                     </div>
-                    <div class="w-[210px] h-[373px] bg-zinc-900/90 rounded-xl border border-zinc-700/50 flex-shrink-0 bg-cover bg-center overflow-hidden flex items-end p-3" style="background-image: url('FixPlus_20260510_170005442.jpg');">
-                        <span class="text-[9px] font-bold tracking-wider uppercase bg-black/70 px-2.5 py-1 rounded text-amber-400 border border-amber-500/20">Massage Deck</span>
+                    <div class="slider-item items-end" style="background-image: url('FixPlus_20260510_170005442.jpg');">
+                        <span class="text-[9px] font-bold tracking-wider uppercase bg-black/70 px-2.5 py-1 rounded text-amber-400 border border-amber-500/20 relative z-20">Massage Deck</span>
                     </div>
-                    <div class="w-[210px] h-[373px] bg-zinc-900/90 rounded-xl border border-zinc-700/50 flex-shrink-0 bg-cover bg-center overflow-hidden flex items-end p-3" style="background-image: url('FixPlus_20260519_041654631(1)(1).jpg');">
-                        <span class="text-[9px] font-bold tracking-wider uppercase bg-black/70 px-2.5 py-1 rounded text-amber-400 border border-amber-500/20">Therapy Lounge</span>
+                    <div class="slider-item items-end" style="background-image: url('FixPlus_20260519_041654631(1)(1).jpg');">
+                        <span class="text-[9px] font-bold tracking-wider uppercase bg-black/70 px-2.5 py-1 rounded text-amber-400 border border-amber-500/20 relative z-20">Therapy Lounge</span>
                     </div>
-                    <div class="w-[210px] h-[373px] bg-zinc-900/90 rounded-xl border border-zinc-700/50 flex-shrink-0 bg-cover bg-center overflow-hidden flex items-end p-3" style="background-image: url('FixPlus_20260510_170152764.jpg');">
-                        <span class="text-[9px] font-bold tracking-wider uppercase bg-black/70 px-2.5 py-1 rounded text-amber-400 border border-amber-500/20">VIP Spa Suite</span>
+                    <div class="slider-item items-end" style="background-image: url('FixPlus_20260510_170152764.jpg');">
+                        <span class="text-[9px] font-bold tracking-wider uppercase bg-black/70 px-2.5 py-1 rounded text-amber-400 border border-amber-500/20 relative z-20">VIP Spa Suite</span>
                     </div>
-                    <div class="w-[210px] h-[373px] bg-zinc-900/90 rounded-xl border border-zinc-700/50 flex-shrink-0 bg-cover bg-center overflow-hidden flex items-end p-3" style="background-image: url('FixPlus_20260515_224325099.png');">
-                        <span class="text-[9px] font-bold tracking-wider uppercase bg-black/70 px-2.5 py-1 rounded text-amber-400 border border-amber-500/20">Sauna Room</span>
+                    <div class="slider-item items-end" style="background-image: url('FixPlus_20260515_224325099.png');">
+                        <span class="text-[9px] font-bold tracking-wider uppercase bg-black/70 px-2.5 py-1 rounded text-amber-400 border border-amber-500/20 relative z-20">Sauna Room</span>
                     </div>
 
-                    <div class="w-[210px] h-[373px] bg-zinc-900/90 rounded-xl border border-zinc-700/50 flex-shrink-0 bg-cover bg-center overflow-hidden flex items-end p-3" style="background-image: url('FixPlus_20260522_015636857.jpg');">
-                        <span class="text-[9px] font-bold tracking-wider uppercase bg-black/70 px-2.5 py-1 rounded text-amber-400 border border-amber-500/20">Luxury Room</span>
+                    <div class="slider-item items-end" style="background-image: url('FixPlus_20260522_015636857.jpg');">
+                        <span class="text-[9px] font-bold tracking-wider uppercase bg-black/70 px-2.5 py-1 rounded text-amber-400 border border-amber-500/20 relative z-20">Luxury Room</span>
                     </div>
-                    <div class="w-[210px] h-[373px] bg-zinc-900/90 rounded-xl border border-zinc-700/50 flex-shrink-0 bg-cover bg-center overflow-hidden flex items-end p-3" style="background-image: url('Snapchat-1585899800.jpg');">
-                        <span class="text-[9px] font-bold tracking-wider uppercase bg-black/70 px-2.5 py-1 rounded text-amber-400 border border-amber-500/20">Moroccan Bath</span>
+                    <div class="slider-item items-end" style="background-image: url('Snapchat-1585899800.jpg');">
+                        <span class="text-[9px] font-bold tracking-wider uppercase bg-black/70 px-2.5 py-1 rounded text-amber-400 border border-amber-500/20 relative z-20">Moroccan Bath</span>
                     </div>
-                    <div class="w-[210px] h-[373px] bg-zinc-900/90 rounded-xl border border-zinc-700/50 flex-shrink-0 bg-cover bg-center overflow-hidden flex items-end p-3" style="background-image: url('FixPlus_20260510_165850154.jpg');">
-                        <span class="text-[9px] font-bold tracking-wider uppercase bg-black/70 px-2.5 py-1 rounded text-amber-400 border border-amber-500/20">Jacuzzi Area</span>
+                    <div class="slider-item items-end" style="background-image: url('FixPlus_20260510_165850154.jpg');">
+                        <span class="text-[9px] font-bold tracking-wider uppercase bg-black/70 px-2.5 py-1 rounded text-amber-400 border border-amber-500/20 relative z-20">Jacuzzi Area</span>
                     </div>
-                    <div class="w-[210px] h-[373px] bg-zinc-900/90 rounded-xl border border-zinc-700/50 flex-shrink-0 bg-cover bg-center overflow-hidden flex items-end p-3" style="background-image: url('FixPlus_20260510_170005442.jpg');">
-                        <span class="text-[9px] font-bold tracking-wider uppercase bg-black/70 px-2.5 py-1 rounded text-amber-400 border border-amber-500/20">Massage Deck</span>
+                    <div class="slider-item items-end" style="background-image: url('FixPlus_20260510_170005442.jpg');">
+                        <span class="text-[9px] font-bold tracking-wider uppercase bg-black/70 px-2.5 py-1 rounded text-amber-400 border border-amber-500/20 relative z-20">Massage Deck</span>
                     </div>
-                    <div class="w-[210px] h-[373px] bg-zinc-900/90 rounded-xl border border-zinc-700/50 flex-shrink-0 bg-cover bg-center overflow-hidden flex items-end p-3" style="background-image: url('FixPlus_20260519_041654631(1)(1).jpg');">
-                        <span class="text-[9px] font-bold tracking-wider uppercase bg-black/70 px-2.5 py-1 rounded text-amber-400 border border-amber-500/20">Therapy Lounge</span>
+                    <div class="slider-item items-end" style="background-image: url('FixPlus_20260519_041654631(1)(1).jpg');">
+                        <span class="text-[9px] font-bold tracking-wider uppercase bg-black/70 px-2.5 py-1 rounded text-amber-400 border border-amber-500/20 relative z-20">Therapy Lounge</span>
                     </div>
-                    <div class="w-[210px] h-[373px] bg-zinc-900/90 rounded-xl border border-zinc-700/50 flex-shrink-0 bg-cover bg-center overflow-hidden flex items-end p-3" style="background-image: url('FixPlus_20260510_170152764.jpg');">
-                        <span class="text-[9px] font-bold tracking-wider uppercase bg-black/70 px-2.5 py-1 rounded text-amber-400 border border-amber-500/20">VIP Spa Suite</span>
+                    <div class="slider-item items-end" style="background-image: url('FixPlus_20260510_170152764.jpg');">
+                        <span class="text-[9px] font-bold tracking-wider uppercase bg-black/70 px-2.5 py-1 rounded text-amber-400 border border-amber-500/20 relative z-20">VIP Spa Suite</span>
                     </div>
-                    <div class="w-[210px] h-[373px] bg-zinc-900/90 rounded-xl border border-zinc-700/50 flex-shrink-0 bg-cover bg-center overflow-hidden flex items-end p-3" style="background-image: url('FixPlus_20260515_224325099.png');">
-                        <span class="text-[9px] font-bold tracking-wider uppercase bg-black/70 px-2.5 py-1 rounded text-amber-400 border border-amber-500/20">Sauna Room</span>
+                    <div class="slider-item items-end" style="background-image: url('FixPlus_20260515_224325099.png');">
+                        <span class="text-[9px] font-bold tracking-wider uppercase bg-black/70 px-2.5 py-1 rounded text-amber-400 border border-amber-500/20 relative z-20">Sauna Room</span>
                     </div>
                 </div>
             </div>
@@ -538,28 +572,13 @@
 
     <script>
         // --- PRIVACY PROTECTION SYSTEM ---
-        document.addEventListener('contextmenu', function(e) {
-            e.preventDefault();
-        });
-
+        document.addEventListener('contextmenu', function(e) { e.preventDefault(); });
         document.addEventListener('keydown', function(e) {
-            if (e.ctrlKey && (e.key === 'c' || e.key === 's' || e.key === 'u' || e.key === 'a')) {
-                e.preventDefault();
-                return false;
-            }
-            if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'J' || e.key === 'C'))) {
-                e.preventDefault();
-                return false;
-            }
+            if (e.ctrlKey && (e.key === 'c' || e.key === 's' || e.key === 'u' || e.key === 'a')) { e.preventDefault(); return false; }
+            if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'J' || e.key === 'C'))) { e.preventDefault(); return false; }
         });
-
-        window.addEventListener('blur', function() {
-            document.body.style.filter = 'blur(20px)';
-        });
-        window.addEventListener('focus', function() {
-            document.body.style.filter = 'none';
-        });
-
+        window.addEventListener('blur', function() { document.body.style.filter = 'blur(20px)'; });
+        window.addEventListener('focus', function() { document.body.style.filter = 'none'; });
 
         // --- TYPEWRITER LOOP PARA SA FLOATING BUBBLE ---
         const phrases = [
@@ -568,74 +587,36 @@
             "Available 24/7 in Al Yarmuk, Riyadh! 📍",
             "Chat with us directly via WhatsApp! ⚡"
         ];
-        
-        let phraseIndex = 0;
-        let characterIndex = 0;
-        let isDeleting = false;
-        let bubbleElement;
-
+        let phraseIndex = 0, characterIndex = 0, isDeleting = false, bubbleElement;
         function loopTypewriter() {
             if (!bubbleElement) bubbleElement = document.getElementById("bubbleTypewriter");
             if (!bubbleElement) return;
-
             const currentPhrase = phrases[phraseIndex];
-
-            if (isDeleting) {
-                bubbleElement.innerHTML = currentPhrase.substring(0, characterIndex - 1);
-                characterIndex--;
-            } else {
-                bubbleElement.innerHTML = currentPhrase.substring(0, characterIndex + 1);
-                characterIndex++;
-            }
-
+            if (isDeleting) { bubbleElement.innerHTML = currentPhrase.substring(0, characterIndex - 1); characterIndex--; }
+            else { bubbleElement.innerHTML = currentPhrase.substring(0, characterIndex + 1); characterIndex++; }
             let typeSpeed = isDeleting ? 20 : 45;
-
-            if (!isDeleting && characterIndex === currentPhrase.length) {
-                typeSpeed = 2500; 
-                isDeleting = true;
-            } else if (isDeleting && characterIndex === 0) {
-                isDeleting = false;
-                phraseIndex = (phraseIndex + 1) % phrases.length; 
-                typeSpeed = 400; 
-            }
-
+            if (!isDeleting && characterIndex === currentPhrase.length) { typeSpeed = 2500; isDeleting = true; }
+            else if (isDeleting && characterIndex === 0) { isDeleting = false; phraseIndex = (phraseIndex + 1) % phrases.length; typeSpeed = 400; }
             setTimeout(loopTypewriter, typeSpeed);
         }
-
-        document.addEventListener("DOMContentLoaded", function() {
-            loopTypewriter();
-        });
-
+        document.addEventListener("DOMContentLoaded", function() { loopTypewriter(); });
 
         // --- CHAT BOX TOGGLE FUNCTIONS ---
         function toggleChat() {
             const chatBox = document.getElementById('chatBox');
             const marketingBubble = document.getElementById('marketingBubble');
-            
             chatBox.classList.toggle('hidden');
-            
-            if (chatBox.classList.contains('hidden')) {
-                marketingBubble.classList.remove('hidden');
-            } else {
-                marketingBubble.classList.add('hidden');
-                document.getElementById('custCustomMessage').focus();
-            }
+            if (chatBox.classList.contains('hidden')) { marketingBubble.classList.remove('hidden'); }
+            else { marketingBubble.classList.add('hidden'); document.getElementById('custCustomMessage').focus(); }
         }
-
 
         // --- DYNAMIC TEXT MIRRORING TO WHATSAPP ---
         function sendDirectToWhatsApp() {
             const customText = document.getElementById('custCustomMessage').value.trim();
             let finalMessage = "Hi Cola Wellness Center! I am interested in booking a premium relaxation treatment.\n\nhttps://cola-wellness.vercel.app/";
-            
-            if (customText !== "") {
-                finalMessage = customText + "\n\nhttps://cola-wellness.vercel.app/";
-            }
-            
-            const encodedMessage = encodeURIComponent(finalMessage);
-            window.open(`https://wa.me/966560958973?text=${encodedMessage}`, '_blank');
+            if (customText !== "") { finalMessage = customText + "\n\nhttps://cola-wellness.vercel.app/"; }
+            window.open(`https://wa.me/966560958973?text=${encodeURIComponent(finalMessage)}`, '_blank');
         }
-
 
         // --- MODAL BOOKING FUNCTIONS ---
         function openBookingModal(name, price) {
@@ -643,35 +624,18 @@
             document.getElementById('modalServicePrice').innerText = price;
             document.getElementById('bookingModal').classList.remove('hidden');
         }
-        
-        function closeBookingModal() {
-            document.getElementById('bookingModal').classList.add('hidden');
-            backToOptions();
-        }
-        
+        function closeBookingModal() { document.getElementById('bookingModal').classList.add('hidden'); backToOptions(); }
         function handleOptionAction(action) {
-            if(action === 'form') {
-                document.getElementById('optionsContainer').classList.add('hidden');
-                document.getElementById('formContainer').classList.remove('hidden');
-            } else if(action === 'chat') {
+            if(action === 'form') { document.getElementById('optionsContainer').classList.add('hidden'); document.getElementById('formContainer').classList.remove('hidden'); }
+            else if(action === 'chat') {
                 const sName = document.getElementById('modalServiceName').innerText;
                 const sPrice = document.getElementById('modalServicePrice').innerText;
                 const msg = `Hi Cola Wellness! I want to book ${sName} (${sPrice}).\n\nhttps://cola-wellness.vercel.app/`;
                 window.open(`https://wa.me/966560958973?text=${encodeURIComponent(msg)}`, '_blank');
-            } else if(action === 'call') {
-                window.open("tel:+966560958973");
-            }
+            } else if(action === 'call') { window.open("tel:+966560958973"); }
         }
-        
-        function backToOptions() {
-            document.getElementById('formContainer').classList.add('hidden');
-            document.getElementById('optionsContainer').classList.remove('hidden');
-        }
-        
-        function submitFormBooking(e) {
-            e.preventDefault();
-            alert('Form processing...');
-        }
+        function backToOptions() { document.getElementById('formContainer').classList.add('hidden'); document.getElementById('optionsContainer').classList.remove('hidden'); }
+        function submitFormBooking(e) { e.preventDefault(); alert('Form processing...'); }
     </script>
 </body>
 </html>
