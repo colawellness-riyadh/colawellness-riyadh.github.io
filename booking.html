@@ -10,13 +10,25 @@
                
     <title>COLA Wellness Center | Riyadh</title>
 
-    <meta property="og:image" content="https://cola-wellness.vercel.app/colalogo.png">
-    <meta property="og:image:width" content="300">
-    <meta property="og:image:height" content="300">
-    <meta property="og:image:type" content="image/png">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="COLA Wellness Center | Riyadh">
+    <meta property="og:description" content="Experience premium relaxation at COLA Wellness Center in Riyadh. Luxury Cave & Wellness Suite offering world-class therapeutic massage and premium Moroccan bath treatments.">
+    <meta property="og:url" content="https://cola-wellness.vercel.app/">
+    <meta property="og:site_name" content="COLA Wellness Center">
+    <meta property="fb:app_id" content="1642501186769355" />
+    
+    <meta property="og:image" content="https://cola-wellness.vercel.app/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/jpeg">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="COLA Wellness Center | Riyadh">
+    <meta name="twitter:description" content="Experience premium relaxation at COLA Wellness Center in Riyadh. Luxury Cave & Wellness Suite.">
+    <meta name="twitter:image" content="https://cola-wellness.vercel.app/og-image.jpg">
+
     <link class="icon" type="image/png" href="https://cola-wellness.vercel.app/colalogo.png">
     <link class="apple-touch-icon" href="https://cola-wellness.vercel.app/colalogo.png">
-
     <link rel="icon" type="image/png" href="colalogo.png">
     <link rel="shortcut icon" type="image/png" href="colalogo.png">
     
@@ -50,6 +62,11 @@
             color: #E5E5E5;
             overflow-x: hidden;
             margin: 0;
+            /* Iniiwasan ang text selection para sa proteksyon */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
      
         .luxury-font {
@@ -123,7 +140,7 @@
         /* INAYOS NA INFINITE LOOP SLIDER CSS */
         @keyframes scrollRight {
             0% { transform: translateX(0); }
-            100% { transform: translateX(calc(-226px * 7)); } /* 210px card width + 16px gap = 226px */
+            100% { transform: translateX(calc(-226px * 7)); }
         }
 
         .slider-track-right {
@@ -224,6 +241,13 @@
             border: none !important;
             min-width: 180px;
         }
+
+        /* PRIVACY PROTECTION: I-BLANK ANG BANNER AT LABAS KAPAG NI-PRINT O SINUBUKANG I-PDF */
+        @media print {
+            body {
+                display: none !important;
+            }
+        }
     </style>
 </head>
 <body class="min-h-screen flex flex-col justify-between relative">
@@ -251,7 +275,7 @@
             </div>
         </div>
 
-         <nav class="w-full md:w-auto flex flex-row overflow-x-auto no-scrollbar justify-start md:justify-center items-center space-x-5 text-[9px] md:text-[10px] tracking-widest uppercase text-zinc-300 font-medium py-1">
+        <nav class="w-full md:w-auto flex flex-row overflow-x-auto no-scrollbar justify-start md:justify-center items-center space-x-5 text-[9px] md:text-[10px] tracking-widest uppercase text-zinc-300 font-medium py-1">
             <a href="index.html" class="hover:text-amber-400 text-amber-400 font-semibold whitespace-nowrap transition-colors">Home</a>
             <a href="Facilities.html" class="hover:text-amber-400 whitespace-nowrap transition-colors">Facilities</a>
             <a href="servicemenu.html" class="hover:text-amber-400 whitespace-nowrap transition-colors">Service Menu</a>
@@ -260,7 +284,7 @@
             <a href="https://www.facebook.com/sweetcola31/" target="_blank" class="hover:text-amber-400 whitespace-nowrap transition-colors">Facebook</a>
             <a href="https://g.page/r/CbAoACwjDz6lEBM/review" target="_blank" class="hover:text-amber-400 whitespace-nowrap transition-colors">Rate/Review</a>
             <a href="about.html" class="hover:text-amber-400 whitespace-nowrap transition-colors">About</a>
-             <a href="booking.html" class="hover:text-amber-400 whitespace-nowrap transition-colors">Book Now</a>
+            <a href="booking.html" class="hover:text-amber-400 whitespace-nowrap transition-colors">Book Now</a>
         </nav>
 
         <div class="hidden md:block">
@@ -469,8 +493,7 @@
         </div>
     </div>
 
-     <div class="fixed bottom-6 right-6 z-50 flex flex-col items-end">
-        
+    <div class="fixed bottom-6 right-6 z-50 flex flex-col items-end">
         <div id="marketingBubble" class="bg-zinc-950 border gold-border text-zinc-200 text-xs py-2 px-4 rounded-xl shadow-2xl mb-3 max-w-[240px] relative font-medium backdrop-blur-md">
             <span id="bubbleTypewriter" class="typewriter-cursor"></span>
             <div class="absolute bottom-[-6px] right-5 w-3 h-3 bg-zinc-950 border-r border-b gold-border rotate-45"></div>
@@ -516,126 +539,154 @@
     </div>
     
     <footer class="w-full py-6 text-center border-t border-zinc-900/80 bg-black/80 backdrop-blur-md shrink-0 relative z-20">
-        <div class="max-w-md mx-auto flex flex-col items-center gap-2">
-            <div class="flex items-center gap-2 text-amber-500/80 text-[10px] tracking-widest font-bold uppercase bg-amber-500/5 px-4 py-1.5 rounded-full border border-amber-500/10">
-                <i class="fa-solid fa-shield-cat text-amber-400"></i> 100% Certified & Licensed Commercial Establishment
-            </div>
-            <p class="tracking-widest luxury-font text-[10px] text-zinc-400 mt-1">© 2026 COLA PROFESSIONAL WELLNESS CENTER</p>
-            <p class="font-medium text-[9px] text-zinc-500 uppercase tracking-wider">Al Yarmuk, Riyadh, Kingdom of Saudi Arabia</p>
-        </div>
+        <p class="text-[10px] text-zinc-500 tracking-widest uppercase">&copy; 2026 COLA Wellness Center. All Rights Reserved.</p>
     </footer>
 
-   <script>
-    // --- 1. UNLIMITED TYPEWRITER LOOP PARA SA OUTSIDE FLOATING BUBBLE ---
-    const phrases = [
-        "Hi! I am Cola. How can I help you? ✨",
-        "Book your Premium Massage now! 💆‍♂️",
-        "Available 24/7 in Al Yarmuk, Riyadh! 📍",
-        "Chat with us directly via WhatsApp! ⚡"
-    ];
-    
-    let phraseIndex = 0;
-    let characterIndex = 0;
-    let isDeleting = false;
-    const bubbleElement = document.getElementById("bubbleTypewriter");
+    <script>
+        // --- PRIVACY PROTECTION SYSTEM ---
+        
+        // 1. Harangan ang Right-Click (Anti-Save Image)
+        document.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+        });
 
-    function loopTypewriter() {
-        const currentPhrase = phrases[phraseIndex];
+        // 2. Harangan ang Keyboard Copy at Developer Inspect Tools (F12, Ctrl+Shift+I, etc.)
+        document.addEventListener('keydown', function(e) {
+            if (e.ctrlKey && (e.key === 'c' || e.key === 's' || e.key === 'u' || e.key === 'a')) {
+                e.preventDefault();
+                return false;
+            }
+            if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'J' || e.key === 'C'))) {
+                e.preventDefault();
+                return false;
+            }
+        });
 
-        if (isDeleting) {
-            bubbleElement.innerHTML = currentPhrase.substring(0, characterIndex - 1);
-            characterIndex--;
-        } else {
-            bubbleElement.innerHTML = currentPhrase.substring(0, characterIndex + 1);
-            characterIndex++;
+        // 3. Anti-Screenshot/Blur Focus Trick (Napakabisa kapag binalak i-background ang app sa mobile para picturan)
+        window.addEventListener('blur', function() {
+            document.body.style.filter = 'blur(20px)';
+        });
+        window.addEventListener('focus', function() {
+            document.body.style.filter = 'none';
+        });
+
+
+        // --- TYPEWRITER LOOP PARA SA FLOATING BUBBLE ---
+        const phrases = [
+            "Hi! I am Cola. How can I help you? ✨",
+            "Book your Premium Massage now! 💆‍♂️",
+            "Available 24/7 in Al Yarmuk, Riyadh! 📍",
+            "Chat with us directly via WhatsApp! ⚡"
+        ];
+        
+        let phraseIndex = 0;
+        let characterIndex = 0;
+        let isDeleting = false;
+        let bubbleElement;
+
+        function loopTypewriter() {
+            if (!bubbleElement) bubbleElement = document.getElementById("bubbleTypewriter");
+            if (!bubbleElement) return;
+
+            const currentPhrase = phrases[phraseIndex];
+
+            if (isDeleting) {
+                bubbleElement.innerHTML = currentPhrase.substring(0, characterIndex - 1);
+                characterIndex--;
+            } else {
+                bubbleElement.innerHTML = currentPhrase.substring(0, characterIndex + 1);
+                characterIndex++;
+            }
+
+            let typeSpeed = isDeleting ? 20 : 45;
+
+            if (!isDeleting && characterIndex === currentPhrase.length) {
+                typeSpeed = 2500; 
+                isDeleting = true;
+            } else if (isDeleting && characterIndex === 0) {
+                isDeleting = false;
+                phraseIndex = (phraseIndex + 1) % phrases.length; 
+                typeSpeed = 400; 
+            }
+
+            setTimeout(loopTypewriter, typeSpeed);
         }
 
-        let typeSpeed = isDeleting ? 20 : 45;
+        document.addEventListener("DOMContentLoaded", function() {
+            loopTypewriter();
+        });
 
-        if (!isDeleting && characterIndex === currentPhrase.length) {
-            typeSpeed = 2500; 
-            isDeleting = true;
-        } else if (isDeleting && characterIndex === 0) {
-            isDeleting = false;
-            phraseIndex = (phraseIndex + 1) % phrases.length; 
-            typeSpeed = 400; 
+
+        // --- CHAT BOX TOGGLE FUNCTIONS ---
+        function toggleChat() {
+            const chatBox = document.getElementById('chatBox');
+            const marketingBubble = document.getElementById('marketingBubble');
+            
+            chatBox.classList.toggle('hidden');
+            
+            if (chatBox.classList.contains('hidden')) {
+                marketingBubble.classList.remove('hidden');
+            } else {
+                marketingBubble.classList.add('hidden');
+                document.getElementById('custCustomMessage').focus();
+            }
         }
 
-        setTimeout(loopTypewriter, typeSpeed);
-    }
-
-    document.addEventListener("DOMContentLoaded", function() {
-        loopTypewriter();
-    });
-
-    // --- 2. CHAT BOX TOGGLE FUNCTIONS ---
-    function toggleChat() {
-        const chatBox = document.getElementById('chatBox');
-        const marketingBubble = document.getElementById('marketingBubble');
-        
-        chatBox.classList.toggle('hidden');
-        
-        if (chatBox.classList.contains('hidden')) {
-            marketingBubble.classList.remove('hidden');
-        } else {
-            marketingBubble.classList.add('hidden');
-            document.getElementById('custCustomMessage').focus();
+        function trackWhatsAppConversion() {
+            console.log("WhatsApp conversion event triggered.");
         }
-    }
 
-    // Placeholder para sa conversion tracker para maiwasan ang "not defined" error
-    function trackWhatsAppConversion() {
-        console.log("WhatsApp click tracked successfully.");
-        // Kung may Google Analytics o Facebook Pixel ka, ilagay mo rito ang code.
-    }
 
-    // --- 3. DYNAMIC TEXT MIRRORING TO WHATSAPP WITH WEBSITE LINK ---
-    function sendDirectToWhatsApp() {
-        trackWhatsAppConversion();
-        const customText = document.getElementById('custCustomMessage').value.trim();
-        
-        // Include website URL for preview
-        let finalMessage = "Hi Cola Wellness Center! I am interested in booking a premium relaxation treatment.\n\nhttps://colawellness-riyadh.github.io/";
-        
-        if (customText !== "") {
-            finalMessage = customText + "\n\nhttps://colawellness-riyadh.github.io/";
+        // --- DYNAMIC TEXT MIRRORING TO WHATSAPP ---
+        function sendDirectToWhatsApp() {
+            trackWhatsAppConversion();
+            const customText = document.getElementById('custCustomMessage').value.trim();
+            let finalMessage = "Hi Cola Wellness Center! I am interested in booking a premium relaxation treatment.\n\nhttps://cola-wellness.vercel.app/";
+            
+            if (customText !== "") {
+                finalMessage = customText + "\n\nhttps://cola-wellness.vercel.app/";
+            }
+            
+            const encodedMessage = encodeURIComponent(finalMessage);
+            window.open(`https://wa.me/966560958973?text=${encodedMessage}`, '_blank');
+        }
+
+
+        // --- MODAL BOOKING FUNCTIONS ---
+        function openBookingModal(name, price) {
+            document.getElementById('modalServiceName').innerText = name;
+            document.getElementById('modalServicePrice').innerText = price;
+            document.getElementById('bookingModal').classList.remove('hidden');
         }
         
-        const encodedMessage = encodeURIComponent(finalMessage);
-        window.open(`https://wa.me/966560958973?text=${encodedMessage}`, '_blank');
-    } // <-- Tinanggal ang sobrang } dito na nagpapasira sa code
-
-    // Pansamantalang placeholder para sa modal functions para hindi mag-error ang console
-    function openBookingModal(name, price) {
-        document.getElementById('modalServiceName').innerText = name;
-        document.getElementById('modalServicePrice').innerText = price;
-        document.getElementById('bookingModal').classList.remove('hidden');
-    }
-    
-    function closeBookingModal() {
-        document.getElementById('bookingModal').classList.add('hidden');
-    }
-    
-    function handleOptionAction(action) {
-        if(action === 'form') {
-            document.getElementById('optionsContainer').classList.add('hidden');
-            document.getElementById('formContainer').classList.remove('hidden');
-        } else if(action === 'chat') {
-            window.open("https://wa.me/966560958973", '_blank');
-        } else if(action === 'call') {
-            window.open("tel:+966560958973");
+        function closeBookingModal() {
+            document.getElementById('bookingModal').classList.add('hidden');
+            backToOptions();
         }
-    }
-    
-    function backToOptions() {
-        document.getElementById('formContainer').classList.add('hidden');
-        document.getElementById('optionsContainer').classList.remove('hidden');
-    }
-    
-    function submitFormBooking(e) {
-        e.preventDefault();
-        alert('Form processing...');
-    }
-</script>
+        
+        function handleOptionAction(action) {
+            if(action === 'form') {
+                document.getElementById('optionsContainer').classList.add('hidden');
+                document.getElementById('formContainer').classList.remove('hidden');
+            } else if(action === 'chat') {
+                const sName = document.getElementById('modalServiceName').innerText;
+                const sPrice = document.getElementById('modalServicePrice').innerText;
+                const msg = `Hi Cola Wellness! I want to book ${sName} (${sPrice}).\n\nhttps://cola-wellness.vercel.app/`;
+                window.open(`https://wa.me/966560958973?text=${encodeURIComponent(msg)}`, '_blank');
+            } else if(action === 'call') {
+                window.open("tel:+966560958973");
+            }
+        }
+        
+        function backToOptions() {
+            document.getElementById('formContainer').classList.add('hidden');
+            document.getElementById('optionsContainer').classList.remove('hidden');
+        }
+        
+        function submitFormBooking(e) {
+            e.preventDefault();
+            alert('Form processing...');
+        }
+    </script>
 </body>
 </html>
