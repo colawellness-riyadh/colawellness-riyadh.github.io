@@ -237,7 +237,7 @@
             min-width: 180px;
         }
 
-        /* SOLID ORIGINAL LOGO COVER FOR SLIDER FRAMES */
+        /* SOLID 16:9 LOGO WATERMARK FOR SLIDER FRAMES */
         .slider-item {
             position: relative;
             width: 210px;
@@ -254,7 +254,7 @@
             padding: 12px;
         }
         
-        /* 100% Solid original logo watermark overlay */
+        /* Solid 16:9 logo watermark overlay */
         .slider-item::after {
             content: '';
             position: absolute;
@@ -262,12 +262,12 @@
             left: 50%;
             transform: translate(-50%, -50%);
             width: 125px;
-            height: 125px;
+            height: calc(125px * 9 / 16); /* Maintains 16:9 ratio based on width */
             background-image: url('colalogo.png');
             background-size: contain;
             background-repeat: no-repeat;
             background-position: center;
-            opacity: 1; /* 100% Solid/Original visibility */
+            opacity: 1; /* Solid visibility */
             pointer-events: none;
             z-index: 10;
         }
@@ -400,7 +400,7 @@
                 <i class="fas fa-spa"></i>
                 <h3>Swedish Massage</h3>
                 <span class="arabic-title">مساج سويدي</span>
-                <p>Gentle strokes for relaxation.<br>ضربات لطيفة للاسترخاء.</p>
+                <p>Gentle strokes for relaxation.<br>ضربat لطيفة للاسترخاء.</p>
                 <div class="price-btn">130 SR / 40 MINS</div>
             </div>
 
@@ -423,7 +423,7 @@
             <div class="service-card" onclick="openBookingModal('Shaving Service', 'FULL CARE')">
                 <i class="fas fa-razor"></i>
                 <h3>Shaving (On Demand)</h3>
-                <span class="arabic-title">حلاقة عند الطلب</span>
+                <span class="arabic-title">حلاقة عند الطلb</span>
                 <p>Clean and professional grooming services including Full Body Shaving, Bikini, and Underarm cleaning.<br>خدمات الحلاقة والنظافة الشخصية الاحترافية.</p>
                 <div class="price-btn">FULL CARE</div>
             </div>
