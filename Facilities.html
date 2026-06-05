@@ -114,19 +114,7 @@
         .slider-track-right {
             display: flex;
             width: calc(226px * 14);
-            animation: scrollRight 25s linear infinite;
-        }
-        .slider-track-left {
-            display: flex;
-            width: calc(226px * 14);
-            animation: scrollLeft 25s linear infinite;
-        }
-        .slider-track-right:hover, .slider-track-left:hover {
-            animation-play-state: none;
-        }
-        /* PINALAKING WATERMARK PARA SAKOP ANG BUONG FRAME */
-        .slider-item::after {
-            content: '';
+            animatiocontent: '';
             position: absolute;
             top: 0;
             left: 0;
@@ -136,9 +124,18 @@
             background-size: cover; /* Pwede ring 'cover' kung nais mong punong-puno talaga nang walang bakante sa gilid */
             background-repeat: no-repeat;
             background-position: center;
-            z-index: 10;
+            z-index: 10;n: scrollRight 25s linear infinite;
+            
         }
-
+        .slider-track-left {
+            display: flex;
+            width: calc(226px * 14);
+            animation: scrollLeft 25s linear infinite;
+        }
+        .slider-track-right:hover, .slider-track-left:hover {
+            animation-play-state: none;
+        }
+      
         /* Typewriter Cursor */
         .typewriter-cursor::after {
             content: '|';
