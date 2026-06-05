@@ -254,20 +254,19 @@
             padding: 12px;
         }
         
-        /* Solid 9:16 overlay protection cover */
+        /* PINALAKING WATERMARK PARA SAKOP ANG BUONG FRAME */
         .slider-item::after {
             content: '';
             position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 150px; 
-            height: calc(150px * 16 / 9); /* Maintains strict 9:16 aspect ratio vertical math */
+            top: 0;
+            left: 0;
+            width: 100%; 
+            height: 100%; 
             background-image: url('colalogo.png');
-            background-size: contain;
+            background-size: contain; /* Pwede ring 'cover' kung nais mong punong-puno talaga nang walang bakante sa gilid */
             background-repeat: no-repeat;
             background-position: center;
-            opacity: 1; /* Pure solid full visibility */
+            opacity: 0.15; /* Ginawang semi-transparent (15%) para kita pa rin ang background landscape/room photo */
             pointer-events: none;
             z-index: 10;
         }
@@ -561,81 +560,107 @@
                 <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
                 <span class="relative inline-flex rounded-full h-3 w-3 bg-amber-500"></span>
             </span>
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M8.625 12a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H8.25m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H12m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"/>
-            </svg>
+            <i class="fa-solid fa-comments text-xl"></i>
         </button>
     </div>
-    
-    <footer class="w-full py-6 text-center border-t border-zinc-900/80 bg-black/80 backdrop-blur-md shrink-0 relative z-20">
-        <p class="text-[10px] text-zinc-500 tracking-widest uppercase">&copy; 2026 COLA Wellness Center. All Rights Reserved.</p>
-    </footer>
 
     <script>
-        // Disable Developer Tools Inspector shortcuts & context menus
-        document.addEventListener('contextmenu', function(e) { e.preventDefault(); });
-        document.addEventListener('keydown', function(e) {
-            if (e.ctrlKey && (e.key === 'c' || e.key === 's' || e.key === 'u' || e.key === 'a')) { e.preventDefault(); return false; }
-            if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'J' || e.key === 'C'))) { e.preventDefault(); return false; }
-        });
-        window.addEventListener('blur', function() { document.body.style.filter = 'blur(20px)'; });
-        window.addEventListener('focus', function() { document.body.style.filter = 'none'; });
-
-        // Automated Dynamic Content Messaging Bubble Loop
-        const phrases = [
-            "Hi! I am Cola. How can I help you? ✨",
-            "Book your Premium Massage now! 💆‍♂️",
-            "Available 24/7 in Al Yarmuk, Riyadh! 📍",
-            "Chat with us directly via WhatsApp! ⚡"
-        ];
-        let phraseIndex = 0, characterIndex = 0, isDeleting = false, bubbleElement;
-        function loopTypewriter() {
-            if (!bubbleElement) bubbleElement = document.getElementById("bubbleTypewriter");
-            if (!bubbleElement) return;
-            const currentPhrase = phrases[phraseIndex];
-            if (isDeleting) { bubbleElement.innerHTML = currentPhrase.substring(0, characterIndex - 1); characterIndex--; }
-            else { bubbleElement.innerHTML = currentPhrase.substring(0, characterIndex + 1); characterIndex++; }
-            let typeSpeed = isDeleting ? 20 : 45;
-            if (!isDeleting && characterIndex === currentPhrase.length) { typeSpeed = 2500; isDeleting = true; }
-            else if (isDeleting && characterIndex === 0) { isDeleting = false; phraseIndex = (phraseIndex + 1) % phrases.length; typeSpeed = 400; }
-            setTimeout(loopTypewriter, typeSpeed);
-        }
-        document.addEventListener("DOMContentLoaded", function() { loopTypewriter(); });
-
-        // Utility interaction functions
         function toggleChat() {
             const chatBox = document.getElementById('chatBox');
-            const marketingBubble = document.getElementById('marketingBubble');
             chatBox.classList.toggle('hidden');
-            if (chatBox.classList.contains('hidden')) { marketingBubble.classList.remove('hidden'); }
-            else { marketingBubble.classList.add('hidden'); document.getElementById('custCustomMessage').focus(); }
+        }
+
+        function openBookingModal(serviceName, servicePrice) {
+            document.getElementById('modalServiceName').innerText = serviceName;
+            document.getElementById('modalServicePrice').innerText = servicePrice;
+            document.getElementById('bookingModal').classList.remove('hidden');
+            backToOptions();
+        }
+
+        function closeBookingModal() {
+            document.getElementById('bookingModal').classList.add('hidden');
+        }
+
+        function handleOptionAction(type) {
+            const serviceName = document.getElementById('modalServiceName').innerText;
+            const servicePrice = document.getElementById('modalServicePrice').innerText;
+            
+            if (type === 'chat') {
+                const msg = `Hello COLA Wellness, I would like to book or inquire about: ${serviceName} (${servicePrice}).`;
+                window.open(`https://wa.me/966560958973?text=${encodeURIComponent(msg)}`, '_blank');
+            } else if (type === 'call') {
+                window.open('tel:+966560958973');
+            } else if (type === 'form') {
+                document.getElementById('optionsContainer').classList.add('hidden');
+                document.getElementById('formContainer').classList.remove('hidden');
+            }
+        }
+
+        function backToOptions() {
+            document.getElementById('optionsContainer').classList.remove('hidden');
+            document.getElementById('formContainer').classList.add('hidden');
+        }
+
+        function submitFormBooking(e) {
+            e.preventDefault();
+            const serviceName = document.getElementById('modalServiceName').innerText;
+            const name = document.getElementById('formCustName').value;
+            const phone = document.getElementById('formCustPhone').value;
+            const date = document.getElementById('formCustDate').value;
+            const time = document.getElementById('formCustTime').value;
+
+            const finalMsg = `NEW APPOINTMENT FORM\n\n• Service: ${serviceName}\n• Name: ${name}\n• Contact: ${phone}\n• Date: ${date}\n• Time: ${time}`;
+            window.open(`https://wa.me/966560958973?text=${encodeURIComponent(finalMsg)}`, '_blank');
+            closeBookingModal();
         }
 
         function sendDirectToWhatsApp() {
-            const customText = document.getElementById('custCustomMessage').value.trim();
-            let finalMessage = "Hi Cola Wellness Center! I am interested in booking a premium relaxation treatment.\n\nhttps://cola-wellness.vercel.app/";
-            if (customText !== "") { finalMessage = customText + "\n\nhttps://cola-wellness.vercel.app/"; }
-            window.open(`https://wa.me/966560958973?text=${encodeURIComponent(finalMessage)}`, '_blank');
+            const text = document.getElementById('custCustomMessage').value;
+            if(!text.trim()) return;
+            window.open(`https://wa.me/966560958973?text=${encodeURIComponent(text)}`, '_blank');
         }
 
-        function openBookingModal(name, price) {
-            document.getElementById('modalServiceName').innerText = name;
-            document.getElementById('modalServicePrice').innerText = price;
-            document.getElementById('bookingModal').classList.remove('hidden');
+        const phrases = [
+            "Licensed Filipina Therapists 🇵🇭",
+            "Premium Moroccan Bath 🫧",
+            "Luxury Relaxation in Riyadh ✨",
+            "Available 24/7 Group Booking ⏱️"
+        ];
+        let phraseIdx = 0;
+        let charIdx = 0;
+        let isDeleting = false;
+        const bubbleText = document.getElementById('bubbleTypewriter');
+
+        function typeEffect() {
+            const currentPhrase = phrases[phraseIdx];
+            if (isDeleting) {
+                bubbleText.innerText = currentPhrase.substring(0, charIdx - 1);
+                charIdx--;
+            } else {
+                bubbleText.innerText = currentPhrase.substring(0, charIdx + 1);
+                charIdx++;
+            }
+
+            let typeSpeed = isDeleting ? 40 : 80;
+
+            if (!isDeleting && charIdx === currentPhrase.length) {
+                typeSpeed = 2500; 
+                isDeleting = true;
+            } else if (isDeleting && charIdx === 0) {
+                isDeleting = false;
+                phraseIdx = (phraseIdx + 1) % phrases.length;
+                typeSpeed = 500;
+            }
+
+            setTimeout(typeEffect, typeSpeed);
         }
-        function closeBookingModal() { document.getElementById('bookingModal').classList.add('hidden'); backToOptions(); }
-        
-        function handleOptionAction(action) {
-            if(action === 'form') { document.getElementById('optionsContainer').classList.add('hidden'); document.getElementById('formContainer').classList.remove('hidden'); }
-            else if(action === 'chat') {
-                const sName = document.getElementById('modalServiceName').innerText;
-                const sPrice = document.getElementById('modalServicePrice').innerText;
-                const msg = `Hi Cola Wellness! I want to book ${sName} (${sPrice}).\n\nhttps://cola-wellness.vercel.app/`;
-                window.open(`https://wa.me/966560958973?text=${encodeURIComponent(msg)}`, '_blank');
-            } else if(action === 'call') { window.open("tel:+966560958973"); }
-        }
-        function backToOptions() { document.getElementById('formContainer').classList.add('hidden'); document.getElementById('optionsContainer').classList.remove('hidden'); }
-        function submitFormBooking(e) { e.preventDefault(); alert('Form processing...'); }
+        document.addEventListener('DOMContentLoaded', () => {
+            typeEffect();
+            // Isara ang modal kapag pinindot ang labas nito
+            document.getElementById('bookingModal').addEventListener('click', function(e) {
+                if(e.target === this) closeBookingModal();
+            });
+        });
     </script>
 </body>
 </html>
