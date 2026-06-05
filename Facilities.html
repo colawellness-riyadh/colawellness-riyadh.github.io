@@ -113,11 +113,27 @@
         .slider-track-right {
             display: flex;
             width: calc(226px * 14);
-            animation: scrollRight 25s linear infinite;
+           
         }
         /* 9:16 VERTICAL WATERMARK COVERS FOR SLIDER FRAMES */
         .slider-item {
             position: relative;
+            width: 210px;
+            height: 373px; /* 210x373 follows roughly the 9:16 aspect ratio layout */
+            background-color: #18181b;
+            border-radius: 12px;
+            border: 1px solid rgba(63, 63, 70, 0.5);
+            flex-shrink: 0;
+            background-size: cover;
+            background-position: center;
+            overflow: hidden;
+            display: flex;
+            align-items: flex-end;
+            padding: 12px;;
+        }
+        /* 9:16 VERTICAL WATERMARK COVERS FOR SLIDER FRAMES */
+         .slider-track-right { 
+            animation: scrollRight 25s linear infinite;
             width: 210px;
             height: 373px; /* 210x373 follows roughly the 9:16 aspect ratio layout */
             background-color: #18181b;
