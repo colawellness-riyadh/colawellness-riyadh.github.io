@@ -48,6 +48,7 @@
             border-color: #C49A33;
         }
         .no-scrollbar::-webkit-scrollbar { display: none; }
+        }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 
         /* NATURE SLIDE SHOW BACKGROUND CONTAINER */
@@ -71,9 +72,25 @@
             opacity: 0;
             filter: brightness(0.30) contrast(1.05) saturate(0.85); /* Medyo mas madilim para lumutang ang gold text at nakakarelax sa mata */
             animation: natureSlideshow 24s linear infinite;
+          }
+        
+        /* PINALAKING WATERMARK PARA SAKOP ANG BUONG FRAME */
+        .slider-item::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%; 
+            height: 100%; 
+            background-image: url('colalogo.png');
+            background-size: cover; /* Pwede ring 'cover' kung nais mong punong-puno talaga nang walang bakante sa gilid */
+            background-repeat: no-repeat;
+            background-position: center;
+            pointer-events: none;
+            z-index: 10;
         }
 
-        /* Pagkakasunod-sunod ng mga slides (4 slides, tig-6 na segundo bawat isa) */
+         /* pagkakasunod-sunod ng mga slides (4 slides, tig-6 na segundo bawat isa) */
         .slide:nth-child(1) {
             background-image: url('https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=1920'); /* Relaxing Forest/Sunshine */
             animation-delay: 0s;
@@ -199,48 +216,26 @@
             </div>
             <div class="w-full overflow-hidden bg-black/30 backdrop-blur-xs py-4 rounded-2xl border border-zinc-800/30">
                 <div class="slider-track-right gap-4 px-4">
-                    <div class="w-[210px] h-[373px] bg-zinc-900/90 rounded-xl border border-zinc-700/50 flex-shrink-0 bg-cover bg-center overflow-hidden flex items-end p-3" style="background-image: url('FixPlus_20260522_015636857.jpg');">
-                        <span class="text-[9px] font-bold tracking-wider uppercase bg-black/70 px-2.5 py-1 rounded text-amber-400 border border-amber-500/20">Luxury Room</span>
+                   <div class="slider-item" style="background-image: url('FixPlus_20260522_015636857.jpg');">
+                        <span class="text-[9px] font-bold tracking-wider uppercase bg-black/70 px-2.5 py-1 rounded text-amber-400 border border-amber-500/20 relative z-20">Luxury Room</span>
                     </div>
-                    <div class="w-[210px] h-[373px] bg-zinc-900/90 rounded-xl border border-zinc-700/50 flex-shrink-0 bg-cover bg-center overflow-hidden flex items-end p-3" style="background-image: url('Snapchat-1585899800.jpg');">
-                        <span class="text-[9px] font-bold tracking-wider uppercase bg-black/70 px-2.5 py-1 rounded text-amber-400 border border-amber-500/20">Moroccan Bath</span>
+                    <div class="slider-item" style="background-image: url('Snapchat-1585899800.jpg');">
+                        <span class="text-[9px] font-bold tracking-wider uppercase bg-black/70 px-2.5 py-1 rounded text-amber-400 border border-amber-500/20 relative z-20">Moroccan Bath</span>
                     </div>
-                    <div class="w-[210px] h-[373px] bg-zinc-900/90 rounded-xl border border-zinc-700/50 flex-shrink-0 bg-cover bg-center overflow-hidden flex items-end p-3" style="background-image: url('FixPlus_20260510_165850154.jpg');">
-                        <span class="text-[9px] font-bold tracking-wider uppercase bg-black/70 px-2.5 py-1 rounded text-amber-400 border border-amber-500/20">Jacuzzi Area</span>
+                    <div class="slider-item" style="background-image: url('FixPlus_20260519_041654631.jpg');">
+                        <span class="text-[9px] font-bold tracking-wider uppercase bg-black/70 px-2.5 py-1 rounded text-amber-400 border border-amber-500/20 relative z-20">Jacuzzi Area</span>
                     </div>
-                    <div class="w-[210px] h-[373px] bg-zinc-900/90 rounded-xl border border-zinc-700/50 flex-shrink-0 bg-cover bg-center overflow-hidden flex items-end p-3" style="background-image: url('FixPlus_20260510_170005442.jpg');">
-                        <span class="text-[9px] font-bold tracking-wider uppercase bg-black/70 px-2.5 py-1 rounded text-amber-400 border border-amber-500/20">Massage Deck</span>
+                    <div class="slider-item" style="background-image: url('FixPlus_20260520_033618727.png');">
+                        <span class="text-[9px] font-bold tracking-wider uppercase bg-black/70 px-2.5 py-1 rounded text-amber-400 border border-amber-500/20 relative z-20">Massage Deck</span>
                     </div>
-                    <div class="w-[210px] h-[373px] bg-zinc-900/90 rounded-xl border border-zinc-700/50 flex-shrink-0 bg-cover bg-center overflow-hidden flex items-end p-3" style="background-image: url('FixPlus_20260519_041654631(1)(1).jpg');">
-                        <span class="text-[9px] font-bold tracking-wider uppercase bg-black/70 px-2.5 py-1 rounded text-amber-400 border border-amber-500/20">Therapy Lounge</span>
+                    <div class="slider-item" style="background-image: url('FixPlus_20260520_035318194.jpg');">
+                        <span class="text-[9px] font-bold tracking-wider uppercase bg-black/70 px-2.5 py-1 rounded text-amber-400 border border-amber-500/20 relative z-20">Therapy Lounge</span>
                     </div>
-                    <div class="w-[210px] h-[373px] bg-zinc-900/90 rounded-xl border border-zinc-700/50 flex-shrink-0 bg-cover bg-center overflow-hidden flex items-end p-3" style="background-image: url('FixPlus_20260510_170152764.jpg');">
-                        <span class="text-[9px] font-bold tracking-wider uppercase bg-black/70 px-2.5 py-1 rounded text-amber-400 border border-amber-500/20">VIP Spa Suite</span>
+                    <div class="slider-item" style="background-image: url('FixPlus_20260514_031226049.jpg');">
+                        <span class="text-[9px] font-bold tracking-wider uppercase bg-black/70 px-2.5 py-1 rounded text-amber-400 border border-amber-500/20 relative z-20">VIP Spa Suite</span>
                     </div>
-                    <div class="w-[210px] h-[373px] bg-zinc-900/90 rounded-xl border border-zinc-700/50 flex-shrink-0 bg-cover bg-center overflow-hidden flex items-end p-3" style="background-image: url('FixPlus_20260515_224325099.png');">
-                        <span class="text-[9px] font-bold tracking-wider uppercase bg-black/70 px-2.5 py-1 rounded text-amber-400 border border-amber-500/20">Sauna Room</span>
-                    </div>
-
-                     <div class="w-[210px] h-[373px] bg-zinc-900/90 rounded-xl border border-zinc-700/50 flex-shrink-0 bg-cover bg-center overflow-hidden flex items-end p-3" style="background-image: url('FixPlus_20260522_015636857.jpg');">
-                        <span class="text-[9px] font-bold tracking-wider uppercase bg-black/70 px-2.5 py-1 rounded text-amber-400 border border-amber-500/20">Luxury Room</span>
-                    </div>
-                    <div class="w-[210px] h-[373px] bg-zinc-900/90 rounded-xl border border-zinc-700/50 flex-shrink-0 bg-cover bg-center overflow-hidden flex items-end p-3" style="background-image: url('Snapchat-1585899800.jpg');">
-                        <span class="text-[9px] font-bold tracking-wider uppercase bg-black/70 px-2.5 py-1 rounded text-amber-400 border border-amber-500/20">Moroccan Bath</span>
-                    </div>
-                    <div class="w-[210px] h-[373px] bg-zinc-900/90 rounded-xl border border-zinc-700/50 flex-shrink-0 bg-cover bg-center overflow-hidden flex items-end p-3" style="background-image: url('FixPlus_20260510_165850154.jpg');">
-                        <span class="text-[9px] font-bold tracking-wider uppercase bg-black/70 px-2.5 py-1 rounded text-amber-400 border border-amber-500/20">Jacuzzi Area</span>
-                    </div>
-                    <div class="w-[210px] h-[373px] bg-zinc-900/90 rounded-xl border border-zinc-700/50 flex-shrink-0 bg-cover bg-center overflow-hidden flex items-end p-3" style="background-image: url('FixPlus_20260510_170005442.jpg');">
-                        <span class="text-[9px] font-bold tracking-wider uppercase bg-black/70 px-2.5 py-1 rounded text-amber-400 border border-amber-500/20">Massage Deck</span>
-                    </div>
-                    <div class="w-[210px] h-[373px] bg-zinc-900/90 rounded-xl border border-zinc-700/50 flex-shrink-0 bg-cover bg-center overflow-hidden flex items-end p-3" style="background-image: url('FixPlus_20260519_041654631(1)(1).jpg');">
-                        <span class="text-[9px] font-bold tracking-wider uppercase bg-black/70 px-2.5 py-1 rounded text-amber-400 border border-amber-500/20">Therapy Lounge</span>
-                    </div>
-                    <div class="w-[210px] h-[373px] bg-zinc-900/90 rounded-xl border border-zinc-700/50 flex-shrink-0 bg-cover bg-center overflow-hidden flex items-end p-3" style="background-image: url('FixPlus_20260510_170152764.jpg');">
-                        <span class="text-[9px] font-bold tracking-wider uppercase bg-black/70 px-2.5 py-1 rounded text-amber-400 border border-amber-500/20">VIP Spa Suite</span>
-                    </div>
-                    <div class="w-[210px] h-[373px] bg-zinc-900/90 rounded-xl border border-zinc-700/50 flex-shrink-0 bg-cover bg-center overflow-hidden flex items-end p-3" style="background-image: url('FixPlus_20260515_224325099.png');">
-                        <span class="text-[9px] font-bold tracking-wider uppercase bg-black/70 px-2.5 py-1 rounded text-amber-400 border border-amber-500/20">Sauna Room</span>
+                    <div class="slider-item" style="background-image: url('FixPlus_20260515_224325099.png');">
+                        <span class="text-[9px] font-bold tracking-wider uppercase bg-black/70 px-2.5 py-1 rounded text-amber-400 border border-amber-500/20 relative z-20">Sauna Room</span>
                     </div>
                 </div>
             </div>
@@ -251,27 +246,26 @@
                 Exclusive Amenities <i class="fa-solid fa-circle-chevron-left text-amber-400 animate-pulse"></i>
             </div>
             <div class="w-full overflow-hidden bg-black/30 backdrop-blur-xs py-4 rounded-2xl border border-zinc-800/30">
-                <div class="slider-track-left gap-4 px-4">
-                    <div class="w-[210px] h-[373px] bg-zinc-900/90 rounded-xl border border-zinc-700/50 flex-shrink-0 bg-cover bg-center overflow-hidden flex items-end p-3" style="background-image: url('FixPlus_20260510_155748650.jpg');">
-                        <span class="text-[9px] font-bold tracking-wider uppercase bg-black/70 px-2.5 py-1 rounded text-amber-400 border border-amber-500/20">Traditional Thai</span>
+               <div class="slider-item" style="background-image: url('FixPlus_20260522_015636857.jpg');">
+                        <span class="text-[9px] font-bold tracking-wider uppercase bg-black/70 px-2.5 py-1 rounded text-amber-400 border border-amber-500/20 relative z-20">Luxury Room</span>
                     </div>
-                    <div class="w-[210px] h-[373px] bg-zinc-900/90 rounded-xl border border-zinc-700/50 flex-shrink-0 bg-cover bg-center overflow-hidden flex items-end p-3" style="background-image: url('Gemini_Generated_Image_mng5onmng5onmng5.png');">
-                        <span class="text-[9px] font-bold tracking-wider uppercase bg-black/70 px-2.5 py-1 rounded text-amber-400 border border-amber-500/20">Premium Oil</span>
+                    <div class="slider-item" style="background-image: url('Snapchat-1585899800.jpg');">
+                        <span class="text-[9px] font-bold tracking-wider uppercase bg-black/70 px-2.5 py-1 rounded text-amber-400 border border-amber-500/20 relative z-20">Moroccan Bath</span>
                     </div>
-                    <div class="w-[210px] h-[373px] bg-zinc-900/90 rounded-xl border border-zinc-700/50 flex-shrink-0 bg-cover bg-center overflow-hidden flex items-end p-3" style="background-image: url('Gemini_Generated_Image_vxojfyvxojfyvxoj (1) (1).png');">
-                        <span class="text-[9px] font-bold tracking-wider uppercase bg-black/70 px-2.5 py-1 rounded text-amber-400 border border-amber-500/20">Swedish Area</span>
+                    <div class="slider-item" style="background-image: url('FixPlus_20260519_041654631.jpg');">
+                        <span class="text-[9px] font-bold tracking-wider uppercase bg-black/70 px-2.5 py-1 rounded text-amber-400 border border-amber-500/20 relative z-20">Jacuzzi Area</span>
                     </div>
-                    <div class="w-[210px] h-[373px] bg-zinc-900/90 rounded-xl border border-zinc-700/50 flex-shrink-0 bg-cover bg-center overflow-hidden flex items-end p-3" style="background-image: url('FixPlus_20260510_155553693.jpg');">
-                        <span class="text-[9px] font-bold tracking-wider uppercase bg-black/70 px-2.5 py-1 rounded text-amber-400 border border-amber-500/20">Hot Stone Care</span>
+                    <div class="slider-item" style="background-image: url('FixPlus_20260520_033618727.png');">
+                        <span class="text-[9px] font-bold tracking-wider uppercase bg-black/70 px-2.5 py-1 rounded text-amber-400 border border-amber-500/20 relative z-20">Massage Deck</span>
                     </div>
-                    <div class="w-[210px] h-[373px] bg-zinc-900/90 rounded-xl border border-zinc-700/50 flex-shrink-0 bg-cover bg-center overflow-hidden flex items-end p-3" style="background-image: url('FixPlus_20260510_155636508.jpg');">
-                        <span class="text-[9px] font-bold tracking-wider uppercase bg-black/70 px-2.5 py-1 rounded text-amber-400 border border-amber-500/20">Steam Therapy</span>
+                    <div class="slider-item" style="background-image: url('FixPlus_20260520_035318194.jpg');">
+                        <span class="text-[9px] font-bold tracking-wider uppercase bg-black/70 px-2.5 py-1 rounded text-amber-400 border border-amber-500/20 relative z-20">Therapy Lounge</span>
                     </div>
-                    <div class="w-[210px] h-[373px] bg-zinc-900/90 rounded-xl border border-zinc-700/50 flex-shrink-0 bg-cover bg-center overflow-hidden flex items-end p-3" style="background-image: url('FixPlus_20260510_155341453.jpg');">
-                        <span class="text-[9px] font-bold tracking-wider uppercase bg-black/70 px-2.5 py-1 rounded text-amber-400 border border-amber-500/20">Royal Jacuzzi</span>
+                    <div class="slider-item" style="background-image: url('FixPlus_20260514_031226049.jpg');">
+                        <span class="text-[9px] font-bold tracking-wider uppercase bg-black/70 px-2.5 py-1 rounded text-amber-400 border border-amber-500/20 relative z-20">VIP Spa Suite</span>
                     </div>
-                    <div class="w-[210px] h-[373px] bg-zinc-900/90 rounded-xl border border-zinc-700/50 flex-shrink-0 bg-cover bg-center overflow-hidden flex items-end p-3" style="background-image: url('FixPlus_20260510_155714910.jpg');">
-                        <span class="text-[9px] font-bold tracking-wider uppercase bg-black/70 px-2.5 py-1 rounded text-amber-400 border border-amber-500/20">Moroccan Scrub</span>
+                    <div class="slider-item" style="background-image: url('FixPlus_20260515_224325099.png');">
+                        <span class="text-[9px] font-bold tracking-wider uppercase bg-black/70 px-2.5 py-1 rounded text-amber-400 border border-amber-500/20 relative z-20">Sauna Room</span>
                     </div>
 
                      <div class="w-[210px] h-[373px] bg-zinc-900/90 rounded-xl border border-zinc-700/50 flex-shrink-0 bg-cover bg-center overflow-hidden flex items-end p-3" style="background-image: url('FixPlus_20260510_155748650.jpg');">
