@@ -136,7 +136,7 @@
             100% { opacity: 0; }
         }
 
-        /* INFINITE LOOP SLIDER (NON-STOPPED ON HOVER) */
+        /* INFINITE LOOP SLIDER */
         @keyframes scrollRight {
             0% { transform: translateX(0); }
             100% { transform: translateX(calc(-226px * 7)); }
@@ -237,11 +237,11 @@
             min-width: 180px;
         }
 
-        /* SOLID 16:9 LOGO WATERMARK FOR SLIDER FRAMES */
+        /* 9:16 VERTICAL WATERMARK COVERS FOR SLIDER FRAMES */
         .slider-item {
             position: relative;
             width: 210px;
-            height: 373px;
+            height: 373px; /* 210x373 follows roughly the 9:16 aspect ratio layout */
             background-color: #18181b;
             border-radius: 12px;
             border: 1px solid rgba(63, 63, 70, 0.5);
@@ -254,20 +254,20 @@
             padding: 12px;
         }
         
-        /* Solid 16:9 logo watermark overlay */
+        /* Solid 9:16 overlay protection cover */
         .slider-item::after {
             content: '';
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 125px;
-            height: calc(125px * 9 / 16); /* Maintains 16:9 ratio based on width */
+            width: 150px; 
+            height: calc(150px * 16 / 9); /* Maintains strict 9:16 aspect ratio vertical math */
             background-image: url('colalogo.png');
             background-size: contain;
             background-repeat: no-repeat;
             background-position: center;
-            opacity: 1; /* Solid visibility */
+            opacity: 1; /* Pure solid full visibility */
             pointer-events: none;
             z-index: 10;
         }
@@ -572,7 +572,7 @@
     </footer>
 
     <script>
-        // --- PRIVACY PROTECTION SYSTEM ---
+        // Disable Developer Tools Inspector shortcuts & context menus
         document.addEventListener('contextmenu', function(e) { e.preventDefault(); });
         document.addEventListener('keydown', function(e) {
             if (e.ctrlKey && (e.key === 'c' || e.key === 's' || e.key === 'u' || e.key === 'a')) { e.preventDefault(); return false; }
@@ -581,7 +581,7 @@
         window.addEventListener('blur', function() { document.body.style.filter = 'blur(20px)'; });
         window.addEventListener('focus', function() { document.body.style.filter = 'none'; });
 
-        // --- TYPEWRITER LOOP PARA SA FLOATING BUBBLE ---
+        // Automated Dynamic Content Messaging Bubble Loop
         const phrases = [
             "Hi! I am Cola. How can I help you? ✨",
             "Book your Premium Massage now! 💆‍♂️",
@@ -602,7 +602,7 @@
         }
         document.addEventListener("DOMContentLoaded", function() { loopTypewriter(); });
 
-        // --- CHAT BOX TOGGLE FUNCTIONS ---
+        // Utility interaction functions
         function toggleChat() {
             const chatBox = document.getElementById('chatBox');
             const marketingBubble = document.getElementById('marketingBubble');
@@ -611,7 +611,6 @@
             else { marketingBubble.classList.add('hidden'); document.getElementById('custCustomMessage').focus(); }
         }
 
-        // --- DYNAMIC TEXT MIRRORING TO WHATSAPP ---
         function sendDirectToWhatsApp() {
             const customText = document.getElementById('custCustomMessage').value.trim();
             let finalMessage = "Hi Cola Wellness Center! I am interested in booking a premium relaxation treatment.\n\nhttps://cola-wellness.vercel.app/";
@@ -619,13 +618,13 @@
             window.open(`https://wa.me/966560958973?text=${encodeURIComponent(finalMessage)}`, '_blank');
         }
 
-        // --- MODAL BOOKING FUNCTIONS ---
         function openBookingModal(name, price) {
             document.getElementById('modalServiceName').innerText = name;
             document.getElementById('modalServicePrice').innerText = price;
             document.getElementById('bookingModal').classList.remove('hidden');
         }
         function closeBookingModal() { document.getElementById('bookingModal').classList.add('hidden'); backToOptions(); }
+        
         function handleOptionAction(action) {
             if(action === 'form') { document.getElementById('optionsContainer').classList.add('hidden'); document.getElementById('formContainer').classList.remove('hidden'); }
             else if(action === 'chat') {
