@@ -32,15 +32,14 @@
     <link rel="icon" type="image/png" href="colalogo.png">
     <link rel="shortcut icon" type="image/png" href="colalogo.png">
     
-   <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18066238938"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'AW-18066238938');
-</script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18066238938"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'AW-18066238938');
+    </script>
 
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
@@ -64,9 +63,6 @@
             color: #E5E5E5;
             overflow-x: hidden;
             margin: 0;
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
             user-select: none;
         }
      
@@ -85,12 +81,8 @@
         .gold-border {
             border-color: #C49A33;
         }
-        .glow-button {
-            box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
-            border: 1px solid #FFF6D6;
-        }
      
-        /* NATURE SLIDE SHOW BACKGROUND CONTAINER */
+        /* BACKGROUND SLIDESHOW */
         .slideshow-container {
             position: fixed;
             top: 0;
@@ -109,26 +101,14 @@
             background-size: cover;
             background-position: center;
             opacity: 0;
-            filter: brightness(0.30) contrast(1.05) saturate(0.85);
+            filter: brightness(0.25) contrast(1.05) saturate(0.85);
             animation: natureSlideshow 24s linear infinite;
         }
 
-        .slide:nth-child(1) {
-            background-image: url('https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=1920');
-            animation-delay: 0s;
-        }
-        .slide:nth-child(2) {
-            background-image: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1920');
-            animation-delay: 6s;
-        }
-        .slide:nth-child(3) {
-            background-image: url('https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?q=80&w=1920');
-            animation-delay: 12s;
-        }
-        .slide:nth-child(4) {
-            background-image: url('https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?q=80&w=1920');
-            animation-delay: 18s;
-        }
+        .slide:nth-child(1) { background-image: url('https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=1920'); animation-delay: 0s; }
+        .slide:nth-child(2) { background-image: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1920'); animation-delay: 6s; }
+        .slide:nth-child(3) { background-image: url('https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?q=80&w=1920'); animation-delay: 12s; }
+        .slide:nth-child(4) { background-image: url('https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?q=80&w=1920'); animation-delay: 18s; }
 
         @keyframes natureSlideshow {
             0% { opacity: 0; transform: scale(1); }
@@ -147,7 +127,10 @@
         .slider-track-right {
             display: flex;
             width: max-content;
-            animation: scrollRight 25s linear infinite;
+            animation: scrollRight 30s linear infinite;
+        }
+        .slider-track-right:hover {
+            animation-play-state: paused;
         }
 
         .no-scrollbar::-webkit-scrollbar { display: none; }
@@ -163,9 +146,9 @@
         @keyframes blink {
             0%, 100% { opacity: 1; }
             50% { opacity: 0; }
-         }
+        }
 
-        /* EXACT SCREENSHOT CARD DESIGN GRID */
+        /* SERVICE CARDS GRID */
         .booking-grid {
             display: grid;
             grid-template-columns: repeat(1, minmax(0, 1fr));
@@ -179,35 +162,28 @@
             position: relative;
             padding: 40px 24px; 
             border-radius: 24px; 
-            text-decoration: none; 
             display: flex;
             flex-direction: column;
             align-items: center;
             text-align: center;
             overflow: hidden;
             background: linear-gradient(145deg, #121212 0%, #080808 100%);
-            border: 2px solid #b38f24;
-            box-shadow: inset 0 0 40px rgba(0,0,0,0.9);
-            transition: transform 0.3s ease;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            box-shadow: inset 0 0 30px rgba(0,0,0,0.8);
+            transition: all 0.3s ease;
             cursor: pointer;
         }
         
         .service-card:hover {
             transform: translateY(-5px);
-        }
-
-        .service-card::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(135deg, rgba(212,175,55,0.08) 0%, transparent 50%);
-            pointer-events: none;
+            border-color: #f1b71c;
+            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.15), inset 0 0 30px rgba(0,0,0,0.8);
         }
 
         .service-card i { font-size: 32px; color: #f1b71c; margin-bottom: 12px; }
-        .service-card h3 { font-family: 'Cinzel', serif; font-size: 24px; font-weight: 700; color: #ffffff; margin-bottom: 4px; }
-        .service-card .arabic-title { font-size: 20px; color: #f1b71c; font-weight: 700; margin-bottom: 16px; }
-        .service-card p { font-size: 13px; color: #b3b3b3; line-height: 1.6; margin-bottom: 24px; font-weight: 400; }
+        .service-card h3 { font-family: 'Cinzel', serif; font-size: 22px; font-weight: 700; color: #ffffff; margin-bottom: 4px; }
+        .service-card .arabic-title { font-size: 18px; color: #f1b71c; font-weight: 700; margin-bottom: 16px; }
+        .service-card p { font-size: 13px; color: #b3b3b3; line-height: 1.6; margin-bottom: 24px; }
 
         .price-btn { 
             background: #000000; 
@@ -215,68 +191,57 @@
             padding: 10px 32px; 
             border-radius: 9999px; 
             font-weight: 700; 
-            font-size: 14px;
+            font-size: 13px;
             letter-spacing: 0.05em;
-            border: 2px solid #1a1a1a;
+            border: 1px solid rgba(212, 175, 55, 0.4);
             min-width: 160px;
             margin-top: auto;
+            transition: all 0.2s;
+        }
+        .service-card:hover .price-btn {
+            background: #f1b71c;
+            color: #000000;
         }
 
         .premium-card { 
-            background: #d4a017 !important;
-            border: 2px solid #ffffff !important;
+            background: linear-gradient(145deg, #d4a017 0%, #a87909 100%) !important;
+            border: 1px solid #ffffff !important;
             box-shadow: 0 10px 30px rgba(212, 160, 23, 0.3);
         }
-        .premium-card::before { display: none; }
         .premium-card i { color: #000000 !important; }
         .premium-card h3 { color: #000000 !important; font-weight: 800; }
         .premium-card .arabic-title { color: #000000 !important; }
-        .premium-card p { color: #000000 !important; font-weight: 600; }
+        .premium-card p { color: #1a1a1a !important; font-weight: 500; }
         .premium-card .price-btn { 
             background: #000000 !important; 
             color: #f1b71c !important; 
             border: none !important;
-            min-width: 180px;
         }
 
-        /* 9:16 VERTICAL WATERMARK COVERS FOR SLIDER FRAMES */
         .slider-item {
             position: relative;
             width: 210px;
-            height: 373px; /* 210x373 follows roughly the 9:16 aspect ratio layout */
+            height: 320px;
             background-color: #18181b;
-            border-radius: 12px;
-            border: 1px solid rgba(63, 63, 70, 0.5);
+            border-radius: 16px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
             flex-shrink: 0;
             background-size: cover;
             background-position: center;
             overflow: hidden;
             display: flex;
             align-items: flex-end;
-            padding: 12px;
+            padding: 16px;
         }
-        
-        /* PINALAKING WATERMARK PARA SAKOP ANG BUONG FRAME */
-        .slider-item::after {
+        .slider-item::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%; 
-            height: 100%; 
-            background-image: url('colalogo.png');
-            background-size: cover; /* Pwede ring 'cover' kung nais mong punong-puno talaga nang walang bakante sa gilid */
-            background-repeat: no-repeat;
-            background-position: center;
-            pointer-events: none;
-            z-index: 10;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 60%);
+            z-index: 1;
         }
 
-        @media print {
-            body {
-                display: none !important;
-            }
-        }
+        @media print { body { display: none !important; } }
     </style>
 </head>
 <body class="min-h-screen flex flex-col justify-between relative">
@@ -288,13 +253,14 @@
         <div class="slide"></div>
     </div>
 
+    <!-- HEADER -->
     <header class="w-full py-4 px-4 md:px-12 flex flex-col md:flex-row justify-between items-center bg-black/80 backdrop-blur-md border-b border-zinc-800/50 sticky top-0 z-50 gap-4 md:gap-0">
         <div class="w-full md:w-auto flex justify-between items-center">
             <div class="flex items-center space-x-2 md:space-x-3">
-                <img src="colalogo.png" alt="COLA Logo" class="w-9 h-9 md:w-12 md:h-12 object-contain rounded-full border border-amber-500/30">
+                <img src="colalogo.png" alt="COLA Logo" class="w-10 h-10 md:w-12 md:h-12 object-contain rounded-full border border-amber-500/30">
                 <div class="flex flex-col">
                     <span class="luxury-font text-lg md:text-2xl font-bold tracking-widest gold-text leading-none">COLA</span>
-                    <span class="text-[6px] md:text-[7px] tracking-[0.25em] text-zinc-400 mt-1 uppercase font-light">Wellness Center</span>
+                    <span class="text-[7px] md:text-[8px] tracking-[0.25em] text-zinc-400 mt-1 uppercase font-light">Wellness Center</span>
                 </div>
             </div>
             <div class="flex md:hidden items-center space-x-2">
@@ -304,7 +270,7 @@
             </div>
         </div>
 
-        <nav class="w-full md:w-auto flex flex-row overflow-x-auto no-scrollbar justify-start md:justify-center items-center space-x-5 text-[9px] md:text-[10px] tracking-widest uppercase text-zinc-300 font-medium py-1">
+        <nav class="w-full md:w-auto flex flex-row overflow-x-auto no-scrollbar justify-start md:justify-center items-center space-x-5 text-[10px] tracking-widest uppercase text-zinc-300 font-medium py-1">
             <a href="index.html" class="hover:text-amber-400 text-amber-400 font-semibold whitespace-nowrap transition-colors">Home</a>
             <a href="Facilities.html" class="hover:text-amber-400 whitespace-nowrap transition-colors">Facilities</a>
             <a href="servicemenu.html" class="hover:text-amber-400 whitespace-nowrap transition-colors">Service Menu</a>
@@ -317,78 +283,62 @@
         </nav>
 
         <div class="hidden md:block">
-            <a href="booking.html" class="border border-amber-500/50 text-amber-400 text-[10px] tracking-widest font-semibold uppercase py-2 px-4 rounded hover:bg-amber-500/10 transition-all duration-300">
+            <a href="booking.html" class="border border-amber-500/50 text-amber-400 text-[10px] tracking-widest font-semibold uppercase py-2 px-5 rounded hover:bg-amber-500/20 transition-all duration-300">
                 Book Online
             </a>
         </div>
     </header>
 
+    <!-- TITLE -->
     <div class="w-full flex flex-col items-center justify-center text-center mt-10 mb-6 shrink-0 relative z-20 px-4">
-        <h2 class="luxury-font text-xl md:text-3xl font-bold tracking-[0.25em] text-white bg-black/40 px-6 py-2 rounded-xl backdrop-blur-md border border-zinc-800/40">
+        <h2 class="luxury-font text-xl md:text-3xl font-bold tracking-[0.25em] text-white bg-black/60 px-6 py-3 rounded-xl backdrop-blur-md border border-zinc-800/40">
             ONLINE APPOINTMENT BOOKING
         </h2>
-        <p class="text-[10px] md:text-xs tracking-widest text-amber-400/80 uppercase mt-2 font-medium">
+        <p class="text-[10px] md:text-xs tracking-widest text-amber-400/90 uppercase mt-3 font-semibold">
             Immerse yourself in full relaxation and pure luxury
         </p>
     </div>
     
+    <!-- MAIN CONTENT -->
     <main class="flex-grow w-full max-w-7xl mx-auto flex flex-col gap-10 py-4 px-4 relative z-20 mb-16">
 
-        <div class="w-full flex flex-col gap-2">
-            <div class="flex items-center gap-2 px-2 text-zinc-400 text-[10px] tracking-widest uppercase font-semibold">
+        <!-- ZONE SLIDER -->
+        <div class="w-full flex flex-col gap-3">
+            <div class="flex items-center gap-2 px-2 text-zinc-300 text-[11px] tracking-widest uppercase font-bold">
                 <i class="fa-solid fa-circle-chevron-right text-amber-400 animate-pulse"></i> Premium Relaxation Zones
             </div>
-            <div class="w-full overflow-hidden bg-black/30 backdrop-blur-xs py-4 rounded-2xl border border-zinc-800/30">
+            <div class="w-full overflow-hidden bg-black/40 backdrop-blur-md py-4 rounded-2xl border border-zinc-800/50">
                 <div class="slider-track-right gap-4 px-2">
+                    <!-- Slide Items -->
                     <div class="slider-item" style="background-image: url('FixPlus_20260522_015636857.jpg');">
-                        <span class="text-[9px] font-bold tracking-wider uppercase bg-black/70 px-2.5 py-1 rounded text-amber-400 border border-amber-500/20 relative z-20">Luxury Room</span>
+                        <span class="text-[10px] font-bold tracking-wider uppercase bg-black/80 px-3 py-1.5 rounded text-amber-400 border border-amber-500/20 relative z-20">Luxury Room</span>
                     </div>
                     <div class="slider-item" style="background-image: url('Snapchat-1585899800.jpg');">
-                        <span class="text-[9px] font-bold tracking-wider uppercase bg-black/70 px-2.5 py-1 rounded text-amber-400 border border-amber-500/20 relative z-20">Moroccan Bath</span>
+                        <span class="text-[10px] font-bold tracking-wider uppercase bg-black/80 px-3 py-1.5 rounded text-amber-400 border border-amber-500/20 relative z-20">Moroccan Bath</span>
                     </div>
                     <div class="slider-item" style="background-image: url('FixPlus_20260519_041654631.jpg');">
-                        <span class="text-[9px] font-bold tracking-wider uppercase bg-black/70 px-2.5 py-1 rounded text-amber-400 border border-amber-500/20 relative z-20">Jacuzzi Area</span>
+                        <span class="text-[10px] font-bold tracking-wider uppercase bg-black/80 px-3 py-1.5 rounded text-amber-400 border border-amber-500/20 relative z-20">Jacuzzi Area</span>
                     </div>
                     <div class="slider-item" style="background-image: url('FixPlus_20260520_033618727.png');">
-                        <span class="text-[9px] font-bold tracking-wider uppercase bg-black/70 px-2.5 py-1 rounded text-amber-400 border border-amber-500/20 relative z-20">Massage Deck</span>
+                        <span class="text-[10px] font-bold tracking-wider uppercase bg-black/80 px-3 py-1.5 rounded text-amber-400 border border-amber-500/20 relative z-20">Massage Deck</span>
                     </div>
                     <div class="slider-item" style="background-image: url('FixPlus_20260520_035318194.jpg');">
-                        <span class="text-[9px] font-bold tracking-wider uppercase bg-black/70 px-2.5 py-1 rounded text-amber-400 border border-amber-500/20 relative z-20">Therapy Lounge</span>
+                        <span class="text-[10px] font-bold tracking-wider uppercase bg-black/80 px-3 py-1.5 rounded text-amber-400 border border-amber-500/20 relative z-20">Therapy Lounge</span>
                     </div>
-                    <div class="slider-item" style="background-image: url('FixPlus_20260514_031226049.jpg');">
-                        <span class="text-[9px] font-bold tracking-wider uppercase bg-black/70 px-2.5 py-1 rounded text-amber-400 border border-amber-500/20 relative z-20">VIP Spa Suite</span>
-                    </div>
-                    <div class="slider-item" style="background-image: url('FixPlus_20260515_224325099.png');">
-                        <span class="text-[9px] font-bold tracking-wider uppercase bg-black/70 px-2.5 py-1 rounded text-amber-400 border border-amber-500/20 relative z-20">Sauna Room</span>
-                    </div>
-
-                   <div class="slider-item" style="background-image: url('FixPlus_20260522_015636857.jpg');">
-                        <span class="text-[9px] font-bold tracking-wider uppercase bg-black/70 px-2.5 py-1 rounded text-amber-400 border border-amber-500/20 relative z-20">Luxury Room</span>
+                    <!-- Duplicate for infinite loop effect -->
+                    <div class="slider-item" style="background-image: url('FixPlus_20260522_015636857.jpg');">
+                        <span class="text-[10px] font-bold tracking-wider uppercase bg-black/80 px-3 py-1.5 rounded text-amber-400 border border-amber-500/20 relative z-20">Luxury Room</span>
                     </div>
                     <div class="slider-item" style="background-image: url('Snapchat-1585899800.jpg');">
-                        <span class="text-[9px] font-bold tracking-wider uppercase bg-black/70 px-2.5 py-1 rounded text-amber-400 border border-amber-500/20 relative z-20">Moroccan Bath</span>
-                    </div>
-                    <div class="slider-item" style="background-image: url('FixPlus_20260519_041654631.jpg');">
-                        <span class="text-[9px] font-bold tracking-wider uppercase bg-black/70 px-2.5 py-1 rounded text-amber-400 border border-amber-500/20 relative z-20">Jacuzzi Area</span>
-                    </div>
-                    <div class="slider-item" style="background-image: url('FixPlus_20260520_033618727.png');">
-                        <span class="text-[9px] font-bold tracking-wider uppercase bg-black/70 px-2.5 py-1 rounded text-amber-400 border border-amber-500/20 relative z-20">Massage Deck</span>
-                    </div>
-                    <div class="slider-item" style="background-image: url('FixPlus_20260520_035318194.jpg');">
-                        <span class="text-[9px] font-bold tracking-wider uppercase bg-black/70 px-2.5 py-1 rounded text-amber-400 border border-amber-500/20 relative z-20">Therapy Lounge</span>
-                    </div>
-                    <div class="slider-item" style="background-image: url('FixPlus_20260514_031226049.jpg');">
-                        <span class="text-[9px] font-bold tracking-wider uppercase bg-black/70 px-2.5 py-1 rounded text-amber-400 border border-amber-500/20 relative z-20">VIP Spa Suite</span>
-                    </div>
-                    <div class="slider-item" style="background-image: url('FixPlus_20260515_224325099.png');">
-                        <span class="text-[9px] font-bold tracking-wider uppercase bg-black/70 px-2.5 py-1 rounded text-amber-400 border border-amber-500/20 relative z-20">Sauna Room</span>
+                        <span class="text-[10px] font-bold tracking-wider uppercase bg-black/80 px-3 py-1.5 rounded text-amber-400 border border-amber-500/20 relative z-20">Moroccan Bath</span>
                     </div>
                 </div>
             </div>
         </div>
 
+        <!-- SERVICES GRID -->
         <div class="booking-grid">
-            <div class="service-card" onclick="openBookingModal('Thai Massage', '150 SR / 40 MINS')">
+            <div class="service-card" onclick="openBookingModal('Thai Massage', '130 SR / 40 MINS')">
                 <i class="fas fa-hands-holding"></i>
                 <h3>Thai Massage</h3>
                 <span class="arabic-title">مساج تايلاندي</span>
@@ -396,15 +346,15 @@
                 <div class="price-btn">130 SR / 40 MINS</div>
             </div>
 
-            <div class="service-card" onclick="openBookingModal('Swedish Massage', '150 SR / 40 MINS')">
+            <div class="service-card" onclick="openBookingModal('Swedish Massage', '130 SR / 40 MINS')">
                 <i class="fas fa-spa"></i>
                 <h3>Swedish Massage</h3>
                 <span class="arabic-title">مساج سويدي</span>
-                <p>Gentle strokes for relaxation.<br>ضربat لطيفة للاسترخاء.</p>
+                <p>Gentle strokes for relaxation.<br>ضربات لطيفة للاسترخاء.</p>
                 <div class="price-btn">130 SR / 40 MINS</div>
             </div>
 
-            <div class="service-card" onclick="openBookingModal('Oil Massage', '150 SR / 40 MINS')">
+            <div class="service-card" onclick="openBookingModal('Oil Massage', '130 SR / 40 MINS')">
                 <i class="fas fa-droplet"></i>
                 <h3>Oil Massage</h3>
                 <span class="arabic-title">مساج بالزيت</span>
@@ -412,7 +362,7 @@
                 <div class="price-btn">130 SR / 40 MINS</div>
             </div>
 
-            <div class="service-card" onclick="openBookingModal('Moroccan Bath', '150 SR / 40 MINS')">
+            <div class="service-card" onclick="openBookingModal('Moroccan Bath', '130 SR / 40 MINS')">
                 <i class="fas fa-bath"></i>
                 <h3>Moroccan Bath</h3>
                 <span class="arabic-title">حمام مغربي</span>
@@ -423,7 +373,7 @@
             <div class="service-card" onclick="openBookingModal('Shaving Service', 'FULL CARE')">
                 <i class="fas fa-razor"></i>
                 <h3>Shaving (On Demand)</h3>
-                <span class="arabic-title">حلاقة عند الطلb</span>
+                <span class="arabic-title">حلاقة عند الطلب</span>
                 <p>Clean and professional grooming services including Full Body Shaving, Bikini, and Underarm cleaning.<br>خدمات الحلاقة والنظافة الشخصية الاحترافية.</p>
                 <div class="price-btn">FULL CARE</div>
             </div>
@@ -439,10 +389,11 @@
        
     </main>
      
-    <div class="w-full max-w-md mx-auto mb-12 text-center bg-black/60 backdrop-blur-md p-5 rounded-2xl border border-zinc-800/80 shadow-2xl relative z-20">
+    <!-- STATS FEATURE -->
+    <div class="w-full max-w-md mx-auto mb-12 text-center bg-black/70 backdrop-blur-md p-6 rounded-2xl border border-zinc-800 shadow-2xl relative z-20">
         <div class="flex justify-center items-center gap-4 mb-4">
             <div class="w-8 h-[1px] bg-zinc-700"></div>
-            <span class="text-[10px] tracking-[0.3em] uppercase text-zinc-400 block font-medium">Executive Suite Features</span>
+            <span class="text-[10px] tracking-[0.3em] uppercase text-zinc-400 block font-semibold">Executive Suite Features</span>
             <div class="w-8 h-[1px] bg-zinc-700"></div>
         </div>
         <div class="grid grid-cols-3 gap-4 text-center">
@@ -459,11 +410,12 @@
                 <p class="text-[8px] tracking-widest text-zinc-500 uppercase mt-1">Service</p>
             </div>
         </div>
-        <p class="text-[9px] text-zinc-500 tracking-widest mt-4 uppercase">⚡ FAST CONFIRMATION</p>
+        <p class="text-[9px] text-amber-400 tracking-widest mt-4 uppercase font-bold">⚡ FAST CONFIRMATION</p>
     </div>
 
+    <!-- BOOKING MODAL -->
     <div id="bookingModal" class="hidden fixed inset-0 bg-black/80 backdrop-blur-md flex items-center justify-center p-4 z-50">
-        <div class="w-full max-w-md bg-zinc-950 border-2 border-[#b38f24] rounded-3xl p-6 relative shadow-2xl animate-in fade-in zoom-in duration-200">
+        <div class="w-full max-w-md bg-zinc-950 border border-[#b38f24] rounded-3xl p-6 relative shadow-2xl">
             <button onclick="closeBookingModal()" class="absolute top-4 right-4 text-zinc-400 hover:text-white text-xl font-bold bg-zinc-900 w-8 h-8 rounded-full flex items-center justify-center border border-zinc-800">&times;</button>
             
             <div class="text-center mb-6">
@@ -475,23 +427,23 @@
             <div id="optionsContainer" class="space-y-3">
                 <p class="text-center text-[11px] text-zinc-400 uppercase tracking-widest mb-4">How do you prefer to book?</p>
                 
-                <button onclick="handleOptionAction('chat')" class="w-full bg-emerald-600/10 hover:bg-emerald-600/20 border-2 border-emerald-500/50 text-emerald-400 rounded-xl p-4 flex items-center justify-between font-bold text-sm tracking-wide transition-all group">
+                <button onclick="handleOptionAction('chat')" class="w-full bg-emerald-600/10 hover:bg-emerald-600/20 border border-emerald-500/50 text-emerald-400 rounded-xl p-4 flex items-center justify-between font-bold text-sm transition-all group">
                     <span class="flex items-center gap-3 uppercase text-[12px]"><i class="fa-brands fa-whatsapp text-xl"></i> Chat via WhatsApp</span>
                     <i class="fa-solid fa-chevron-right text-xs group-hover:translate-x-1 transition-transform"></i>
                 </button>
 
-                <button onclick="handleOptionAction('call')" class="w-full bg-sky-600/10 hover:bg-sky-600/20 border-2 border-sky-500/50 text-sky-400 rounded-xl p-4 flex items-center justify-between font-bold text-sm tracking-wide transition-all group">
+                <button onclick="handleOptionAction('call')" class="w-full bg-sky-600/10 hover:bg-sky-600/20 border border-sky-500/50 text-sky-400 rounded-xl p-4 flex items-center justify-between font-bold text-sm transition-all group">
                     <span class="flex items-center gap-3 uppercase text-[12px]"><i class="fa-solid fa-phone text-lg"></i> Direct Local Call</span>
                     <i class="fa-solid fa-chevron-right text-xs group-hover:translate-x-1 transition-transform"></i>
                 </button>
 
-                <button onclick="handleOptionAction('form')" class="w-full bg-amber-500/10 hover:bg-amber-500/20 border-2 border-amber-500/50 text-amber-400 rounded-xl p-4 flex items-center justify-between font-bold text-sm tracking-wide transition-all group">
+                <button onclick="handleOptionAction('form')" class="w-full bg-amber-500/10 hover:bg-amber-500/20 border border-amber-500/50 text-amber-400 rounded-xl p-4 flex items-center justify-between font-bold text-sm transition-all group">
                     <span class="flex items-center gap-3 uppercase text-[12px]"><i class="fa-solid fa-calendar-days text-lg"></i> Fill out Booking Form</span>
                     <i class="fa-solid fa-chevron-right text-xs group-hover:translate-x-1 transition-transform"></i>
                 </button>
             </div>
 
-            <div id="formContainer" class="hidden animate-in fade-in duration-200">
+            <div id="formContainer" class="hidden">
                 <button onclick="backToOptions()" class="text-[10px] text-amber-400 hover:underline uppercase tracking-widest font-semibold mb-4 flex items-center gap-1">
                     <i class="fa-solid fa-arrow-left"></i> Back to options
                 </button>
@@ -522,6 +474,7 @@
         </div>
     </div>
 
+    <!-- FLOATING ACTIONS & CHATBOX -->
     <div class="fixed bottom-6 right-6 z-50 flex flex-col items-end">
         <div id="marketingBubble" class="bg-zinc-950 border gold-border text-zinc-200 text-xs py-2 px-4 rounded-xl shadow-2xl mb-3 max-w-[240px] relative font-medium backdrop-blur-md">
             <span id="bubbleTypewriter" class="typewriter-cursor"></span>
@@ -556,7 +509,7 @@
             </div>
         </div>
 
-        <button onclick="toggleChat()" aria-label="Open Live Chat" class="w-14 h-14 bg-zinc-950 border gold-border text-amber-400 rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition-transform">
+        <button onclick="toggleChat()" aria-label="Open Live Chat" class="w-14 h-14 bg-zinc-950 border gold-border text-amber-400 rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition-transform relative">
             <span class="absolute top-0 right-0 flex h-3 w-3">
                 <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
                 <span class="relative inline-flex rounded-full h-3 w-3 bg-amber-500"></span>
@@ -565,103 +518,113 @@
         </button>
     </div>
 
+    <!-- JAVASCRIPT SYSTEM -->
     <script>
-        function toggleChat() {
-            const chatBox = document.getElementById('chatBox');
-            chatBox.classList.toggle('hidden');
-        }
+        let selectedService = '';
+        let selectedPrice = '';
+        const whatsappNumber = "966560958973";
 
-        function openBookingModal(serviceName, servicePrice) {
-            document.getElementById('modalServiceName').innerText = serviceName;
-            document.getElementById('modalServicePrice').innerText = servicePrice;
-            document.getElementById('bookingModal').classList.remove('hidden');
-            backToOptions();
+        // TYPEWRITER EFFECT FOR BUBBLE
+        const phrases = ["Welcome to COLA Spa! ✨", "Book your relaxation now.", "Filipino Certified Therapists 🇵🇭"];
+        let phraseIdx = 0;
+        let letterIdx = 0;
+        let currentPhrase = "";
+        let isDeleting = false;
+        
+        function typeEffect() {
+            const bubble = document.getElementById("bubbleTypewriter");
+            if (!bubble) return;
+            
+            if (isDeleting) {
+                currentPhrase = phrases[phraseIdx].substring(0, letterIdx - 1);
+                letterIdx--;
+            } else {
+                currentPhrase = phrases[phraseIdx].substring(0, letterIdx + 1);
+                letterIdx++;
+            }
+            
+            bubble.textContent = currentPhrase;
+            
+            let speed = isDeleting ? 50 : 100;
+            if (!isDeleting && currentPhrase === phrases[phraseIdx]) {
+                speed = 2000; // Stay
+                isDeleting = true;
+            } else if (isDeleting && currentPhrase === "") {
+                isDeleting = false;
+                phraseIdx = (phraseIdx + 1) % phrases.length;
+                speed = 500;
+            }
+            
+            setTimeout(typeEffect, speed);
+        }
+        document.addEventListener("DOMContentLoaded", typeEffect);
+
+        // MODAL HANDLERS
+        function openBookingModal(serviceName, price) {
+            selectedService = serviceName;
+            selectedPrice = price;
+            document.getElementById("modalServiceName").innerText = serviceName;
+            document.getElementById("modalServicePrice").innerText = price;
+            
+            document.getElementById("optionsContainer").classList.remove("hidden");
+            document.getElementById("formContainer").classList.add("hidden");
+            document.getElementById("bookingModal").classList.remove("hidden");
         }
 
         function closeBookingModal() {
-            document.getElementById('bookingModal').classList.add('hidden');
+            document.getElementById("bookingModal").classList.add("hidden");
         }
 
         function handleOptionAction(type) {
-            const serviceName = document.getElementById('modalServiceName').innerText;
-            const servicePrice = document.getElementById('modalServicePrice').innerText;
-            
             if (type === 'chat') {
-                const msg = `Hello COLA Wellness, I would like to book or inquire about: ${serviceName} (${servicePrice}).`;
-                window.open(`https://wa.me/966560958973?text=${encodeURIComponent(msg)}`, '_blank');
+                const message = `Hello COLA Wellness, I want to book ${selectedService} (${selectedPrice}).`;
+                window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`, '_blank');
             } else if (type === 'call') {
-                window.open('tel:+966560958973');
+                window.open(`tel:+${whatsappNumber}`);
             } else if (type === 'form') {
-                document.getElementById('optionsContainer').classList.add('hidden');
-                document.getElementById('formContainer').classList.remove('hidden');
+                document.getElementById("optionsContainer").classList.add("hidden");
+                document.getElementById("formContainer").classList.remove("hidden");
             }
         }
 
         function backToOptions() {
-            document.getElementById('optionsContainer').classList.remove('hidden');
-            document.getElementById('formContainer').classList.add('hidden');
+            document.getElementById("formContainer").classList.add("hidden");
+            document.getElementById("optionsContainer").classList.remove("hidden");
         }
 
         function submitFormBooking(e) {
             e.preventDefault();
-            const serviceName = document.getElementById('modalServiceName').innerText;
-            const name = document.getElementById('formCustName').value;
-            const phone = document.getElementById('formCustPhone').value;
-            const date = document.getElementById('formCustDate').value;
-            const time = document.getElementById('formCustTime').value;
+            const name = document.getElementById("formCustName").value;
+            const phone = document.getElementById("formCustPhone").value;
+            const date = document.getElementById("formCustDate").value;
+            const time = document.getElementById("formCustTime").value;
 
-            const finalMsg = `NEW APPOINTMENT FORM\n\n• Service: ${serviceName}\n• Name: ${name}\n• Contact: ${phone}\n• Date: ${date}\n• Time: ${time}`;
-            window.open(`https://wa.me/966560958973?text=${encodeURIComponent(finalMsg)}`, '_blank');
+            const textMessage = `*NEW BOOKING APPOINTMENT*\n\n` +
+                                `*Service:* ${selectedService}\n` +
+                                `*Price:* ${selectedPrice}\n` +
+                                `*Customer Name:* ${name}\n` +
+                                `*Phone Number:* ${phone}\n` +
+                                `*Preferred Date:* ${date}\n` +
+                                `*Preferred Time:* ${time}`;
+
+            window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(textMessage)}`, '_blank');
             closeBookingModal();
         }
 
+        // CHATBOX TOGGLE
+        function toggleChat() {
+            const chatBox = document.getElementById("chatBox");
+            chatBox.classList.toggle("hidden");
+        }
+
         function sendDirectToWhatsApp() {
-            const text = document.getElementById('custCustomMessage').value;
-            if(!text.trim()) return;
-            window.open(`https://wa.me/966560958973?text=${encodeURIComponent(text)}`, '_blank');
-        }
-
-        const phrases = [
-            "Licensed Filipina Therapists 🇵🇭",
-            "Premium Moroccan Bath 🫧",
-            "Luxury Relaxation in Riyadh ✨",
-            "Available 24/7 Group Booking ⏱️"
-        ];
-        let phraseIdx = 0;
-        let charIdx = 0;
-        let isDeleting = false;
-        const bubbleText = document.getElementById('bubbleTypewriter');
-
-        function typeEffect() {
-            const currentPhrase = phrases[phraseIdx];
-            if (isDeleting) {
-                bubbleText.innerText = currentPhrase.substring(0, charIdx - 1);
-                charIdx--;
+            const msg = document.getElementById("custCustomMessage").value;
+            if(!msg.disabled && msg.trim() !== "") {
+                window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(msg)}`, '_blank');
             } else {
-                bubbleText.innerText = currentPhrase.substring(0, charIdx + 1);
-                charIdx++;
+                window.open(`https://wa.me/${whatsappNumber}?text=Hi%20COLA%20Wellness!`, '_blank');
             }
-
-            let typeSpeed = isDeleting ? 40 : 80;
-
-            if (!isDeleting && charIdx === currentPhrase.length) {
-                typeSpeed = 2500; 
-                isDeleting = true;
-            } else if (isDeleting && charIdx === 0) {
-                isDeleting = false;
-                phraseIdx = (phraseIdx + 1) % phrases.length;
-                typeSpeed = 500;
-            }
-
-            setTimeout(typeEffect, typeSpeed);
         }
-        document.addEventListener('DOMContentLoaded', () => {
-            typeEffect();
-            // Isara ang modal kapag pinindot ang labas nito
-            document.getElementById('bookingModal').addEventListener('click', function(e) {
-                if(e.target === this) closeBookingModal();
-            });
-        });
     </script>
 </body>
 </html>
