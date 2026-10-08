@@ -34,73 +34,56 @@
     <link rel="shortcut icon" type="image/png" href="colalogo.png">
     <link rel="apple-touch-icon" href="colalogo.png">
     <link rel="preload" as="image" href="/og-image.jpg">
-
-    <!-- Google tag (gtag.js) -->
+    
+<!-- Google Tag (gtag.js) - GA4 -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-F812D65FTX"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
-  gtag('config', 'G-F812D65FTX');
-</script>
-    
-    <!-- Google tag (gtag.js) -->
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-F812D65FTX"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
+  // Google Analytics 4
   gtag('config', 'G-F812D65FTX');
 
-    
-      // 2. GOOGLE ADS CALL FROM WEBSITE TRACKING CONFIGURATION
-      gtag('config', 'AW-18066238938/G5EJCI2E_6wcENrb06ZD', {
-        'phone_conversion_number': '0560958973'
-      });
+  // Google Ads Base Account Configuration
+  gtag('config', 'AW-18066238938');
 
-      // 3. SET USER DATA PARA SA ENHANCED CONVERSIONS
-      gtag('set', 'AW-18066238938', {
-        "email": "verendiamickaycola@gmail.com",
-        "phone_number": "+966560369386",
-        "address": {
-          "first_name": "Mick philip",
-          "last_name": "Verendia"
-        }
-      });
-
-      // 4. IPINAG-ISA NA ANG TRACKING FUNCTION (WHATSAPP, LIVE CHAT AT CALLS)
-      function gtag_report_conversion(url) {
-        var callback = function () {
-          if (typeof(url) != 'undefined') {
-            window.location = url;
-          }
-        };
-        
-        gtag('event', 'conversion', {
-            'send_to': 'AW-18066238938/nYKyCPCjvLEcENrb06ZD',
-            'value': 1.0,
-            'currency': 'SAR',
-            'event_callback': callback
-        });
-        return false;
-      }
-
-      // Shortcut wrapper para tumugma sa lumang tawag ng mga button mo nang walang error
-      function trackWhatsAppConversion() {
-         gtag_report_conversion();
-      }
-    </script>
-
-<!-- Event snippet for Page view conversion page -->
-<script>
-  gtag('event', 'conversion', {
-      'send_to': 'AW-18066238938/DqKUCM_m_7YcENrb06ZD',
-      'value': 1.0,
-      'currency': 'SAR'
+  // Google Ads Call from Website Tracking
+  gtag('config', 'AW-18066238938/G5EJCI2E_6wcENrb06ZD', {
+    'phone_conversion_number': '0560958973'
   });
+
+  // Enhanced Conversions User Data
+  gtag('set', 'user_data', {
+    "email": "verendiamickaycola@gmail.com",
+    "phone_number": "+966560369386",
+    "address": {
+      "first_name": "Mick philip",
+      "last_name": "Verendia"
+    }
+  });
+
+  // Button Click Tracking Function (WhatsApp, Chat, Direct Call Buttons)
+  function gtag_report_conversion(url) {
+    var callback = function () {
+      if (typeof(url) != 'undefined') {
+        window.location = url;
+      }
+    };
+    
+    gtag('event', 'conversion', {
+        'send_to': 'AW-18066238938/nYKyCPCjvLEcENrb06ZD',
+        'value': 1.0,
+        'currency': 'SAR',
+        'event_callback': callback
+    });
+    return false;
+  }
+
+  // Helper function para sa lumang button click event
+  function trackWhatsAppConversion() {
+     gtag_report_conversion();
+  }
 </script>
     
     <style>
